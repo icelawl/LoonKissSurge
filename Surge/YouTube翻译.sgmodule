@@ -2,12 +2,12 @@
 #!desc=字幕增强及双语翻译，支持Youtube Music歌词翻译。此插件需要置于YouTube去广告插件之下，且和YouTube去广告插件的歌词翻译冲突，不支持tvOS设备。
 #!author=VirgilClyne[https://github.com/VirgilClyne]
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/YouTube.png
-#!category=iKeLee
+#!category=Loon
 #!openUrl=https://apps.apple.com/app/id544007664
 #!tag=功能增强
 #!system_version=15
 #!loon_version=3.2.1(749)
-#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!homepage=https://hub.kelee.one
 #!date=2024-09-24 23:06:40
 
 [Script]

@@ -2,11 +2,11 @@
 #!desc=移除Line各类广告
 #!author=jkgtw[https://github.com/jkgtw]
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Line.png
-#!category=iKeLee
+#!category=Loon
 #!openUrl=https://apps.apple.com/app/id443904275
 #!tag=去广告
 #!loon_version=3.2.4(787)
-#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!homepage=https://hub.kelee.one
 #!date=2025-07-11 22:57:49
 
 [Rule]

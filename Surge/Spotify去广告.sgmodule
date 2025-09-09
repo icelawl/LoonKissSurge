@@ -2,11 +2,11 @@
 #!desc=移除播放广告，恢复歌手和专辑列表的正常展示。修改插件自定义配置项需要重新登陆方可生效。
 #!author=001ProMax[https://github.com/001ProMax]
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Spotify.png
-#!category=iKeLee
+#!category=Loon
 #!openUrl=https://apps.apple.com/app/id324684580
 #!tag=去广告
 #!loon_version=3.2.4(787)
-#!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
+#!homepage=https://hub.kelee.one
 #!date=2025-07-04 16:36:19
 
 [Rule]
