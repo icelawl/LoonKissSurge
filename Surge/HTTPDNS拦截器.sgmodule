@@ -6,7 +6,7 @@
 #!tag=DNS
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-06-16 12:29:05
+#!date=2025-08-20 00:30:31
 
 [Rule]
 DOMAIN,yyapp-httpdns.gslb.yy.com,REJECT,extended-matching,pre-matching

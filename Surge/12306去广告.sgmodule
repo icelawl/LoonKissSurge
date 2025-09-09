@@ -20,3 +20,4 @@ DOMAIN,ad.12306.cn,DIRECT,extended-matching
 [MITM]
 hostname = %APPEND% ad.12306.cn, mobile.12306.cn
 
+
