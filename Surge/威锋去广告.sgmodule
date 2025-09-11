@@ -13,7 +13,7 @@
 http-response-jq ^https:\/\/api\.wfdata\.club\/v2\/yesfeng\/slideshow\? '.data |= map(select(.protocolId == 1))'
 
 [Map Local]
-^https:\/\/api\.wfdata\.club\/v2\/yesfeng\/yesList\? data-type=text data="{}" status-code=200
+^https:\/\/api\.wfdata\.club\/v2\/yesfeng\/yesList\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 [MITM]
 hostname = %APPEND% api.wfdata.club

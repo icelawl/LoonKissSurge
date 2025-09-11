@@ -10,9 +10,9 @@
 #!date=2025-05-13 15:17:08
 
 [Map Local]
-^https?:\/\/newapp2\.szsmk\.com\/app\/config\/queryMainAd data-type=text data="{"message":"操作成功","main_ad_list":[],"code":"000000"}" header="Content-Type:text/json"
+^https?:\/\/newapp2\.szsmk\.com\/app\/config\/queryMainAd data-type=text data="{"message":"操作成功","main_ad_list":[],"code":"000000"}" header="Content-Type:application/json"
 
-^https?:\/\/newapp2\.szsmk\.com\/app\/config\/(queryCarousel|queryRecommendation)\/ data-type=text data="{"code":"000000","message":"操作成功","list":[]}" header="Content-Type:text/json"
+^https?:\/\/newapp2\.szsmk\.com\/app\/config\/(queryCarousel|queryRecommendation)\/ data-type=text data="{"code":"000000","message":"操作成功","list":[]}" header="Content-Type:application/json"
 
 [MITM]
 hostname = %APPEND% newapp2.szsmk.com

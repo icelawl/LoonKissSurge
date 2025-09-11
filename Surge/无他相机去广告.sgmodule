@@ -21,3 +21,4 @@ http-response-jq ^https:\/\/api-release\.wuta-cam\.com\/ad_tree$ '.regular.homep
 [MITM]
 hostname = %APPEND% api-release.wuta-cam.com
 
+
