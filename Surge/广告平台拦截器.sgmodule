@@ -6,7 +6,7 @@
 #!tag=去广告, 依赖
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-11-08 21:21:51
+#!date=2025-11-11 15:17:16
 
 [Rule]
 AND,((OR,((DOMAIN-KEYWORD,p1-be-pb,extended-matching),(DOMAIN-KEYWORD,lf3-plat,extended-matching),(DOMAIN-KEYWORD,lf6-plat,extended-matching),(DOMAIN-KEYWORD,lf9-plat,extended-matching),(DOMAIN-KEYWORD,lf26-plat,extended-matching),(DOMAIN-KEYWORD,s1-fe-scm,extended-matching),(DOMAIN-KEYWORD,s9-fe-scm,extended-matching),(DOMAIN-KEYWORD,s3-fe-scm,extended-matching),(DOMAIN-KEYWORD,sf3-be-tos,extended-matching),(DOMAIN-KEYWORD,sf1-fe-tos,extended-matching),(DOMAIN-KEYWORD,v1-be-pack,extended-matching),(DOMAIN-KEYWORD,sf1-be-tos,extended-matching),(DOMAIN-KEYWORD,v9-be-pack,extended-matching),(DOMAIN-KEYWORD,v6-be-pack,extended-matching),(DOMAIN-KEYWORD,v5-be-pack,extended-matching),(DOMAIN-KEYWORD,v3-be-pack,extended-matching),(DOMAIN-KEYWORD,sf6-fe-tos,extended-matching),(DOMAIN-KEYWORD,sf3-fe-tos,extended-matching),(DOMAIN-KEYWORD,p1-platform,extended-matching),(DOMAIN-KEYWORD,sf1-be-pack,extended-matching),(DOMAIN-KEYWORD,sf1-vc-pack,extended-matching),(DOMAIN-KEYWORD,sf3-be-pack,extended-matching),(DOMAIN-KEYWORD,sf3-vc-pack,extended-matching),(DOMAIN-KEYWORD,sf6-be-pack,extended-matching),(DOMAIN-KEYWORD,v1-dpa-pack,extended-matching),(DOMAIN-KEYWORD,p9-be-endcard,extended-matching),(DOMAIN-KEYWORD,p1-be-endcard,extended-matching),(DOMAIN-KEYWORD,sf1-scmcdn-tos,extended-matching),(DOMAIN-KEYWORD,sf3-scmcdn-tos,extended-matching),(DOMAIN-KEYWORD,sf6-scmcdn-tos,extended-matching),(DOMAIN-KEYWORD,lf3-reward-sign,extended-matching),(DOMAIN-KEYWORD,p6-be-pack-sign,extended-matching),(DOMAIN-KEYWORD,p3-be-pack-sign,extended-matching),(DOMAIN-KEYWORD,s3-platform-scm,extended-matching),(DOMAIN-KEYWORD,s9-platform-scm,extended-matching),(DOMAIN-KEYWORD,p9-be-pack-sign,extended-matching),(DOMAIN-KEYWORD,lf9-reward-sign,extended-matching),(DOMAIN-KEYWORD,v6-be-pack-nxyd,extended-matching),(DOMAIN-KEYWORD,lf3-ad-union-sdk,extended-matching),(DOMAIN-KEYWORD,lf6-ad-union-sdk,extended-matching),(DOMAIN-KEYWORD,p26-be-pack-sign,extended-matching),(DOMAIN-KEYWORD,sf1-be-auditpack,extended-matching),(DOMAIN-KEYWORD,lf9-ad-union-sdk,extended-matching),(DOMAIN-KEYWORD,lf3-sf-be-tos-sign,extended-matching),(DOMAIN-KEYWORD,lf9-sf-be-tos-sign,extended-matching),(DOMAIN-KEYWORD,lf6-sf-be-tos-sign,extended-matching),(DOMAIN-KEYWORD,lf26-sf-be-tos-sign,extended-matching),(DOMAIN-KEYWORD,lf6-sf-be-pack-sign,extended-matching),(DOMAIN-KEYWORD,lf9-sf-be-pack-sign,extended-matching),(DOMAIN-KEYWORD,lf3-sf-be-pack-sign,extended-matching),(DOMAIN-KEYWORD,lf26-sf-be-pack-sign,extended-matching))),(DOMAIN-SUFFIX,pglstatp-toutiao.com,extended-matching)),REJECT,pre-matching
@@ -64,8 +64,23 @@ DOMAIN-SUFFIX,adkwai.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,supersonicads.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,appsad.cn,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,beizi.biz,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,ad-scope.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,adn-plus.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,beizi.biz,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,adhub.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,adnplus.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,adscope.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,adscope.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,adscope.xyz,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,beizi.info,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,beizi.online,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,miaozhen.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,admobile.top,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,tianmu.mobi,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,admobile.mobi,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,admobile.net.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,popadshop.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,admobile.vip,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,yksdks.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,dutils.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,mob.com,REJECT,extended-matching,pre-matching
@@ -92,6 +107,7 @@ DOMAIN,ad.tencentmusic.com,REJECT,extended-matching,pre-matching
 DOMAIN,adsmind.gdtimg.com,REJECT,extended-matching,pre-matching
 DOMAIN,adsmind.ugdtimg.com,REJECT,extended-matching,pre-matching
 DOMAIN,mc.tencentmusic.com,REJECT,extended-matching,pre-matching
+DOMAIN,ads.privacy.qq.com,REJECT,extended-matching,pre-matching
 DOMAIN,c2.gdt.qq.com,REJECT,extended-matching,pre-matching
 DOMAIN,2fwin.gdt.qq.com,REJECT,extended-matching,pre-matching
 DOMAIN,huatuocode.huatuo.qq.com,REJECT,extended-matching,pre-matching
@@ -121,11 +137,19 @@ DOMAIN,win.gdt.qq.com,REJECT,extended-matching,pre-matching
 DOMAIN,wup.imtt.qq.com,REJECT,extended-matching,pre-matching
 DOMAIN,tpstelemetry.tencent.com,REJECT,extended-matching,pre-matching
 DOMAIN,ii.gdt.qq.com,REJECT,extended-matching,pre-matching
+DOMAIN,otheve.beacon.qq.com,REJECT,extended-matching,pre-matching
+DOMAIN,stat.y.qq.com,REJECT,extended-matching,pre-matching
+DOMAIN,stat6.y.qq.com,REJECT,extended-matching,pre-matching
+DOMAIN,oth.str.mdt.qq.com,REJECT,extended-matching,pre-matching
+DOMAIN,h.trace.qq.com,REJECT,extended-matching,pre-matching
+DOMAIN,sdk.e.qq.com,REJECT,extended-matching,pre-matching
+DOMAIN,tangram.e.qq.com,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,trace.qq.com,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,trace.video.qq.com,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,ad.hunyuan.tencent.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,gdt.qq.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,l.qq.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,imtmp.net,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,ugdtimg.com,REJECT,extended-matching,pre-matching
 IP-CIDR,47.110.187.87/32,REJECT,no-resolve,pre-matching
 DOMAIN-SUFFIX,openinstall.io,REJECT,extended-matching,pre-matching
@@ -136,6 +160,34 @@ DOMAIN-SUFFIX,umtrack.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,umeng.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,umsns.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,umengcloud.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,lydass.net,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,lydass.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,lydaas.net,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,lydass.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,lydaas.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,lydaas.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,fwosapp.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,rhinokeen.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,lydaas.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,xixikf.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,wrating.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,puata.info,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,mobmore.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,um0.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,umv0.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,umtrack1.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,eshiqi.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,umv5.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,dratio.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,umtrack0.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,uyunad.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,whalecloud.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,umtrack2.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,umengcloud.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,umeng.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,umtrack.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,um1.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,umsns.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,adfunlink.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,tianmu.mobi,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,ubixioe.com,REJECT,extended-matching,pre-matching
