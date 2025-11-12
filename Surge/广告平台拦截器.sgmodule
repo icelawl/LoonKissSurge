@@ -6,7 +6,7 @@
 #!tag=去广告, 依赖
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-11-11 15:17:16
+#!date=2025-11-12 05:32:08
 
 [Rule]
 AND,((OR,((DOMAIN-KEYWORD,p1-be-pb,extended-matching),(DOMAIN-KEYWORD,lf3-plat,extended-matching),(DOMAIN-KEYWORD,lf6-plat,extended-matching),(DOMAIN-KEYWORD,lf9-plat,extended-matching),(DOMAIN-KEYWORD,lf26-plat,extended-matching),(DOMAIN-KEYWORD,s1-fe-scm,extended-matching),(DOMAIN-KEYWORD,s9-fe-scm,extended-matching),(DOMAIN-KEYWORD,s3-fe-scm,extended-matching),(DOMAIN-KEYWORD,sf3-be-tos,extended-matching),(DOMAIN-KEYWORD,sf1-fe-tos,extended-matching),(DOMAIN-KEYWORD,v1-be-pack,extended-matching),(DOMAIN-KEYWORD,sf1-be-tos,extended-matching),(DOMAIN-KEYWORD,v9-be-pack,extended-matching),(DOMAIN-KEYWORD,v6-be-pack,extended-matching),(DOMAIN-KEYWORD,v5-be-pack,extended-matching),(DOMAIN-KEYWORD,v3-be-pack,extended-matching),(DOMAIN-KEYWORD,sf6-fe-tos,extended-matching),(DOMAIN-KEYWORD,sf3-fe-tos,extended-matching),(DOMAIN-KEYWORD,p1-platform,extended-matching),(DOMAIN-KEYWORD,sf1-be-pack,extended-matching),(DOMAIN-KEYWORD,sf1-vc-pack,extended-matching),(DOMAIN-KEYWORD,sf3-be-pack,extended-matching),(DOMAIN-KEYWORD,sf3-vc-pack,extended-matching),(DOMAIN-KEYWORD,sf6-be-pack,extended-matching),(DOMAIN-KEYWORD,v1-dpa-pack,extended-matching),(DOMAIN-KEYWORD,p9-be-endcard,extended-matching),(DOMAIN-KEYWORD,p1-be-endcard,extended-matching),(DOMAIN-KEYWORD,sf1-scmcdn-tos,extended-matching),(DOMAIN-KEYWORD,sf3-scmcdn-tos,extended-matching),(DOMAIN-KEYWORD,sf6-scmcdn-tos,extended-matching),(DOMAIN-KEYWORD,lf3-reward-sign,extended-matching),(DOMAIN-KEYWORD,p6-be-pack-sign,extended-matching),(DOMAIN-KEYWORD,p3-be-pack-sign,extended-matching),(DOMAIN-KEYWORD,s3-platform-scm,extended-matching),(DOMAIN-KEYWORD,s9-platform-scm,extended-matching),(DOMAIN-KEYWORD,p9-be-pack-sign,extended-matching),(DOMAIN-KEYWORD,lf9-reward-sign,extended-matching),(DOMAIN-KEYWORD,v6-be-pack-nxyd,extended-matching),(DOMAIN-KEYWORD,lf3-ad-union-sdk,extended-matching),(DOMAIN-KEYWORD,lf6-ad-union-sdk,extended-matching),(DOMAIN-KEYWORD,p26-be-pack-sign,extended-matching),(DOMAIN-KEYWORD,sf1-be-auditpack,extended-matching),(DOMAIN-KEYWORD,lf9-ad-union-sdk,extended-matching),(DOMAIN-KEYWORD,lf3-sf-be-tos-sign,extended-matching),(DOMAIN-KEYWORD,lf9-sf-be-tos-sign,extended-matching),(DOMAIN-KEYWORD,lf6-sf-be-tos-sign,extended-matching),(DOMAIN-KEYWORD,lf26-sf-be-tos-sign,extended-matching),(DOMAIN-KEYWORD,lf6-sf-be-pack-sign,extended-matching),(DOMAIN-KEYWORD,lf9-sf-be-pack-sign,extended-matching),(DOMAIN-KEYWORD,lf3-sf-be-pack-sign,extended-matching),(DOMAIN-KEYWORD,lf26-sf-be-pack-sign,extended-matching))),(DOMAIN-SUFFIX,pglstatp-toutiao.com,extended-matching)),REJECT,pre-matching
@@ -18,12 +18,15 @@ AND,((DOMAIN-KEYWORD,ads,extended-matching),(DOMAIN-KEYWORD,normal,extended-matc
 DOMAIN,gromore.pangolin-sdk-toutiao.com,REJECT,extended-matching,pre-matching
 AND,((DOMAIN-KEYWORD,tnc),(OR,((DOMAIN-SUFFIX,capcutapi.com),(DOMAIN-SUFFIX,zijieapi.com),(DOMAIN-SUFFIX,isnssdk.com),(DOMAIN-SUFFIX,toutiaoapi.com),(DOMAIN-SUFFIX,bytedance.com),(DOMAIN-SUFFIX,snssdk.com),(DOMAIN-SUFFIX,sgsnssdk.com)))),DIRECT
 AND,((OR,((DOMAIN-KEYWORD,api-access),(DOMAIN-KEYWORD,log-api))),(DOMAIN-KEYWORD,pangolin-sdk-toutiao)),REJECT
-AND,((DOMAIN-KEYWORD,-ad-),(DOMAIN-SUFFIX,byteimg.com)),REJECT
-AND,((DOMAIN-KEYWORD,ads),(DOMAIN-KEYWORD,normal),(DOMAIN-SUFFIX,zijieapi.com)),REJECT
-DOMAIN,lf-ad-ies.bytecdn.cn,REJECT
-DOMAIN,dig.bdurl.net,REJECT
-DOMAIN,extlog.snssdk.com,REJECT
-DOMAIN,mcs.snssdk.com,REJECT
+AND,((DOMAIN-KEYWORD,-ad-),(DOMAIN-SUFFIX,byteimg.com)),REJECT,pre-matching
+AND,((DOMAIN-KEYWORD,ads),(DOMAIN-KEYWORD,-normal.zijieapi.com)),REJECT,pre-matching
+DOMAIN,lf-ad-ies.bytecdn.cn,REJECT,extended-matching,pre-matching
+DOMAIN,dig.bdurl.net,REJECT,extended-matching,pre-matching
+DOMAIN,extlog.snssdk.com,REJECT,extended-matching,pre-matching
+DOMAIN,mcs.snssdk.com,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,pangolin,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,pglstatp,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,panplayable-toutiao,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,bds.snssdk.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,byteadverts.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,ctobsnssdk.com,REJECT,extended-matching,pre-matching
@@ -241,6 +244,12 @@ DOMAIN-SUFFIX,66mobi.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,xdplt.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,adjust.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,adjust.net.in,REJECT,extended-matching,pre-matching
+DOMAIN,app-analytics-services.com,REJECT,extended-matching,pre-matching
+DOMAIN,odm.app-ads-services.com,REJECT,extended-matching,pre-matching
+DOMAIN,firebaselogging-pa.googleapis.com,REJECT,extended-matching,pre-matching
+DOMAIN,firebaseinappmessaging.googleapis.com,REJECT,extended-matching,pre-matching
+DOMAIN,firebaseremoteconfig.googleapis.com,REJECT,extended-matching,pre-matching
+DOMAIN,fundingchoicesmessages.google.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,doubleclick-cn.net,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,googlesyndication-cn.com,REJECT,extended-matching,pre-matching
 DOMAIN,fundingchoicesmessages.google.com,REJECT,extended-matching,pre-matching
