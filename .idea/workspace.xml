@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f1d692bc-043a-4b7e-a690-58834fe05e62" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Surge/DNS防泄露.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/Dlabel云标签去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/Foodie去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/Google搜索重定向.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/Official/懒饭.official.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/Official/飞猫管家.official.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/ReelShort去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/Spotify歌词增强.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/TeraBox去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/YY语音去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/京东外卖去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/大麦去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/库街区去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/得间小说去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/微脉圈去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/掌上无畏契约去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/掌上穿越火线去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/掌上英雄联盟去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/掌阅去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/有道云笔记去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/淘票票去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/爱奇艺去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/王者营地去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/百度网页去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/百度贴吧去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/米游社去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/美丽修行去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/胖乖生活去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/豆瓣阅读去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/贝壳找房去广告.sgmodule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Surge/飞猪旅行去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/12306去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/12306去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/123云盘去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/123云盘去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/360摄像机去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/360摄像机去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/360智慧生活去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/360智慧生活去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/555电影去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/555电影去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/B612咔叽去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/B612咔叽去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/CC直播去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/CC直播去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/HTTPDNS拦截器.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/HTTPDNS拦截器.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/IT之家去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/IT之家去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/Jump去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/Jump去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/KOOK去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/KOOK去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/Keep去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/Keep去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/Line去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/Line去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/Official/SDGun 社区 Tablet 访问.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/Official/SDGun 社区 Tablet 访问.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/Official/SDGun 社区去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/Official/SDGun 社区去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/Official/⭐️ Sub-Store.official.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/Official/⭐️ Sub-Store.official.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/Official/小程序和应用懒人去广告合集.official.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/Official/小程序和应用懒人去广告合集.official.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/Official/新手友好の去广告集合.official.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/Official/新手友好の去广告集合.official.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/Official/网络信息 X.official.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/Official/网络信息 X.official.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/Official/贴吧去广告.official.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/Official/贴吧去广告.official.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/Official/ Apple 天气增强.official.sgmodule" beforePathEscaped="$PROJECT_DIR$/Surge/Official/🍟 Apple 天气增强.official.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/Official/ Apple 天气增强.official.sgmodule" afterPathEscaped="$PROJECT_DIR$/Surge/Official/🍟 Apple 天气增强.official.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/Official/ BiliADBlock.official.sgmodule" beforePathEscaped="$PROJECT_DIR$/Surge/Official/🍟 BiliADBlock.official.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/Official/ BiliADBlock.official.sgmodule" afterPathEscaped="$PROJECT_DIR$/Surge/Official/🍟 BiliADBlock.official.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/Official/ DualSubsSpotify.official.sgmodule" beforePathEscaped="$PROJECT_DIR$/Surge/Official/🍟 DualSubsSpotify.official.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/Official/ DualSubsSpotify.official.sgmodule" afterPathEscaped="$PROJECT_DIR$/Surge/Official/🍟 DualSubsSpotify.official.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/Official/ DualSubsUniversal.official.sgmodule" beforePathEscaped="$PROJECT_DIR$/Surge/Official/🍟 DualSubsUniversal.official.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/Official/ DualSubsUniversal.official.sgmodule" afterPathEscaped="$PROJECT_DIR$/Surge/Official/🍟 DualSubsUniversal.official.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/QQ音乐去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/QQ音乐去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/Reddit去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/Reddit去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/Soul去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/Soul去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/Spotify去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/Spotify去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/TubeMax去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/TubeMax去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/Uki去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/Uki去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/VVebo时间线修复.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/VVebo时间线修复.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/WPS每日签到.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/WPS每日签到.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/YY去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/YY去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/ZAKER去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/ZAKER去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/一刻相册去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/一刻相册去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/一甜相机去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/一甜相机去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/七猫小说去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/七猫小说去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/下厨房去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/下厨房去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/中华万年历去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/中华万年历去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/中国人保去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/中国人保去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/中国移动云盘去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/中国移动云盘去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/丰巢去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/丰巢去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/乐播投屏去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/乐播投屏去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/书旗小说去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/书旗小说去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/京东去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/京东去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/京东比价.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/京东比价.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/什么值得买去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/什么值得买去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/优酷视频去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/优酷视频去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/健康160去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/健康160去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/全民K歌去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/全民K歌去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/前程无忧去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/前程无忧去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/剑网三无界去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/剑网三无界去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/叮咚买菜去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/叮咚买菜去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/可莉广告过滤器.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/可莉广告过滤器.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/向日葵去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/向日葵去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/启信宝去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/启信宝去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/哔哩哔哩漫画去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/哔哩哔哩漫画去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/喜马拉雅去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/喜马拉雅去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/堆糖去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/堆糖去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/墨迹天气去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/墨迹天气去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/夸克去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/夸克去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/威锋去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/威锋去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/宝宝树孕育去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/宝宝树孕育去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/小喵看书去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/小喵看书去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/小宇宙去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/小宇宙去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/小店掌柜去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/小店掌柜去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/小米音箱去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/小米音箱去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/小红书去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/小红书去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/小蚕霸王餐去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/小蚕霸王餐去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/小象超市去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/小象超市去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/小黑盒去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/小黑盒去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/帆书去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/帆书去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/广告平台拦截器.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/广告平台拦截器.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/彩云天气去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/彩云天气去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/微信公众号去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/微信公众号去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/微信外部链接解锁.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/微信外部链接解锁.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/微信小程序去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/微信小程序去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/微博去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/微博去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/微博轻享版去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/微博轻享版去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/快对去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/快对去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/快影去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/快影去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/快手去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/快手去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/快捷搜索.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/快捷搜索.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/快看漫画去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/快看漫画去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/快递100去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/快递100去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/成分喵去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/成分喵去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/拼多多去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/拼多多去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/挖财记账去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/挖财记账去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/推栏去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/推栏去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/收银通商户端去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/收银通商户端去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/斗鱼去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/斗鱼去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/无他相机去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/无他相机去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/智慧苏州去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/智慧苏州去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/智联招聘去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/智联招聘去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/最右去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/最右去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/有道翻译官去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/有道翻译官去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/朴朴超市去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/朴朴超市去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/比特球云盘去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/比特球云盘去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/汽水音乐去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/汽水音乐去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/汽车之家去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/汽车之家去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/波点音乐去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/波点音乐去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/淘宝去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/淘宝去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/滴滴出行去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/滴滴出行去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/漫客栈去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/漫客栈去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/爱企查去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/爱企查去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/猫耳FM去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/猫耳FM去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/瑞幸咖啡去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/瑞幸咖啡去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/番茄小说去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/番茄小说去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/百度地图去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/百度地图去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/百度网盘去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/百度网盘去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/百度输入法去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/百度输入法去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/皮皮虾去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/皮皮虾去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/盖得排行去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/盖得排行去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/省钱快报去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/省钱快报去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/知乎去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/知乎去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/知识星球去水印.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/知识星球去水印.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/磁力宅播放器去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/磁力宅播放器去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/稿定设计去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/稿定设计去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/粉笔去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/粉笔去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/纵横小说去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/纵横小说去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/网易大神去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/网易大神去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/网易新闻去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/网易新闻去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/网易有道词典去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/网易有道词典去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/网易邮箱大师去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/网易邮箱大师去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/美图秀秀去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/美图秀秀去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/美柚去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/美柚去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/美颜相机去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/美颜相机去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/美食杰去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/美食杰去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/脉脉去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/脉脉去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/腾讯文档去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/腾讯文档去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/腾讯视频去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/腾讯视频去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/航旅纵横去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/航旅纵横去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/芒果TV去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/芒果TV去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/菜鸟去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/菜鸟去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/萤石云视频去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/萤石云视频去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/薄荷健康去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/薄荷健康去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/虎扑去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/虎扑去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/蜻蜓FM去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/蜻蜓FM去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/豆瓣去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/豆瓣去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/财新去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/财新去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/起点读书去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/起点读书去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/转转去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/转转去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/迅雷去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/迅雷去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/配音秀去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/配音秀去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/酷安去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/酷安去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/酷我音乐去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/酷我音乐去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/酷狗铃声去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/酷狗铃声去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/酷狗音乐去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/酷狗音乐去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/金山文档去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/金山文档去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/闲鱼去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/闲鱼去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/阅友去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/阅友去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/阿里云盘去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/阿里云盘去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/随手记去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/随手记去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/雪球去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/雪球去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/顺丰速运去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/顺丰速运去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/风鸟去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/风鸟去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/飞客去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/飞客去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/香港抖音去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/香港抖音去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/马蜂窝去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/马蜂窝去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/驾校一点通去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/驾校一点通去广告.sgmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surge/驾考宝典去广告.sgmodule" beforeDir="false" afterPath="$PROJECT_DIR$/Surge/驾考宝典去广告.sgmodule" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="36EFe8WcSBNJvR8OyMYJ3nKf18d" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "Merging master"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f1d692bc-043a-4b7e-a690-58834fe05e62" name="Changes" comment="" />
+      <created>1764563916983</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764563916983</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
