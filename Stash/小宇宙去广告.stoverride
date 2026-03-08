@@ -1,0 +1,39 @@
+#SUBSCRIBED https://raw.githubusercontent.com/icelawl/LoonKissSurge/refs/heads/main/Stash/小宇宙去广告.stoverride
+name: |-
+  小宇宙去广告
+desc: |-
+  移除开屏广告、搜索框推荐词和AI总结。
+author: |-
+  wish
+icon: |-
+  https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/CosmosPodcast.png
+openUrl: |-
+  https://apps.apple.com/app/id1488894313
+tag: |-
+  去广告
+loon_version: |-
+  3.2.4(787)
+homepage: |-
+  https://hub.kelee.one
+date: |-
+  2025-07-21 18:21:13
+
+http:
+
+  mitm:
+    - "api.xiaoyuzhoufm.com"
+
+  url-rewrite:
+    - >-
+      ^https:\/\/api\.xiaoyuzhoufm\.com\/v\d\/flash - reject-dict
+    - >-
+      ^https:\/\/api\.xiaoyuzhoufm\.com\/v\d\/ai - reject-dict
+    - >-
+      ^https:\/\/api\.xiaoyuzhoufm\.com\/v\d\/search\/get - reject-dict
+    - >-
+      ^https?:\/\/api\.xiaoyuzhoufm\.com\/v\d\/category - reject-dict
+
+  body-rewrite:
+    - >-
+      ^https:\/\/api\.xiaoyuzhoufm\.com\/v1\/discovery-feed\/list response-jq .data |= map(select(.type != "DISCOVERY_HEADER" and .type != "DISCOVERY_BANNER"))
+

@@ -1,0 +1,41 @@
+#SUBSCRIBED https://raw.githubusercontent.com/icelawl/LoonKissSurge/refs/heads/main/Stash/成分喵去广告.stoverride
+name: |-
+  成分喵去广告
+desc: |-
+  移除首页推广活动、广告组件请求、移除被查商品购买链接、搜索发现。
+author: |-
+  可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+icon: |-
+  https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ChengFenMiao.png
+openUrl: |-
+  https://apps.apple.com/app/id6444000785
+tag: |-
+  去广告
+loon_version: |-
+  3.2.4(787)
+homepage: |-
+  https://hub.kelee.one
+date: |-
+  2025-11-21 13:02:33
+
+http:
+
+  mitm:
+    - "app.chengfenmiao.com"
+
+  url-rewrite:
+    - >-
+      ^https:\/\/app\.chengfenmiao\.com\/Listing\/LiveHots\? - reject-dict
+    - >-
+      ^https:\/\/app\.chengfenmiao\.com\/helper\/VersionCheck\? - reject-dict
+    - >-
+      ^https:\/\/app\.chengfenmiao\.com\/item\/closet\? - reject-dict
+    - >-
+      ^https:\/\/app\.chengfenmiao\.com\/Helper\/HotWords\? - reject-dict
+
+  body-rewrite:
+    - >-
+      ^https:\/\/app\.chengfenmiao\.com\/helper\/setting\? response-jq delpaths([["detail_buy_sites"]])
+    - >-
+      ^https:\/\/app\.chengfenmiao\.com\/helper\/setting\? response-jq delpaths([["bottom_sites"]])
+
