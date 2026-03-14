@@ -16,7 +16,7 @@ scriptings:
 
 widgets:
 
-  - name: sspai-hot
+  - name: appinn
 
     env:
 
