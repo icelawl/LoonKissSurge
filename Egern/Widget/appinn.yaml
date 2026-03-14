@@ -1,0 +1,27 @@
+name: 小众软件 Widget
+
+description: 在主屏幕小组件中显示小众软件最新热点文章列表
+
+author: AimeClaw
+
+scriptings:
+
+  - generic:
+
+      name: appinn
+
+      script_url: https://raw.githubusercontent.com/icelawl/LoonKissSurge/refs/heads/main/Egern/Widget/resolve.js
+
+      timeout: 20
+
+widgets:
+
+  - name: appinn
+
+    env:
+
+      COUNT: "8"
+
+      REFRESH_MINUTES: "30"
+
+      FEED_URL: "https://feeds.appinn.com/appinns"
