@@ -2,9 +2,6 @@
  * Rebang.Today Widget for Egern
  * Author: Aime
  * Date: 2026-03-14
- * 
- * Arguments:
- * - tab: The platform key (e.g., zhihu, weibo, xiaohongshu, 36kr, sspai, bilibili, github)
  */
 
 export default async function (ctx) {
@@ -32,7 +29,6 @@ export default async function (ctx) {
 
   const displayName = tabNames[tab] || tab.toUpperCase();
   
-  // Define limit based on widget size
   const limitMap = {
     systemSmall: 3,
     systemMedium: 6,
@@ -46,7 +42,8 @@ export default async function (ctx) {
     const url = `https://api.rebang.today/v1/items?tab=${tab}&date_type=now&version=1`;
     const resp = await ctx.http.get(url, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1'
+        'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1',
+        'Referer': 'https://rebang.today/'
       }
     });
     
@@ -55,14 +52,18 @@ export default async function (ctx) {
     }
 
     const data = await resp.json();
-    if (data.code !== 200 || !data.data || !data.data.list) {
+    if (data.code !== 200 || !data.data) {
       throw new Error('Invalid API response');
     }
 
-    // data.data.list is a JSON string
-    const items = JSON.parse(data.data.list);
+    // 处理 data.data.list (可能是字符串也可能是数组)
+    let items = [];
+    if (typeof data.data.list === 'string') {
+      items = JSON.parse(data.data.list);
+    } else if (Array.isArray(data.data.list)) {
+      items = data.data.list;
+    }
 
-    // Build DSL
     const children = [];
 
     // Header
@@ -90,7 +91,8 @@ export default async function (ctx) {
     children.push({ type: 'spacer', length: 8 });
 
     // Items
-    items.slice(0, limit).forEach((item, index) => {
+    const displayItems = items.slice(0, limit);
+    displayItems.forEach((item, index) => {
       children.push({
         type: 'stack',
         direction: 'row',
@@ -114,12 +116,11 @@ export default async function (ctx) {
         ]
       });
       
-      if (index < items.slice(0, limit).length - 1) {
+      if (index < displayItems.length - 1) {
         children.push({ type: 'spacer', length: 6 });
       }
     });
 
-    // Handle empty state
     if (items.length === 0) {
       children.push({
         type: 'text',
@@ -133,7 +134,7 @@ export default async function (ctx) {
       type: 'widget',
       backgroundColor: { light: '#ffffff', dark: '#1c1c1e' },
       padding: 12,
-      refreshAfter: new Date(Date.now() + 10 * 60 * 1000).toISOString(), // Refresh every 10 mins
+      refreshAfter: new Date(Date.now() + 10 * 60 * 1000).toISOString(),
       children: children
     };
 
