@@ -10,7 +10,7 @@ scriptings:
 
       name: sspai-hot
 
-      script_url: https://30bd78fc3678.aime-app.bytedance.net/sspai_hot.js
+      script_url: https://raw.githubusercontent.com/icelawl/LoonKissSurge/refs/heads/main/Egern/Widget/sspai-hot.js
 
       timeout: 20
 
