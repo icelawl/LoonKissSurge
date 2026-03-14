@@ -1,164 +1,158 @@
-            
 /**
- * Egern Widget for rebang.today
+ * Rebang.Today Widget for Egern
+ * Author: Aime
+ * Date: 2026-03-14
  * 
- * Documentation: https://doc.egernapp.com/zh-CN/docs/configuration/widgets
+ * Arguments:
+ * - tab: The platform key (e.g., zhihu, weibo, xiaohongshu, 36kr, sspai, bilibili, github)
  */
 
 export default async function (ctx) {
-  const tab = ctx.env.TAB || 'top';
-  const subTab = ctx.env.SUB_TAB || 'lasthour';
-  const apiUrl = `https://api.rebang.today/v1/items?tab=${tab}&sub_tab=${subTab}&version=1&page=1`;
+  const tab = ctx.env.tab || 'zhihu';
+  const tabNames = {
+    'top': '全站',
+    'zhihu': '知乎',
+    'weibo': '微博',
+    'xiaohongshu': '小红书',
+    '36kr': '36氪',
+    'sspai': '少数派',
+    'bilibili': '哔哩哔哩',
+    'ithome': 'IT之家',
+    'hupu': '虎扑',
+    'douban-community': '豆瓣',
+    'huxiu': '虎嗅',
+    'thepaper': '澎湃',
+    'toutiao': '头条',
+    'ifanr': '爱范儿',
+    'baidu': '百度',
+    'github': 'GitHub',
+    'juejin': '掘金',
+    'v2ex': 'V2EX'
+  };
+
+  const displayName = tabNames[tab] || tab.toUpperCase();
+  
+  // Define limit based on widget size
+  const limitMap = {
+    systemSmall: 3,
+    systemMedium: 6,
+    systemLarge: 12,
+    accessoryRectangular: 2,
+    accessoryInline: 1
+  };
+  const limit = limitMap[ctx.widgetFamily] || 5;
 
   try {
-    const resp = await ctx.http.get(apiUrl, {
+    const url = `https://api.rebang.today/v1/items?tab=${tab}&date_type=now&version=1`;
+    const resp = await ctx.http.get(url, {
       headers: {
-        'Referer': 'https://rebang.today/',
-        'Accept': 'application/json'
+        'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1'
       }
     });
-
-    if (resp.status !== 200) {
-      throw new Error(`HTTP Error ${resp.status}`);
+    
+    if (!resp.ok) {
+      throw new Error(`HTTP ${resp.status}`);
     }
 
-    const json = await resp.json();
-    if (json.code !== 200 || !json.data || !json.data.list) {
+    const data = await resp.json();
+    if (data.code !== 200 || !data.data || !data.data.list) {
       throw new Error('Invalid API response');
     }
 
-    // List is a JSON string, need to parse it
-    const list = JSON.parse(json.data.list);
-    
-    // Determine number of items based on widget size
-    let limit = 3;
-    if (ctx.widgetFamily === 'systemMedium') limit = 5;
-    if (ctx.widgetFamily === 'systemLarge' || ctx.widgetFamily === 'systemExtraLarge') limit = 10;
+    // data.data.list is a JSON string
+    const items = JSON.parse(data.data.list);
 
-    const displayItems = list.slice(0, limit);
+    // Build DSL
+    const children = [];
 
-    return {
-      type: 'widget',
-      backgroundColor: {
-        light: '#FFFFFF',
-        dark: '#1C1C1E'
-      },
-      padding: 12,
-      gap: 8,
+    // Header
+    children.push({
+      type: 'stack',
+      direction: 'row',
+      alignItems: 'center',
       children: [
-        // Header
         {
-          type: 'stack',
-          direction: 'row',
-          alignItems: 'center',
-          gap: 6,
-          children: [
-            {
-              type: 'image',
-              src: 'sf-symbol:flame.fill',
-              color: '#FF9500',
-              width: 14,
-              height: 14
-            },
-            {
-              type: 'text',
-              text: '今日热榜',
-              font: { size: 'footnote', weight: 'bold' },
-              textColor: { light: '#000000', dark: '#FFFFFF' }
-            },
-            { type: 'spacer' },
-            {
-              type: 'date',
-              date: new Date().toISOString(),
-              format: 'time',
-              font: { size: 10 },
-              textColor: '#8E8E93'
-            }
-          ]
+          type: 'text',
+          text: `🔥 ${displayName}热榜`,
+          font: { size: 'subheadline', weight: 'bold' },
+          textColor: { light: '#000000', dark: '#ffffff' }
         },
-        // Divider
+        { type: 'spacer' },
         {
-          type: 'stack',
-          height: 0.5,
-          backgroundColor: '#38383A',
-          opacity: 0.3,
-          children: []
-        },
-        // Items
-        ...displayItems.map((item, index) => ({
-          type: 'stack',
-          direction: 'row',
-          alignItems: 'start',
-          gap: 8,
-          url: item.mobile_url || item.www_url,
-          children: [
-            {
-              type: 'text',
-              text: `${index + 1}`,
-              font: { size: 'footnote', weight: 'bold' },
-              textColor: index < 3 ? '#FF453A' : '#8E8E93',
-              width: 16
-            },
-            {
-              type: 'stack',
-              direction: 'column',
-              flex: 1,
-              gap: 2,
-              children: [
-                {
-                  type: 'text',
-                  text: item.title,
-                  font: { size: 'footnote' },
-                  textColor: { light: '#1C1C1E', dark: '#E5E5EA' },
-                  maxLines: 2
-                },
-                {
-                  type: 'stack',
-                  direction: 'row',
-                  alignItems: 'center',
-                  gap: 4,
-                  children: [
-                    {
-                      type: 'text',
-                      text: item.tab_key.toUpperCase(),
-                      font: { size: 9 },
-                      textColor: '#007AFF',
-                      padding: [1, 3],
-                      borderRadius: 2,
-                      borderWidth: 0.5,
-                      borderColor: '#007AFF'
-                    },
-                    {
-                      type: 'text',
-                      text: `${item.heat_num}热度`,
-                      font: { size: 9 },
-                      textColor: '#8E8E93'
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }))
+          type: 'text',
+          text: 'rebang.today',
+          font: { size: 10 },
+          textColor: '#8e8e93'
+        }
       ]
-    };
-  } catch (err) {
+    });
+
+    children.push({ type: 'spacer', length: 8 });
+
+    // Items
+    items.slice(0, limit).forEach((item, index) => {
+      children.push({
+        type: 'stack',
+        direction: 'row',
+        url: item.www_url,
+        children: [
+          {
+            type: 'text',
+            text: `${index + 1}. ${item.title}`,
+            font: { size: 14 },
+            maxLines: 1,
+            flex: 1,
+            textColor: { light: '#333333', dark: '#dddddd' }
+          },
+          {
+            type: 'text',
+            text: item.heat_str ? ` ${item.heat_str}` : '',
+            font: { size: 10 },
+            textColor: '#ff9500',
+            opacity: 0.8
+          }
+        ]
+      });
+      
+      if (index < items.slice(0, limit).length - 1) {
+        children.push({ type: 'spacer', length: 6 });
+      }
+    });
+
+    // Handle empty state
+    if (items.length === 0) {
+      children.push({
+        type: 'text',
+        text: '暂无热榜数据',
+        textAlign: 'center',
+        font: { size: 'caption1' }
+      });
+    }
+
     return {
       type: 'widget',
-      backgroundColor: '#1C1C1E',
+      backgroundColor: { light: '#ffffff', dark: '#1c1c1e' },
+      padding: 12,
+      refreshAfter: new Date(Date.now() + 10 * 60 * 1000).toISOString(), // Refresh every 10 mins
+      children: children
+    };
+
+  } catch (e) {
+    return {
+      type: 'widget',
       padding: 16,
       children: [
         {
           type: 'text',
-          text: '加载失败',
+          text: '⚠️ 加载失败',
           font: { weight: 'bold' },
-          textColor: '#FF453A'
+          textColor: '#ff3b30'
         },
         {
           type: 'text',
-          text: err.message,
-          font: { size: 'caption1' },
-          textColor: '#8E8E93'
+          text: e.message,
+          font: { size: 'caption2' },
+          textColor: '#8e8e93'
         }
       ]
     };
