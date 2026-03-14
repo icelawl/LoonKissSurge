@@ -16,53 +16,52 @@ scriptings:
 # 2. 小组件配置示例
 # 可以在 Egern 的小组件管理页面中添加以下配置，并通过 env.tab 参数切换不同平台。
 widgets:
-  # 推荐将以下内容复制并修改相应的 env.tab 参数
-  - name: "今日热榜 - 知乎"
+  - name: "zhihu"
     script_name: "rebang-today-script"
     env:
       tab: "zhihu"
 
-  - name: "今日热榜 - 微博热搜"
+  - name: "weibo"
     script_name: "rebang-today-script"
     env:
       tab: "weibo"
 
-  - name: "今日热榜 - 小红书热点"
+  - name: "xiaohongshu"
     script_name: "rebang-today-script"
     env:
       tab: "xiaohongshu"
 
-  - name: "今日热榜 - 36氪热榜"
+  - name: "36kr"
     script_name: "rebang-today-script"
     env:
       tab: "36kr"
 
-  - name: "今日热榜 - 哔哩哔哩"
+  - name: "bilibili"
     script_name: "rebang-today-script"
     env:
       tab: "bilibili"
 
-  - name: "今日热榜 - GitHub Trending"
+  - name: "github"
     script_name: "rebang-today-script"
     env:
       tab: "github"
 
-  - name: "今日热榜 - 百度热搜"
+  - name: "baidu"
     script_name: "rebang-today-script"
     env:
       tab: "baidu"
 
-  - name: "今日热榜 - 少数派"
+  - name: "sspai"
     script_name: "rebang-today-script"
     env:
       tab: "sspai"
 
-  - name: "今日热榜 - 今日头条"
+  - name: "toutiao"
     script_name: "rebang-today-script"
     env:
       tab: "toutiao"
 
-  - name: "今日热榜 - 全站总榜"
+  - name: "top"
     script_name: "rebang-today-script"
     env:
       tab: "top"
