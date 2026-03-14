@@ -1,0 +1,28 @@
+name: 少数派热点 Widget
+
+description: 在主屏幕小组件中显示少数派 sspai.com 最新热点文章列表
+
+author: AimeClaw
+
+scriptings:
+
+  - generic:
+
+      name: sspai-hot
+
+      script_url: https://30bd78fc3678.aime-app.bytedance.net/sspai_hot.js
+
+      timeout: 20
+
+widgets:
+
+  - name: sspai-hot
+
+    env:
+
+      COUNT: "8"
+
+      REFRESH_MINUTES: "30"
+
+      FEED_URL: "https://sspai.com/feed"
+
