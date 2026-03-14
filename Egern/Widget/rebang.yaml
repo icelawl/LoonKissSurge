@@ -4,14 +4,14 @@
 name: "今日热榜 Rebang.Today (Deep Fix)"
 description: "显示 rebang.today 的各平台热榜数据（知乎、微博、小红书、36氪、哔哩哔哩、GitHub、少数派等）"
 author: "Aime"
-version: "2.0.0
+version: "2.0.0"
 
 # 1. 脚本定义
 scriptings:
   - generic:
       name: "rebang-today-script"
-      script_url: "https://raw.githubusercontent.com/icelawl/LoonKissSurge/refs/heads/main/Egern/Widget/rebang.js" # 请替换为实际部署的脚本 URL，或在 Egern 中创建本地脚本
-      timeout: 20
+      script_url: "https://raw.githubusercontent.com/icelawl/LoonKissSurge/refs/heads/main/Egern/Widget/rebang.js"
+      timeout: 15
 
 # 2. 小组件配置示例
 # 可以在 Egern 的小组件管理页面中添加以下配置，并通过 env.tab 参数切换不同平台。
