@@ -183,7 +183,7 @@ function buildStandardWidget(items, family, refreshAfter) {
     children: [
       {
         type: "text",
-        text: "少数派热点",
+        text: "热门文章",
         font: {
           size: titleFontSize,
           weight: "semibold",
@@ -232,7 +232,7 @@ function buildAccessoryRectangularWidget(items, refreshAfter) {
 
   const header = {
     type: "text",
-    text: "少数派热门",
+    text: "热门文章",
     font: {
       size: "caption1",
       weight: "semibold",
