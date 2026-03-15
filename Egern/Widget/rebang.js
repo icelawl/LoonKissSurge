@@ -1,4 +1,3 @@
-            
 
 /**
  * rebang.js
@@ -85,7 +84,6 @@ export default async function (ctx) {
     type: "widget",
     backgroundColor: { light: "#FFFFFF", dark: "#1C1C1E" },
     padding: 12,
-    alignItems: "start",
     children: [
       // Header
       {
@@ -94,6 +92,13 @@ export default async function (ctx) {
         alignItems: "start",
         gap: 8,
         children: [
+          {
+            type: "image",
+            src: `https://cdn.rebang.today/forever/tab_icon/${siteKey}.png`,
+            width: 20,
+            height: 20,
+            borderRadius: 4
+          },
           {
             type: "text",
             text: siteKey.toUpperCase() + " 热榜",
@@ -116,19 +121,16 @@ export default async function (ctx) {
             text: `${index + 1}.`,
             font: { size: 13, weight: index < 3 ? "bold" : "regular" },
             textColor: index < 3 ? "#FF4500" : "#888888",
-            width: 18,
-            "maxLines": 2,
-            "minScale": 0.5
+            width: 18
           },
           {
             type: "text",
             text: item.title,
             font: { size: 13 },
             textColor: { light: "#333333", dark: "#DDDDDD" },
-            maxLines: 1,
-            flex: 1,
-            "maxLines": 2,
-            "minScale": 0.5
+            maxLines: 2,
+            minScale: 0.8,
+            flex: 1
           }
         ],
         padding: [3, 0]
