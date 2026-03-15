@@ -43,7 +43,7 @@ export default async function (ctx) {
           {
             type: "text",
             text: "Egern 状态",
-            font: { size: "headline", weight: "bold" },
+            font: { size: "14", weight: "bold" },
             textColor: { light: "#000000", dark: "#FFFFFF" }
           }
         ]
@@ -58,13 +58,13 @@ export default async function (ctx) {
           {
             type: "text",
             text: statusText,
-            font: { size: "title1", weight: "black" },
+            font: { size: "14", weight: "black" },
             textColor: statusColor
           },
           {
             type: "text",
             text: interfaceV4 || "no interface",
-            font: { size: "caption1" },
+            font: { size: "13" },
             textColor: "#8E8E93"
           }
         ]
