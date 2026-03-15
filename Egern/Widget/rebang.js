@@ -85,6 +85,7 @@ export default async function (ctx) {
     type: "widget",
     backgroundColor: { light: "#FFFFFF", dark: "#1C1C1E" },
     padding: 12,
+    alignItems: "start",
     children: [
       // Header
       {
