@@ -1,0 +1,35 @@
+name: Rss Widget
+
+description: 在主屏幕小组件中显示Rss 最新热点文章列表
+
+author: AimeClaw
+
+scriptings:
+
+  - generic:
+
+      name: resolve
+
+      script_url: https://raw.githubusercontent.com/icelawl/LoonKissSurge/refs/heads/main/Egern/Widget/resolve.js
+
+      timeout: 20
+
+widgets:
+- name: sspai-hot
+  script_name: resolve
+  env:
+    COUNT: '8'
+    REFRESH_MINUTES: '30'
+    FEED_URL: https://sspai.com/feed
+- name: appinn
+  script_name: resolve
+  env:
+    COUNT: '8'
+    REFRESH_MINUTES: '30'
+    FEED_URL: https://feeds.appinn.com/appinns
+- name: ifanr
+  script_name: resolve
+  env:
+    COUNT: '8'
+    REFRESH_MINUTES: '30'
+    FEED_URL: 'https://www.ifanr.com/feed '
