@@ -3,20 +3,13 @@ name: egern Widget
 description: egern 小组件
 author: AimeClaw
 
+
 scriptings:
-
   - generic:
-
-      name: egern-toggle
-
+      name: egern-toggle-script
       script_url: https://raw.githubusercontent.com/icelawl/LoonKissSurge/refs/heads/main/Egern/Widget/egern-toggle.js
-
-      timeout: 20
+      timeout: 5
 
 widgets:
-
-  - name: egern-toggle
-
-    env:
-
-      REFRESH_INTERVAL: "300"
+  - name: Egern
+    script_name: egern-toggle-script
