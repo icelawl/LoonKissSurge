@@ -115,7 +115,9 @@ export default async function (ctx) {
             text: `${index + 1}.`,
             font: { size: 13, weight: index < 3 ? "bold" : "regular" },
             textColor: index < 3 ? "#FF4500" : "#888888",
-            width: 18
+            width: 18,
+            "maxLines": 2,
+            "minScale": 0.5
           },
           {
             type: "text",
@@ -123,7 +125,9 @@ export default async function (ctx) {
             font: { size: 13 },
             textColor: { light: "#333333", dark: "#DDDDDD" },
             maxLines: 1,
-            flex: 1
+            flex: 1,
+            "maxLines": 2,
+            "minScale": 0.5
           }
         ],
         padding: [3, 0]
