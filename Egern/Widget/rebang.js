@@ -90,16 +90,9 @@ export default async function (ctx) {
       {
         type: "stack",
         direction: "row",
-        alignItems: "center",
+        alignItems: "start",
         gap: 8,
         children: [
-          {
-            type: "image",
-            src: `https://cdn.rebang.today/forever/tab_icon/${siteKey}.png`,
-            width: 20,
-            height: 20,
-            borderRadius: 4
-          },
           {
             type: "text",
             text: siteKey.toUpperCase() + " 热榜",
@@ -113,7 +106,7 @@ export default async function (ctx) {
       ...displayItems.map((item, index) => ({
         type: "stack",
         direction: "row",
-        alignItems: "center",
+        alignItems: "start",
         gap: 6,
         url: item.url,
         children: [
