@@ -8,6 +8,7 @@
 #!homepage=https://hub.kelee.one
 #!date=2026-05-17 17:24:28
 
+
 [Rule]
 DOMAIN-KEYWORD,httpdns,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,httpsdns,REJECT,extended-matching,pre-matching
@@ -66,11 +67,11 @@ IP-CIDR,183.192.196.31/32,REJECT,no-resolve,pre-matching
 IP-CIDR,203.205.129.102/32,REJECT,no-resolve,pre-matching
 IP-CIDR,203.205.234.132/32,REJECT,no-resolve,pre-matching
 IP-CIDR,220.196.159.73/32,REJECT,no-resolve,pre-matching
-IP-CIDR6,240e:928:1400:10::25/128,REJECT,no-resolve
-IP-CIDR6,2402:4e00:8030:1::17/128,REJECT,no-resolve
-IP-CIDR6,2402:4e00:1900:1700:0:9554:1ad9:c3a/128,REJECT,no-resolve
-IP-CIDR6,2408:8711:10:10::20/128,REJECT,no-resolve
-IP-CIDR6,2409:8702:4860:10::4d/128,REJECT,no-resolve
+IP-CIDR6,240e:928:1400:10::25/128,REJECT,no-resolve,pre-matching
+IP-CIDR6,2402:4e00:8030:1::17/128,REJECT,no-resolve,pre-matching
+IP-CIDR6,2402:4e00:1900:1700:0:9554:1ad9:c3a/128,REJECT,no-resolve,pre-matching
+IP-CIDR6,2408:8711:10:10::20/128,REJECT,no-resolve,pre-matching
+IP-CIDR6,2409:8702:4860:10::4d/128,REJECT,no-resolve,pre-matching
 DOMAIN,httpdns.kg.qq.com,REJECT,extended-matching,pre-matching
 DOMAIN,httpdns.bilivideo.com,REJECT,extended-matching,pre-matching
 DOMAIN,httpdns.browser.miui.com,REJECT,extended-matching,pre-matching
@@ -104,7 +105,7 @@ DOMAIN,httpdns.ocloud.heytapmobi.com,REJECT,extended-matching,pre-matching
 DOMAIN,httpdns.push.heytapmobi.com,REJECT,extended-matching,pre-matching
 DOMAIN,dns.jd.com,REJECT,extended-matching,pre-matching
 IP-CIDR,101.124.19.122/32,REJECT,no-resolve,pre-matching
-IP-CIDR6,2402:db40:5100:1011::5/128,REJECT,no-resolve
+IP-CIDR6,2402:db40:5100:1011::5/128,REJECT,no-resolve,pre-matching
 IP-CIDR,103.224.222.208/32,REJECT,no-resolve,pre-matching
 IP-CIDR,119.29.29.98/32,REJECT,no-resolve,pre-matching
 IP-CIDR,119.29.29.99/32,REJECT,no-resolve,pre-matching
@@ -142,8 +143,8 @@ URL-REGEX,"^http:\/\/((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4
 IP-CIDR,103.41.167.237/32,REJECT,no-resolve,pre-matching
 IP-CIDR,118.89.204.198/32,REJECT,no-resolve,pre-matching
 IP-CIDR,182.61.194.7/32,REJECT,no-resolve,pre-matching
-IP-CIDR6,2402:4e00:1200:ed00:0:9089:6dac:96b6/128,REJECT,no-resolve
-IP-CIDR6,240c:409f:1000::/128,REJECT,no-resolve
+IP-CIDR6,2402:4e00:1200:ed00:0:9089:6dac:96b6/128,REJECT,no-resolve,pre-matching
+IP-CIDR6,240c:409f:1000::/128,REJECT,no-resolve,pre-matching
 DOMAIN,hd.xiaojukeji.com,REJECT,extended-matching,pre-matching
 DOMAIN,httpdns.zybang.com,REJECT,extended-matching,pre-matching
 DOMAIN,serveraddr.service.kugou.com,REJECT,extended-matching,pre-matching
@@ -167,4 +168,3 @@ URL-REGEX,"^http:\/\/\[[0-9a-fA-F:]+\]:\d+\/httpdns\/",REJECT,extended-matching
 
 [MITM]
 hostname = %APPEND% appconf.mail.163.com, msglb.91160.com, ucdc2-upaas.uc.cn
-
