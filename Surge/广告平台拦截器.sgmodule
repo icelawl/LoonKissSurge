@@ -8,7 +8,7 @@
 #!date=2026-05-16 17:11:57
 
 [Rule]
-DOMAIN-KEYWORD,adstrategy,REJECT
+DOMAIN-KEYWORD,adstrategy,REJECT,extended-matching,pre-matching
 AND,((DOMAIN-KEYWORD,tnc,extended-matching),(OR,((DOMAIN-SUFFIX,capcutapi.com,extended-matching),(DOMAIN-SUFFIX,zijieapi.com,extended-matching),(DOMAIN-SUFFIX,isnssdk.com,extended-matching),(DOMAIN-SUFFIX,toutiaoapi.com,extended-matching),(DOMAIN-SUFFIX,bytedance.com,extended-matching),(DOMAIN-SUFFIX,snssdk.com,extended-matching),(DOMAIN-SUFFIX,sgsnssdk.com,extended-matching)))),DIRECT
 AND,((DOMAIN-KEYWORD,-ad-,extended-matching),(DOMAIN-SUFFIX,byteimg.com,extended-matching)),REJECT,pre-matching
 AND,((DOMAIN-KEYWORD,ads,extended-matching),(DOMAIN-KEYWORD,-normal.zijieapi.com,extended-matching)),REJECT,pre-matching
@@ -20,9 +20,9 @@ DOMAIN-SUFFIX,bds.snssdk.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,byteadverts.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,ctobsnssdk.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,pangle.io,REJECT,extended-matching,pre-matching
-DOMAIN-KEYWORD,pangolin,REJECT
-DOMAIN-KEYWORD,pglstatp,REJECT
-DOMAIN-KEYWORD,panplayable-toutiao,REJECT
+DOMAIN-KEYWORD,pangolin,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,pglstatp,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,panplayable-toutiao,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,-ad-sign.byteimg.com,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,-ad.byteoversea.com,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,asiad.byteactivity,REJECT,extended-matching,pre-matching
