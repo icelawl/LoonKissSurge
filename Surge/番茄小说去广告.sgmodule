@@ -42,6 +42,6 @@ DOMAIN,ma.zijieapi.com,REJECT,extended-matching,pre-matching
 DOMAIN,minigame3-normal.zijieapi.com,REJECT,extended-matching,pre-matching
 DOMAIN,minigame5-normal.zijieapi.com,REJECT,extended-matching,pre-matching
 DOMAIN,mssdk.zijieapi.com,REJECT,extended-matching,pre-matching
-DOMAIN,timon.zijieapi.com,REJECT,extended-matching,pre-matching
+# DOMAIN,timon.zijieapi.com,REJECT,extended-matching,pre-matching
 DOMAIN,vcs.zijieapi.com,REJECT,extended-matching,pre-matching
 
