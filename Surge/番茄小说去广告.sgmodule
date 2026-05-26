@@ -14,7 +14,7 @@ DOMAIN,zlink.ugsdk.cn,REJECT,extended-matching,pre-matching
 DOMAIN,mon.toutiaocloud.net,REJECT,extended-matching,pre-matching
 DOMAIN,lf-normal-gr-sourcecdn.bytegecko.com,REJECT,extended-matching,pre-matching
 DOMAIN,lf-webcast-gr-sourcecdn.bytegecko.com,REJECT,extended-matching,pre-matching
-DOMAIN,p3-developer.bytemaimg.com,REJECT,extended-matching,pre-matching
+# DOMAIN,p3-developer.bytemaimg.com,REJECT,extended-matching,pre-matching
 DOMAIN,webcast-open.douyin.com,REJECT,extended-matching,pre-matching
 DOMAIN,p11-webcast-sign.douyinpic.com,REJECT,extended-matching,pre-matching
 DOMAIN,p3-webcast-sign.douyinpic.com,REJECT,extended-matching,pre-matching
@@ -43,5 +43,5 @@ DOMAIN,minigame3-normal.zijieapi.com,REJECT,extended-matching,pre-matching
 DOMAIN,minigame5-normal.zijieapi.com,REJECT,extended-matching,pre-matching
 DOMAIN,mssdk.zijieapi.com,REJECT,extended-matching,pre-matching
 # DOMAIN,timon.zijieapi.com,REJECT,extended-matching,pre-matching
-DOMAIN,vcs.zijieapi.com,REJECT,extended-matching,pre-matching
+# DOMAIN,vcs.zijieapi.com,REJECT,extended-matching,pre-matching
 
