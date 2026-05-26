@@ -14,7 +14,7 @@ DOMAIN,zlink.ugsdk.cn,REJECT,extended-matching,pre-matching
 DOMAIN,mon.toutiaocloud.net,REJECT,extended-matching,pre-matching
 DOMAIN,lf-normal-gr-sourcecdn.bytegecko.com,REJECT,extended-matching,pre-matching
 DOMAIN,lf-webcast-gr-sourcecdn.bytegecko.com,REJECT,extended-matching,pre-matching
-# DOMAIN,p3-developer.bytemaimg.com,REJECT,extended-matching,pre-matching
+DOMAIN,p3-developer.bytemaimg.com,REJECT,extended-matching,pre-matching
 DOMAIN,webcast-open.douyin.com,REJECT,extended-matching,pre-matching
 DOMAIN,p11-webcast-sign.douyinpic.com,REJECT,extended-matching,pre-matching
 DOMAIN,p3-webcast-sign.douyinpic.com,REJECT,extended-matching,pre-matching
@@ -30,7 +30,7 @@ DOMAIN,i.snssdk.com,REJECT,extended-matching,pre-matching
 DOMAIN,is-lq.snssdk.com,REJECT,extended-matching,pre-matching
 DOMAIN,is.snssdk.com,REJECT,extended-matching,pre-matching
 # DOMAIN,security.snssdk.com,REJECT,extended-matching,pre-matching
-# DOMAIN,vas.snssdk.com,REJECT,extended-matching,pre-matching
+DOMAIN,vas.snssdk.com,REJECT,extended-matching,pre-matching
 DOMAIN,mon.toutiaocloud.com,REJECT,extended-matching,pre-matching
 DOMAIN,abtest3-misc.zijieapi.com,REJECT,extended-matching,pre-matching
 DOMAIN,ads3-normal.zijieapi.com,REJECT,extended-matching,pre-matching
@@ -43,5 +43,5 @@ DOMAIN,minigame3-normal.zijieapi.com,REJECT,extended-matching,pre-matching
 DOMAIN,minigame5-normal.zijieapi.com,REJECT,extended-matching,pre-matching
 DOMAIN,mssdk.zijieapi.com,REJECT,extended-matching,pre-matching
 # DOMAIN,timon.zijieapi.com,REJECT,extended-matching,pre-matching
-# DOMAIN,vcs.zijieapi.com,REJECT,extended-matching,pre-matching
+DOMAIN,vcs.zijieapi.com,REJECT,extended-matching,pre-matching
 
