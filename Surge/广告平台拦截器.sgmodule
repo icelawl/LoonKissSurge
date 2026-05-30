@@ -15,7 +15,7 @@ AND,((DOMAIN-KEYWORD,ads,extended-matching),(DOMAIN-KEYWORD,-normal.zijieapi.com
 DOMAIN,lf-ad-ies.bytecdn.cn,REJECT,extended-matching,pre-matching
 DOMAIN,log.snssdk.com,DIRECT
 DOMAIN,dig.bdurl.net,DIRECT
-# DOMAIN,dig.bdurl.net,REJECT,extended-matching,pre-matching
+DOMAIN,dig.bdurl.net,REJECT,extended-matching,pre-matching
 DOMAIN,extlog.snssdk.com,REJECT,extended-matching,pre-matching
 DOMAIN,mcs.snssdk.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,bds.snssdk.com,REJECT,extended-matching,pre-matching
