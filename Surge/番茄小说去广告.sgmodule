@@ -29,7 +29,7 @@ DOMAIN,effect.snssdk.com,REJECT,extended-matching,pre-matching
 DOMAIN,i.snssdk.com,REJECT,extended-matching,pre-matching
 DOMAIN,is-lq.snssdk.com,REJECT,extended-matching,pre-matching
 DOMAIN,is.snssdk.com,REJECT,extended-matching,pre-matching
-# DOMAIN,security.snssdk.com,REJECT,extended-matching,pre-matching
+DOMAIN,security.snssdk.com,REJECT,extended-matching,pre-matching
 DOMAIN,vas.snssdk.com,REJECT,extended-matching,pre-matching
 DOMAIN,mon.toutiaocloud.com,REJECT,extended-matching,pre-matching
 DOMAIN,abtest3-misc.zijieapi.com,REJECT,extended-matching,pre-matching
@@ -42,6 +42,6 @@ DOMAIN,ma.zijieapi.com,REJECT,extended-matching,pre-matching
 DOMAIN,minigame3-normal.zijieapi.com,REJECT,extended-matching,pre-matching
 DOMAIN,minigame5-normal.zijieapi.com,REJECT,extended-matching,pre-matching
 DOMAIN,mssdk.zijieapi.com,REJECT,extended-matching,pre-matching
-# DOMAIN,timon.zijieapi.com,REJECT,extended-matching,pre-matching
+DOMAIN,timon.zijieapi.com,REJECT,extended-matching,pre-matching
 DOMAIN,vcs.zijieapi.com,REJECT,extended-matching,pre-matching
 
