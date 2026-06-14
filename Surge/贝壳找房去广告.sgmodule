@@ -2,12 +2,11 @@
 #!desc=移除开屏广告、弹窗广告、悬浮广告、信息流推广、我家页面的装修推荐。移除我的页面的专属推荐、游戏入口、钱包入口。
 #!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Beike.png
-#!category=iKeLee
 #!openUrl=https://apps.apple.com/app/id1347663353
 #!tag=去广告
-#!loon_version=3.2.4(787)
+#!loon_version=3.4.0(962)
 #!homepage=https://hub.kelee.one
-#!date=2025-08-10 13:18:43
+#!date=2026-06-01 17:11:35
 
 [Body Rewrite]
 http-response-jq ^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/homepage\/initData\/mini\? 'delpaths([["data","bootpage"]])'
@@ -26,4 +25,3 @@ http-response-jq ^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/homepage\/fe
 
 [MITM]
 hostname = %APPEND% apps.api.ke.com
-
