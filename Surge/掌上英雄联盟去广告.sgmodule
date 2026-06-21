@@ -2,12 +2,11 @@
 #!desc=移除开屏广告、弹窗推广、搜索热搜、搜索热榜、底栏推广图标。
 #!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/LOL_Bible.png
-#!category=iKeLee
 #!openUrl=https://apps.apple.com/app/id475666808
 #!tag=去广告
-#!loon_version=3.2.4(787)
+#!loon_version=3.4.0(962)
 #!homepage=https://hub.kelee.one
-#!date=2025-11-14 02:24:43
+#!date=2026-06-01 17:11:35
 
 [Map Local]
 ^https:\/\/mlol\.qt\.qq\.com\/go\/recommend\/platstrongshell\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
@@ -24,4 +23,3 @@
 
 [MITM]
 hostname = %APPEND% mlol.qt.qq.com
-
