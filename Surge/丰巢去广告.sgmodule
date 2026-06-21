@@ -2,17 +2,11 @@
 #!desc=移除弹窗，精简首页和生活服务。此插件需要IPA签名方可使用，App Store用户请勿使用此插件，务必点击下方主页链接查看详细教程。
 #!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/FC_Box.png
-#!category=iKeLee
 #!openUrl=https://apps.apple.com/app/id1259763050
 #!tag=去广告
-#!loon_version=3.2.4(787)
+#!loon_version=3.4.0(962)
 #!homepage=https://getupnote.com/share/notes/zSn1ShBmzNYISKcTgjXE5oHMrNf2/34bf3aad-7872-497d-b239-198e27e8c84c
-#!date=2026-02-23 01:17:31
-
-[Body Rewrite]
-http-response-jq ^https:\/\/consumer\.fcbox\.com\/v1\/dynamicConfig\/findTabbarConfig\/mainPage$ 'delpaths([["data","lifeService"]])'
-http-response-jq ^https:\/\/consumer\.fcbox\.com\/v1\/dynamicConfig\/findTabbarConfig\/mainPage$ 'delpaths([["data","mall"]])'
-http-response-jq ^https:\/\/consumer\.fcbox\.com\/v1\/dynamicConfig\/findTabbarConfig\/mainPage$ 'delpaths([["data","wash"]])'
+#!date=2026-06-01 17:11:35
 
 [Map Local]
 ^https:\/\/consumer\.fcbox\.com\/fcboxactivityweb\/api\/v\d\/clientPage\/modulesAggregated\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
@@ -33,6 +27,8 @@ http-response-jq ^https:\/\/consumer\.fcbox\.com\/v1\/dynamicConfig\/findTabbarC
 
 ^https:\/\/consumer\.fcbox\.com\/fcboxactivityweb\/api\/guidePopup\/popup$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
+[Script]
+body_rewrite_18 = type=http-response, pattern=^https:\/\/consumer\.fcbox\.com\/v1\/dynamicConfig\/findTabbarConfig\/mainPage$, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22data.lifeService%22%2C%22data.mall%22%2C%22data.wash%22%5D%5D%5D
+
 [MITM]
 hostname = %APPEND% consumer.fcbox.com, dsp.fcbox.com
-

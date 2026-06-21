@@ -2,12 +2,11 @@
 #!desc=移除开屏广告、横幅广告、悬浮窗广告、社区帖子广告，精简我的页面。
 #!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/JiaKaoBaoDian.png
-#!category=iKeLee
 #!openUrl=https://apps.apple.com/app/id491024740
 #!tag=去广告
-#!loon_version=3.2.4(787)
+#!loon_version=3.4.0(962)
 #!homepage=https://hub.kelee.one
-#!date=2025-05-13 15:17:08
+#!date=2026-06-01 17:11:35
 
 [Map Local]
 ^https:\/\/scs\.kakamobi\.cn\/api\/open\/v3\/advert-sdk\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
@@ -34,4 +33,3 @@
 
 [MITM]
 hostname = %APPEND% jiaxiao-awd.kakamobi.cn, cheyouquan.kakamobi.com, swallow.kakamobi.cn, monkey.kakamobi.cn, mcbd.maiche.com, jiakao-misc.kakamobi.cn, squirrel.kakamobi.cn, scs.kakamobi.cn
-
