@@ -41,3 +41,7 @@ http:
       ^https:\/\/gateway\.kugou\.com\/youth\/v1\/channel\/tab_list\? - reject-dict
     - >-
       ^https:\/\/gateway\.kugou\.com\/goddess\/v1\/content\/biz_list\? - reject-dict
+
+  body-rewrite:
+    - >-
+      ^https:\/\/gateway\.kugou\.com\/youth\/v1\/yueku\/tab\? response-jq .data.responses |= map(select(.module == "new_song_publish" or .module == "song_rank"))

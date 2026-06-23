@@ -11,6 +11,9 @@
 [URL Rewrite]
 ^https:\/\/fcard\.api\.moji\.com\/flycard\/flyCard\? - reject
 
+[Body Rewrite]
+http-response-jq ^https:\/\/mme\.api\.moji\.com\/json\/entrance\/list$ 'del(.entrance_region_res_list[] | select(.region_name == "皇冠区域" or .region_name == "banner区")) | .entrance_region_res_list[].entrance_res_list |= if . then map(select(.entrance_name | . != "墨迹钱包" and . != "墨圈")) else . end'
+
 [Map Local]
 ^https:\/\/vdo\.api\.moji\.com\/shortvideo\/card\/subscribe$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 

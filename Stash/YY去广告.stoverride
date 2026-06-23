@@ -40,17 +40,12 @@ http:
     - >-
       ^https:\/\/yyapp-act-entrance\.yy\.com\/entrance\/list\? - reject-dict
 
-  script:
-    - match: ^https:\/\/tab\.yy\.com\/tabs\?
-      name: "body_rewrite_20_20"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.tabsForSelect%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_20_20":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/yyapp-idx\.yy\.com\/mobyy\/nav\/index\/idx\? response-jq .data[].modules |= map(select(.name != "新版本滚动条" and .name != "通栏轮播" and .name != "新静默位"))
+    - >-
+      ^https:\/\/tab\.yy\.com\/tabs\? response-jq delpaths([["data","tabsForSelect"]])
+    - >-
+      ^https:\/\/tab\.yy\.com\/tabs\? response-jq .data.tabs |= map(select(.alias == "follow" or .alias == "im" or .alias == "me"))
+    - >-
+      ^https:\/\/personal-center\.yy\.com\/personalCenter\/list\? response-jq .data.modules |= map(select(.moduleName != "Banner轮播")) | .data.modules |= map(if has("entrances") then .entrances |= map(select(.bizCode|IN("jishijiedaikuan","duxiaoman2","chongzhi","freeData")|not)) else . end)

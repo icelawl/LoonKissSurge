@@ -49,26 +49,14 @@ http:
     - "push.m.youku.com"
     - "un-acs.youku.com"
 
-  script:
-    - match: ^https:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get
-      name: "body_rewrite_37_37"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.data.ad%22%2C%22data.data.watermark%22%2C%22data.data.ykad%22%5D%5D%5D
-
-    - match: ^https:\/\/push\.m\.youku\.com\/collect-api\/get_push_interval_config_wx\?
-      name: "body_rewrite_37_37"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.tipContent%22%2C%22data.tipContentNew%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_37_37":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get response-jq delpaths([["data","data","ad"]])
+    - >-
+      ^https:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get response-jq delpaths([["data","data","watermark"]])
+    - >-
+      ^https:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get response-jq delpaths([["data","data","ykad"]])
+    - >-
+      ^https:\/\/push\.m\.youku\.com\/collect-api\/get_push_interval_config_wx\? response-jq delpaths([["data","tipContent"]])
+    - >-
+      ^https:\/\/push\.m\.youku\.com\/collect-api\/get_push_interval_config_wx\? response-jq delpaths([["data","tipContentNew"]])

@@ -43,26 +43,96 @@ http:
     - >-
       ^https:\/\/api\.gotokeep\.com\/search\/v4\/hotword\/list\? - reject-dict
 
-  script:
-    - match: ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$
-      name: "body_rewrite_14_14"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.adTimeoutReport%22%2C%22data.spotShowReport%22%2C%22data.adSupplementIntervalMinutes%22%2C%22data.adSupplementSwitch%22%2C%22data.hotFeedSpotAdRequestMoment%22%2C%22data.activityBrandFeedSpotAdRequestMoment%22%2C%22data.searchFeedSpotAdRequestMoment%22%2C%22data.feedDetailSpotAdRequestMoment%22%2C%22data.homePageFeedSpotAdRequestMoment%22%2C%22data.followFeedSpotAdRequestMoment%22%2C%22data.hotFeedRecommendSpotAdRequestMoment%22%2C%22data.activityFeedSpotAdRequestMoment%22%2C%22data.hotFeedFindSpotAdRequestMoment%22%2C%22data.hotFeedSpotFixedPositionSecond%22%2C%22data.searchFeedSpotFixedPositionSecond%22%2C%22data.followFeedSpotFixedPositionSecond%22%2C%22data.activityFeedSpotFixedPositionSecond%22%2C%22data.searchFeedSpotFixedPositionThird%22%2C%22data.hotFeedFindSpotFixedPositionSecond%22%2C%22data.hotFeedFindSpotFixedPositionThird%22%2C%22data.activityFeedSpotFixedPositionInitial%22%2C%22data.activityFeedSpotFixedPositionThird%22%2C%22data.hotFeedDynamicSpotPosition%22%2C%22data.feedDetailDynamicSpotPosition%22%2C%22data.hotFeedRecommendDynamicSpotPosition%22%2C%22data.hotFeedFindDynamicSpotPosition%22%2C%22data.homePageFeedDynamicSpotPosition%22%2C%22data.followFeedDynamicSpotPosition%22%2C%22data.searchFeedSpotPositionDynamic%22%2C%22data.activityFeedSpotPositionDynamic%22%2C%22data.activityBrandFeedSpotPositionDynamic%22%2C%22data.splashAdLoadTimeLimit%22%2C%22data.courseAdLoadTimeLimit%22%2C%22data.feedAdLoadTimeLimit%22%2C%22data.aliHCSpotConfig%22%2C%22data.gdtSpotConfig%22%2C%22data.pugcThresholdPercent%22%2C%22data.pugcStepMinSeconds%22%2C%22data.pugcStepMaxSeconds%22%2C%22data.pugcPreLoadEarlySeconds%22%2C%22data.pugcLoadPostPreRolls%22%2C%22data.closeConfirmButtonText%22%5D%5D%5D
-
-    - match: ^https:\/\/api\.gotokeep\.com\/twins\/v4\/feed\/entryDetail\?
-      name: "body_rewrite_14_14"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-replace%22%2C%5B%5B%22data%22%2C%7B%7D%5D%5D%5D%5D
-
-script-providers:
-  "body_rewrite_14_14":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","adTimeoutReport"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","spotShowReport"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","adSupplementIntervalMinutes"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","adSupplementSwitch"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","hotFeedSpotAdRequestMoment"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","activityBrandFeedSpotAdRequestMoment"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","searchFeedSpotAdRequestMoment"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","feedDetailSpotAdRequestMoment"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","homePageFeedSpotAdRequestMoment"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","followFeedSpotAdRequestMoment"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","hotFeedRecommendSpotAdRequestMoment"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","activityFeedSpotAdRequestMoment"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","hotFeedFindSpotAdRequestMoment"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","hotFeedSpotFixedPositionSecond"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","searchFeedSpotFixedPositionSecond"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","followFeedSpotFixedPositionSecond"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","activityFeedSpotFixedPositionSecond"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","searchFeedSpotFixedPositionThird"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","hotFeedFindSpotFixedPositionSecond"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","hotFeedFindSpotFixedPositionThird"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","activityFeedSpotFixedPositionInitial"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","activityFeedSpotFixedPositionThird"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","hotFeedDynamicSpotPosition"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","feedDetailDynamicSpotPosition"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","hotFeedRecommendDynamicSpotPosition"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","hotFeedFindDynamicSpotPosition"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","homePageFeedDynamicSpotPosition"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","followFeedDynamicSpotPosition"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","searchFeedSpotPositionDynamic"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","activityFeedSpotPositionDynamic"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","activityBrandFeedSpotPositionDynamic"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","splashAdLoadTimeLimit"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","courseAdLoadTimeLimit"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","feedAdLoadTimeLimit"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","aliHCSpotConfig"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","gdtSpotConfig"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","pugcThresholdPercent"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","pugcStepMinSeconds"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","pugcStepMaxSeconds"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","pugcPreLoadEarlySeconds"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","pugcLoadPostPreRolls"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/configs$ response-jq delpaths([["data","closeConfirmButtonText"]])
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/twins\/union\/feed\/union_feed_all$ response-jq .data.modules |= map(select(.code == "unionFeedEntry"))
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/twins\/v4\/feed\/entryDetail\? response-jq if (getpath([]) | has("data")) then (setpath(["data"]; {})) else . end
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/config\/v3\/basic\? response-jq .data.bottomBarControl.tabs |= map(select(.tabType | . == "home" or . == "schedule" or . == "dynamic_sports" or . == "personal")) | .data.homeTabs |= map(select(.type | . == "socialTab" or . == "union_feed_all" or . == "homeRecommend" or . == "suitTab" or . == "union_feed_route"))
+    - >-
+      ^https:\/\/api\.gotokeep\.com\/pencil-webapp\/play\/v1\/games\? response-jq .data.games[].microGames[] |= if .leftIcon? and .leftIcon.type == "aiMode" then del(.leftIcon) else . end

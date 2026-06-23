@@ -30,17 +30,12 @@ http:
     - >-
       ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopitemadvertiseapi\.queryadvertise\/ - reject-dict
 
-  script:
-    - match: ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopintegrationapi\.homeconfig\/
-      name: "body_rewrite_13_13"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.returnValue.floatingBanner%22%2C%22data.returnValue.searchShadeList%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_13_13":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopintegrationapi\.homeconfig\/ response-jq delpaths([["data","returnValue","floatingBanner"]])
+    - >-
+      ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopintegrationapi\.homeconfig\/ response-jq delpaths([["data","returnValue","searchShadeList"]])
+    - >-
+      ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopintegrationapi\.homeconfig\/ response-jq .data.returnValue.topTab |= map(select(.activeImage | not)) | .data.returnValue.topTab |= map(del(.backgroundColor))
+    - >-
+      ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.life\.aristotle\.get\/ response-jq def filter_nodes: map(if .data.componentId? and (.data.componentId | type == "string") and (.data.componentId | (contains("tpp_banner") or . == "tpp_guess_like")) then empty else .nodes |= (if . then filter_nodes else . end) end); .data.nodes |= (if . then filter_nodes else . end)

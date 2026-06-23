@@ -30,3 +30,7 @@ http:
       ^https:\/\/cniot\.roborock\.com\/api\/v1\/activity\/latest$ - reject-dict
     - >-
       ^https:\/\/cniot\.roborock\.com\/api\/v1\/app\/theme\/device\/icon\? - reject
+
+  body-rewrite:
+    - >-
+      ^https:\/\/api\.roborock\.com\/v2\/h5\.page\.item\.info\?id=4115$ response-jq .data |= map(select(.title == "常用功能"))

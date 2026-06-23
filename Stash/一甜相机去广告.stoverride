@@ -29,17 +29,8 @@ http:
     - >-
       ^https:\/\/(m2u-api\.getkwai|api-m2u\.kuaishou)\.com\/api-server\/api\/v4\/op\/actPositions\? - reject-dict
 
-  script:
-    - match: ^https:\/\/(m2u-api\.getkwai|api-m2u\.kuaishou)\.com\/api-server\/api\/v1\/system\/configs\?
-      name: "body_rewrite_13_13"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.shouldUseLMAdFirst%22%2C%22data.incentiveCfgList%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_13_13":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/(m2u-api\.getkwai|api-m2u\.kuaishou)\.com\/api-server\/api\/v1\/system\/configs\? response-jq delpaths([["data","shouldUseLMAdFirst"]])
+    - >-
+      ^https:\/\/(m2u-api\.getkwai|api-m2u\.kuaishou)\.com\/api-server\/api\/v1\/system\/configs\? response-jq delpaths([["data","incentiveCfgList"]])

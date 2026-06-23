@@ -31,3 +31,7 @@ http:
       ^https:\/\/ucmp\.sf-express\.com\/proxy\/esgcempcore\/memberGoods\/pointMallService\/goodsList$ - reject-dict
     - >-
       ^https:\/\/ucmp(-static)?\.sf-express\.com\/proxy\/ccspBase\/module-config\/(login\/)?query\? - reject-200
+
+  body-rewrite:
+    - >-
+      ^https:\/\/ccsp-egmas\.sf-express\.com\/cx-app-base\/base\/app\/appHomeConfig\/query$ response-jq .obj |= map(select(.position != 2))

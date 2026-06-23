@@ -43,35 +43,26 @@ http:
     - >-
       ^https:\/\/gateway\.36kr\.com\/api\/mis\/sys\/skin\/ - reject-dict
 
-  script:
-    - match: ^https:\/\/gateway\.36kr\.com\/api\/mis\/sys\/config\?
-      name: "body_rewrite_15_15"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.contentConfig%22%2C%22data.positionConfigList%22%2C%22data.switchConfig.ios.sunrise_sign%22%2C%22data.switchConfig.ios.sunrise_sunit_task%22%2C%22data.switchConfig.ios.sunrise_sunit_mall%22%2C%22data.switchConfig.ios.sunrise_distribution_icon%22%2C%22data.secondFloorConfig%22%5D%5D%5D
-
-    - match: ^https:\/\/36kr\.com\/global\/sensors\/config\/iOS\.conf\?
-      name: "body_rewrite_15_15"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-replace%22%2C%5B%5B%22configs.disableSDK%22%2Ctrue%5D%5D%5D%5D
-
-    - match: ^https:\/\/gateway\.36kr\.com\/api\/mis\/nav\/home\/subnav\/flow\/
-      name: "body_rewrite_15_15"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.adItemList%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_15_15":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/gateway\.36kr\.com\/api\/mis\/sys\/config\? response-jq delpaths([["data","contentConfig"]])
+    - >-
+      ^https:\/\/gateway\.36kr\.com\/api\/mis\/sys\/config\? response-jq delpaths([["data","positionConfigList"]])
+    - >-
+      ^https:\/\/gateway\.36kr\.com\/api\/mis\/sys\/config\? response-jq delpaths([["data","switchConfig","ios","sunrise_sign"]])
+    - >-
+      ^https:\/\/gateway\.36kr\.com\/api\/mis\/sys\/config\? response-jq delpaths([["data","switchConfig","ios","sunrise_sunit_task"]])
+    - >-
+      ^https:\/\/gateway\.36kr\.com\/api\/mis\/sys\/config\? response-jq delpaths([["data","switchConfig","ios","sunrise_sunit_mall"]])
+    - >-
+      ^https:\/\/gateway\.36kr\.com\/api\/mis\/sys\/config\? response-jq delpaths([["data","switchConfig","ios","sunrise_distribution_icon"]])
+    - >-
+      ^https:\/\/gateway\.36kr\.com\/api\/mis\/sys\/config\? response-jq delpaths([["data","secondFloorConfig"]])
+    - >-
+      ^https:\/\/36kr\.com\/global\/sensors\/config\/iOS\.conf\? response-jq if (getpath(["configs"]) | has("disableSDK")) then (setpath(["configs","disableSDK"]; true)) else . end
+    - >-
+      ^https:\/\/gateway\.36kr\.com\/api\/mis\/nav\? response-jq .data.navList |= [ .[] | select(.navNick == "home" or .navNick == "newsflash" or .navNick == "me") ]
+    - >-
+      ^https:\/\/gateway\.36kr\.com\/api\/mis\/nav\/home\/subnav\/recom\? response-jq .data.bannerList |= map(select(.itemType != 0))
+    - >-
+      ^https:\/\/gateway\.36kr\.com\/api\/mis\/nav\/home\/subnav\/flow\/ response-jq delpaths([["data","adItemList"]])

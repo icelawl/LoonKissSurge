@@ -36,26 +36,8 @@ http:
     - >-
       ^https:\/\/userapi\.qiekj\.com\/task\/list$ - reject-dict
 
-  script:
-    - match: ^https:\/\/userapi\.qiekj\.com\/local-life\/tab-order$
-      name: "body_rewrite_14_14"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-replace%22%2C%5B%5B%22data%22%2C%5B%5D%5D%5D%5D%5D
-
-    - match: ^https:\/\/userapi\.qiekj\.com\/integralGoods\/queryIntegralGoodsCategoryList$
-      name: "body_rewrite_14_14"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-replace%22%2C%5B%5B%22data%22%2C%5B%5D%5D%5D%5D%5D
-
-script-providers:
-  "body_rewrite_14_14":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/userapi\.qiekj\.com\/local-life\/tab-order$ response-jq if (getpath([]) | has("data")) then (setpath(["data"]; [])) else . end
+    - >-
+      ^https:\/\/userapi\.qiekj\.com\/integralGoods\/queryIntegralGoodsCategoryList$ response-jq if (getpath([]) | has("data")) then (setpath(["data"]; [])) else . end

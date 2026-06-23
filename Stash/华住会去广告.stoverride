@@ -35,3 +35,9 @@ http:
       ^https:\/\/hweb-hotel\.huazhu\.com\/home\/queryHotelBrand$ - reject-dict
     - >-
       ^https:\/\/hweb-manager\.huazhu\.com\/hotels\/ad\/getHotelListNoticeMerge$ - reject-dict
+
+  body-rewrite:
+    - >-
+      ^https:\/\/res-pub\.huazhu\.com\/frontconf\/homeconfig_45\/\w+\.json$ response-jq if has("content") and (.content | type) == "object" then .content |= with_entries(select(.key == "topBanner" or .key == "topBannerImages")) else . end
+    - >-
+      ^https:\/\/res-pub\.huazhu\.com\/frontconf\/tabbarconfig_45\/\w+\.json$ response-jq .content.tabbar |= map(select(.attributes.tabName == "首页" or .attributes.tabName == "服务" or .attributes.tabName == "我的"))

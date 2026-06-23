@@ -16,6 +16,16 @@ DOMAIN,adlaunch.qtfm.cn,REJECT
 ^https:\/\/app\.qtfm\.cn\/recommendapi\/v\d\/emotion$ - reject
 ^https:\/\/search\.qtfm\.cn\/v\d\/keyword\/default$ - reject
 
+[Body Rewrite]
+http-response-jq ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/signin\/show_homepage_icon$ 'if (getpath(["data"]) | has("display_icon")) then (setpath(["data","display_icon"]; false)) else . end'
+http-response-jq ^https:\/\/app\.qtfm\.cn\/recommendapi\/v\d\/hotpage\? '.data.head |= map(select(.type == "IconGrid")) | .data.feeds |= map(select(.type == "Channel" or .type == "Radio" or .type == "ListenListChannel"))'
+http-response-jq ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/channel\/\d{6}\/playpage\/\d{8} 'delpaths([["data","related_recommend"]])'
+http-response-jq ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/channel\/\d{6}\/playpage\/\d{8} 'delpaths([["data","recommend_bar"]])'
+http-response-jq ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/mylistenpage 'delpaths([["data","banner"]])'
+http-response-jq ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/subscribed_channels\? 'delpaths([["data","recommends"]])'
+http-response-jq ^https:\/\/app\.qtfm\.cn\/m-bff\/v1\/channelpage\/\d+$ 'delpaths([["data","vip_recommend"]])'
+http-response-jq ^https:\/\/app\.qtfm\.cn\/m-bff\/v1\/channelpage\/\d+$ 'delpaths([["data","recommend_delivery"]])'
+
 [Map Local]
 ^https:\/\/app\.qtfm\.cn\/recommendapi\/v8\/ai_assistant_point$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
@@ -34,17 +44,6 @@ DOMAIN,adlaunch.qtfm.cn,REJECT
 ^https:\/\/search\.qtfm\.cn\/v3\/entry$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 ^https:\/\/woqt2\.qtfm\.cn\/v2\/userConfig\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
-[Script]
-body_rewrite_19 = type=http-response, pattern=^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/signin\/show_homepage_icon$, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-replace%22%2C%5B%5B%22data.display_icon%22%2Cfalse%5D%5D%5D%5D
-
-body_rewrite_21 = type=http-response, pattern=^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/channel\/\d{6}\/playpage\/\d{8}, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22data.related_recommend%22%2C%22data.recommend_bar%22%5D%5D%5D
-
-body_rewrite_23 = type=http-response, pattern=^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/mylistenpage, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22data.banner%22%5D%5D%5D
-
-body_rewrite_27 = type=http-response, pattern=^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/subscribed_channels\?, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22data.recommends%22%5D%5D%5D
-
-body_rewrite_29 = type=http-response, pattern=^https:\/\/app\.qtfm\.cn\/m-bff\/v1\/channelpage\/\d+$, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22data.vip_recommend%22%2C%22data.recommend_delivery%22%5D%5D%5D
 
 [MITM]
 hostname = %APPEND% app.qtfm.cn, entry.qtfm.cn, recpage-c.qtfm.cn, user.qtfm.cn, search.qtfm.cn, woqt2.qtfm.cn

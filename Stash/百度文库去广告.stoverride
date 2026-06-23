@@ -41,44 +41,16 @@ http:
     - >-
       ^https:\/\/appwk\.baidu\.com\/naapi\/recommend\/vipdoccard\? - reject-dict
 
-  script:
-    - match: ^https:\/\/appwk\.baidu\.com\/appapi\/index\/home\?
-      name: "body_rewrite_13_13"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.bannerInfo%22%2C%22data.bannerList%22%2C%22data.bannerListV2%22%5D%5D%5D
-
-    - match: ^https:\/\/(appwk|tanbi)\.baidu\.com\/gsula\/sula\/syncmrecall$
-      name: "body_rewrite_13_13"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.items%22%5D%5D%5D
-
-    - match: ^https:\/\/appwk\.baidu\.com\/appapi\/index\/tab\?
-      name: "body_rewrite_13_13"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data%22%5D%5D%5D
-
-    - match: ^https:\/\/appwk\.baidu\.com\/appapi\/forum\/feed\?reqMode=wenkuapp_main_feed
-      name: "body_rewrite_13_13"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_13_13":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/appwk\.baidu\.com\/appapi\/index\/home\? response-jq delpaths([["data","bannerInfo"]])
+    - >-
+      ^https:\/\/appwk\.baidu\.com\/appapi\/index\/home\? response-jq delpaths([["data","bannerList"]])
+    - >-
+      ^https:\/\/appwk\.baidu\.com\/appapi\/index\/home\? response-jq delpaths([["data","bannerListV2"]])
+    - >-
+      ^https:\/\/(appwk|tanbi)\.baidu\.com\/gsula\/sula\/syncmrecall$ response-jq delpaths([["data","items"]])
+    - >-
+      ^https:\/\/appwk\.baidu\.com\/appapi\/index\/tab\? response-jq delpaths([["data"]])
+    - >-
+      ^https:\/\/appwk\.baidu\.com\/appapi\/forum\/feed\?reqMode=wenkuapp_main_feed response-jq delpaths([["data"]])

@@ -46,71 +46,36 @@ http:
     - >-
       ^https:\/\/api\.zhihu\.com\/unlimited\/go\/my_card\/v\d\? - reject-dict
 
-  script:
-    - match: ^https:\/\/api\.zhihu\.com\/questions\/\d+\/feeds\?
-      name: "body_rewrite_16_16"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22ad_info%22%5D%5D%5D
-
-    - match: ^https:\/\/api\.zhihu\.com\/comment_v\d\/(answers|pins)\/\d+\/root_comment\?
-      name: "body_rewrite_16_16"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22atmosphere_voting_config%22%5D%5D%5D
-
-    - match: ^https:\/\/(api|page-info)\.zhihu\.com\/(articles|answers)\/v\d\/\d+$
-      name: "body_rewrite_16_16"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22third_business%22%5D%5D%5D
-
-    - match: ^https:\/\/api\.zhihu\.com\/(articles|answers|pins)\/v\d\/\d+\?
-      name: "body_rewrite_16_16"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22third_business%22%2C%22ring_info%22%2C%22interaction_bar_plugins%22%5D%5D%5D
-
-    - match: ^https:\/\/api\.zhihu\.com\/comment_v\d\/answers\/\d+\/list-headers$
-      name: "body_rewrite_16_16"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22continuous_consumption_module%22%5D%5D%5D
-
-    - match: ^https:\/\/api\.zhihu\.com\/podcasts\/hub\/v\d$
-      name: "body_rewrite_16_16"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22banners%22%5D%5D%5D
-
-    - match: ^https:\/\/api\.zhihu\.com\/people\/self$
-      name: "body_rewrite_16_16"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22vip_info.entrance_new.right_button%22%2C%22vip_info.entrance_v2%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_16_16":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/m-cloud\.zhihu\.com\/api\/cloud\/zhihu\/config\/all\? response-jq def drop_keys: {"km_httpdns_new_config_tars":true,"preFetchHttpDns":true,"httpdns_detector_use_concurrent":true,"httpdns_use_memory_cache":true,"httpdns_new_config_tars":true,"coreNetworkConf_useTars":true,"km_coreNetworkConf_useTars":true,"sugarQuicConfig":true,"quic_dns_detect_enable":true,"quicMixAB":true,"quic_downgrade_enable":true,"quic_priority_strategy":true,"quic_check_health_enable":true,"tquic_configuration":true,"networkExprimentList":true,"tars_ab_list":true,"zaSetExtraRequestHeader":true}; .data.configs |= map(select((drop_keys[.configKey]// false) | not) | if (.configValue | type) == "object" then del(.configValue.delayHttpdns, .configValue.dnsParser, .configValue.HTTPDNS) else . end)
+    - >-
+      ^https:\/\/api\.zhihu\.com\/root\/tab\/v\d(?:\?.+)?$ response-jq .tab_list |= map(select(.tab_type == "follow" or .tab_type == "recommend" or .tab_type == "hot" or .tab_type == "ring_tab"))
+    - >-
+      ^https:\/\/api\.zhihu\.com\/topstory\/recommend\? response-jq .data |= map(select(.type == "ComponentCard"))
+    - >-
+      ^https:\/\/api\.zhihu\.com\/questions\/\d+\/feeds\? response-jq delpaths([["ad_info"]])
+    - >-
+      ^https:\/\/api\.zhihu\.com\/comment_v\d\/(answers|pins)\/\d+\/root_comment\? response-jq delpaths([["atmosphere_voting_config"]])
+    - >-
+      ^https:\/\/(api|page-info)\.zhihu\.com\/(articles|answers)\/v\d\/\d+$ response-jq delpaths([["third_business"]])
+    - >-
+      ^https:\/\/(api|page-info)\.zhihu\.com\/(articles|answers)\/v\d\/\d+$ response-jq .structured_content.segments |= map(select(.type != "card"))
+    - >-
+      ^https:\/\/api\.zhihu\.com\/topstory\/recommend\? response-jq .data[]?.children |= (if type == "array" then map(select(.id != "ring")) else . end)
+    - >-
+      ^https:\/\/api\.zhihu\.com\/(articles|answers|pins)\/v\d\/\d+\? response-jq delpaths([["third_business"]])
+    - >-
+      ^https:\/\/api\.zhihu\.com\/(articles|answers|pins)\/v\d\/\d+\? response-jq delpaths([["ring_info"]])
+    - >-
+      ^https:\/\/api\.zhihu\.com\/(articles|answers|pins)\/v\d\/\d+\? response-jq delpaths([["interaction_bar_plugins"]])
+    - >-
+      ^https:\/\/api\.zhihu\.com\/comment_v\d\/answers\/\d+\/list-headers$ response-jq delpaths([["continuous_consumption_module"]])
+    - >-
+      ^https:\/\/api\.zhihu\.com\/podcasts\/hub\/v\d$ response-jq delpaths([["banners"]])
+    - >-
+      ^https:\/\/api\.zhihu\.com\/search\/recommend_query\/v\d\? response-jq .recommend_queries.queries |= map(select(.type == "normal"))
+    - >-
+      ^https:\/\/api\.zhihu\.com\/people\/self$ response-jq delpaths([["vip_info","entrance_new","right_button"]])
+    - >-
+      ^https:\/\/api\.zhihu\.com\/people\/self$ response-jq delpaths([["vip_info","entrance_v2"]])

@@ -30,26 +30,16 @@ http:
     - >-
       ^https:\/\/api-changzheng\.chinaath\.com\/changzheng-basic-center-api\/api\/advertisement\/ - reject-dict
 
-  script:
-    - match: ^https:\/\/api-changzheng\.chinaath\.com\/changzheng-common-proxy-api\/api\/advertising\/proxy\/getOpenScreenAdvertising$
-      name: "body_rewrite_12_12"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-replace%22%2C%5B%5B%22data.advertisingList%22%2C%5B%5D%5D%5D%5D%5D
-
-    - match: ^https:\/\/api-changzheng\.chinaath\.com\/changzheng-race-proxy-api\/api\/home\/page\/get$
-      name: "body_rewrite_12_12"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.topHotSearchList%22%2C%22data.bannerListTwo%22%2C%22data.textAdvertisementList%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_12_12":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/api-changzheng\.chinaath\.com\/changzheng-common-proxy-api\/api\/advertising\/proxy\/getOpenScreenAdvertising$ response-jq if (getpath(["data"]) | has("advertisingList")) then (setpath(["data","advertisingList"]; [])) else . end
+    - >-
+      ^https:\/\/api-changzheng\.chinaath\.com\/changzheng-race-proxy-api\/api\/home\/page\/getBrand$ response-jq .data |= map(select(.advertisementName == "路跑赛事" or .advertisementName == "线上赛" or .advertisementName == "越野赛事"))
+    - >-
+      ^https:\/\/api-changzheng\.chinaath\.com\/changzheng-race-proxy-api\/api\/home\/page\/get$ response-jq delpaths([["data","topHotSearchList"]])
+    - >-
+      ^https:\/\/api-changzheng\.chinaath\.com\/changzheng-race-proxy-api\/api\/home\/page\/get$ response-jq delpaths([["data","bannerListTwo"]])
+    - >-
+      ^https:\/\/api-changzheng\.chinaath\.com\/changzheng-race-proxy-api\/api\/home\/page\/get$ response-jq delpaths([["data","textAdvertisementList"]])
+    - >-
+      ^https:\/\/api-changzheng\.chinaath\.com\/changzheng-race-proxy-api\/api\/home\/page\/get$ response-jq .data.recommendList |= map(select(.raceAdList | not or length == 0))

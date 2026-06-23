@@ -32,3 +32,7 @@ http:
       ^https:\/\/web\.yy\.com\/yyvoice_task_sys\/bar\.html\? - reject
     - >-
       ^https:\/\/yuyin-api\.baizhanlive\.com\/search\/search\/hotword\? - reject-dict
+
+  body-rewrite:
+    - >-
+      ^https:\/\/yuyin-api\.baizhanlive\.com\/postsquare\/college\/page\/tabsV3\? response-jq .data.tabList |= map(select(.code == "post" or .code == "teamup" or .code == "college" or .code == "aiSecretRoom"))

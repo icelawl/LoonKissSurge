@@ -36,26 +36,12 @@ http:
     - >-
       ^https:\/\/dj\.palmestore\.com\/zybk\/api\/bookshelf\/index\? - reject-dict
 
-  script:
-    - match: ^https:\/\/dj\.palmestore\.com\/zybk\/api\/powerup\/userGroup\?
-      name: "body_rewrite_15_15"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22body.sevenDaysAd%22%2C%22body.shortPlayShow%22%2C%22body.sdkShortPlayAB%22%5D%5D%5D
-
-    - match: ^https:\/\/dj\.palmestore\.com\/zybk\/api\/search\/index\?
-      name: "body_rewrite_15_15"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22body.keywords%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_15_15":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/dj\.palmestore\.com\/zybk\/api\/powerup\/userGroup\? response-jq delpaths([["body","sevenDaysAd"]])
+    - >-
+      ^https:\/\/dj\.palmestore\.com\/zybk\/api\/powerup\/userGroup\? response-jq delpaths([["body","shortPlayShow"]])
+    - >-
+      ^https:\/\/dj\.palmestore\.com\/zybk\/api\/powerup\/userGroup\? response-jq delpaths([["body","sdkShortPlayAB"]])
+    - >-
+      ^https:\/\/dj\.palmestore\.com\/zybk\/api\/search\/index\? response-jq delpaths([["body","keywords"]])

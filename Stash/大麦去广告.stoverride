@@ -28,35 +28,12 @@ http:
     - >-
       ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.mec\.popup\.get\/ - reject-dict
 
-  script:
-    - match: ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.wireless\.user\.my\.content\.get\/
-      name: "body_rewrite_14_14"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.banner%22%2C%22data.performFilmVip.userProfitList%22%5D%5D%5D
-
-    - match: ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.wireless\.mypage\.feed\/
-      name: "body_rewrite_14_14"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.feedCard%22%5D%5D%5D
-
-    - match: ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.mec\.aristotle\.get\/
-      name: "body_rewrite_14_14"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.data.top.keywords%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_14_14":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.wireless\.user\.my\.content\.get\/ response-jq delpaths([["data","banner"]])
+    - >-
+      ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.wireless\.user\.my\.content\.get\/ response-jq delpaths([["data","performFilmVip","userProfitList"]])
+    - >-
+      ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.wireless\.mypage\.feed\/ response-jq delpaths([["data","feedCard"]])
+    - >-
+      ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.mec\.aristotle\.get\/ response-jq delpaths([["data","data","top","keywords"]])

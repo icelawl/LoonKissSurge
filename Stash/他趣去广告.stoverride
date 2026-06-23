@@ -41,3 +41,11 @@ http:
       ^https:\/\/gw-cn\.jiaoliuqu\.com\/live_api\/v\d\/HallScroll\/getList\? - reject-dict
     - >-
       ^https:\/\/gw-cn\.jiaoliuqu\.com\/taqu-msg-guide\/v\d\/RecommendColumn\/getList\? - reject-dict
+
+  body-rewrite:
+    - >-
+      ^https:\/\/gw-cn\.jiaoliuqu\.com\/mp-dolphin\/v\d\/rec\/recByPositions\? response-jq .info.data |= map(if .materials and (.materials | type) == "array" then .materials |= map(select(has("adPosition") | not)) else . end)
+    - >-
+      ^https:\/\/gw-cn\.jiaoliuqu\.com\/mp-dolphin\/v\d\/rec\/recByPositions\? response-jq .info.data |= map(if .materials and (.materials | type) == "array" then .materials |= map(select((keys | length) != 2 or (keys | sort) != ["link", "pic"])) else . end)
+    - >-
+      ^https:\/\/gw-cn\.jiaoliuqu\.com\/bbs\/v5\/Home\/getHomePageModulesBySortV\d\? response-jq (.info.data.modules_list// []) |= [.[] | [.[] | del(.relaction_title, .scrollow_contents)]] | (.info.data.top_fix_list// []) |= [.[] | del(.subtitle_list)]

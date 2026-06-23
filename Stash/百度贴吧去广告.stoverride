@@ -41,67 +41,169 @@ http:
     - >-
       ^http:\/\/c\.tieba\.baidu\.com\/c\/f\/forum\/hotforum$ - reject-dict
 
-  script:
-    - match: ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$
-      name: "body_rewrite_17_17"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22activity_switch%22%2C%22video_report_config%22%2C%22advertisement_config%22%2C%22next_start%22%2C%22push_strategy_new%22%2C%22live_activity_guide%22%2C%22h5_pop_ups%22%2C%22duxiaoman_url%22%2C%22is_need_remind_live_rooms%22%2C%22floating_icon%22%2C%22ad_stlog_switch%22%2C%22first_time_motivate%22%2C%22windowStrategyList%22%2C%22ad_adsense%22%2C%22ad_config%22%2C%22videoup_guide_pop%22%2C%22ad_origin_config_switch%22%2C%22needNewUserLead%22%2C%22h5_pop_ups_config%22%2C%22alaTabColor%22%2C%22search_guide%22%2C%22ad_sdk_priority%22%2C%22low_version_pop_config%22%2C%22ad_num_competition_frs%22%2C%22live_new_user_guide_day%22%2C%22screen_fill_data_result%22%2C%22yy_live_tab%22%2C%22ad_num_competition_personalize%22%2C%22complete_apk_url%22%2C%22user_activity%22%2C%22homepage_guide%22%2C%22bottom_bubble_config%22%2C%22home_screen_ad%22%2C%22afSearch_tab%22%2C%22recent_client_info%22%2C%22video_activity%22%2C%22namoaixud_url%22%2C%22yy_live_config%22%2C%22user_growth_task_list%22%2C%22cloud_control_data_info%22%2C%22wl_config.pb_banner_funad_cache_strategy%22%2C%22wl_config.pb_comment_asyncafd_cache_strategy%22%2C%22wl_config.download_edge_float%22%2C%22wl_config.download_pause_retain_dialog_conf%22%2C%22wl_config.download_mobile_dialog_conf%22%2C%22wl_config.download_fake_progress_config_a%22%2C%22wl_config.download_fake_progress_config_b%22%2C%22scheme_whitelist%22%5D%5D%2C%5B%22json-replace%22%2C%5B%5B%22wl_config.home_ad_num%22%2C0%5D%2C%5B%22wl_config.frs_ad_num%22%2C0%5D%2C%5B%22wl_config.pb_comment_ad_num%22%2C0%5D%2C%5B%22wl_config.index_bear_density%22%2C0%5D%2C%5B%22wl_config.frs_bear_density%22%2C0%5D%2C%5B%22wl_config.index_bear_first_floor_max%22%2C999999999%5D%2C%5B%22wl_config.index_bear_first_floor_min%22%2C999999999%5D%5D%5D%5D
+  body-rewrite:
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["activity_switch"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["video_report_config"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["advertisement_config"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["next_start"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["push_strategy_new"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["live_activity_guide"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["h5_pop_ups"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["duxiaoman_url"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["is_need_remind_live_rooms"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["floating_icon"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["ad_stlog_switch"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["first_time_motivate"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["windowStrategyList"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["ad_adsense"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["ad_config"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["videoup_guide_pop"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["ad_origin_config_switch"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["needNewUserLead"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["h5_pop_ups_config"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["alaTabColor"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["search_guide"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["ad_sdk_priority"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["low_version_pop_config"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["ad_num_competition_frs"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["live_new_user_guide_day"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["screen_fill_data_result"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["yy_live_tab"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["ad_num_competition_personalize"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["complete_apk_url"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["user_activity"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["homepage_guide"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["bottom_bubble_config"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["home_screen_ad"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["afSearch_tab"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["recent_client_info"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["video_activity"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["namoaixud_url"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["yy_live_config"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["user_growth_task_list"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["cloud_control_data_info"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["wl_config","pb_banner_funad_cache_strategy"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["wl_config","pb_comment_asyncafd_cache_strategy"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["wl_config","download_edge_float"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["wl_config","download_pause_retain_dialog_conf"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["wl_config","download_mobile_dialog_conf"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["wl_config","download_fake_progress_config_a"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["wl_config","download_fake_progress_config_b"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq delpaths([["scheme_whitelist"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq if (getpath(["wl_config"]) | has("home_ad_num")) then (setpath(["wl_config","home_ad_num"]; 0)) else . end
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq if (getpath(["wl_config"]) | has("frs_ad_num")) then (setpath(["wl_config","frs_ad_num"]; 0)) else . end
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq if (getpath(["wl_config"]) | has("pb_comment_ad_num")) then (setpath(["wl_config","pb_comment_ad_num"]; 0)) else . end
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq if (getpath(["wl_config"]) | has("index_bear_density")) then (setpath(["wl_config","index_bear_density"]; 0)) else . end
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq if (getpath(["wl_config"]) | has("frs_bear_density")) then (setpath(["wl_config","frs_bear_density"]; 0)) else . end
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq if (getpath(["wl_config"]) | has("index_bear_first_floor_max")) then (setpath(["wl_config","index_bear_first_floor_max"]; 999999999)) else . end
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq if (getpath(["wl_config"]) | has("index_bear_first_floor_min")) then (setpath(["wl_config","index_bear_first_floor_min"]; 999999999)) else . end
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$ response-jq .index_tab_info |= map(select(.tab_name == "推荐")) | .top_level_navi |= {"推荐": .["推荐"], "侧边栏": .["侧边栏"], "关注": .["关注"]}
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-jq delpaths([["url_map"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-jq delpaths([["user_agent_info"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-jq delpaths([["bubble_info"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-jq delpaths([["duxiaoman_entry"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-jq delpaths([["uc_card"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-jq delpaths([["finance_tab"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-jq delpaths([["vip_banner"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-jq delpaths([["ala_live_info"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-jq delpaths([["recom_naws_list"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-jq delpaths([["duxiaoman"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-jq delpaths([["user","consume_info"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-jq delpaths([["namoaixud_entry"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-jq if (getpath(["user","shake_ad_switch"]) | has("is_show")) then (setpath(["user","shake_ad_switch","is_show"]; 0)) else . end
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-jq .custom_grid |= map(select(.title != "游戏大厅" and .title != "预约管理" and .title != "领话费" and .title != "短故事")) | .zone_info |= map(.common_func |= (if .common_func_noraml then .common_func_noraml |= map(select(.name != "创建智能体")) else . end)) | .zone_info |= map(select(.type != "commerce" and .type != "banner" and .type != "game"))
+    - >-
+      ^https?:\/\/tieba\.baidu\.com\/c\/f\/forum\/forumGuide$ response-jq delpaths([["hot_search"]])
+    - >-
+      ^https?:\/\/tieba\.baidu\.com\/c\/f\/frs\/frsBottom\? response-jq delpaths([["card_activity"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/f\/frs\/frsBottom$ response-jq delpaths([["card_activity"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/f\/sidebar\/home$ response-jq delpaths([["game_center"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/f\/sidebar\/home$ response-jq delpaths([["tools"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/f\/sidebar\/home$ response-jq delpaths([["task_list"]])
+    - >-
+      ^https?:\/\/tiebac\.baidu\.com\/c\/f\/sidebar\/home$ response-jq delpaths([["vip_banner"]])
 
+  script:
     - match: ^https?:\/\/tieba\.baidu\.com\/mo\/q\/search\/startPage\?
       name: "echoResponse_22"
       type: request
       timeout: 60
       argument: |-
         text=%7B%22no%22%3A0%2C%22error%22%3A%22success%22%7D&status-code=200
-
-    - match: ^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$
-      name: "body_rewrite_17_17"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22url_map%22%2C%22user_agent_info%22%2C%22bubble_info%22%2C%22duxiaoman_entry%22%2C%22uc_card%22%2C%22finance_tab%22%2C%22vip_banner%22%2C%22ala_live_info%22%2C%22recom_naws_list%22%2C%22duxiaoman%22%2C%22user.consume_info%22%2C%22namoaixud_entry%22%5D%5D%2C%5B%22json-replace%22%2C%5B%5B%22user.shake_ad_switch.is_show%22%2C0%5D%5D%5D%5D
-
-    - match: ^https?:\/\/tieba\.baidu\.com\/c\/f\/forum\/forumGuide$
-      name: "body_rewrite_17_17"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22hot_search%22%5D%5D%5D
-
-    - match: ^https?:\/\/tieba\.baidu\.com\/c\/f\/frs\/frsBottom\?
-      name: "body_rewrite_17_17"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22card_activity%22%5D%5D%5D
-
-    - match: ^https?:\/\/tiebac\.baidu\.com\/c\/f\/frs\/frsBottom$
-      name: "body_rewrite_17_17"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22card_activity%22%5D%5D%5D
-
-    - match: ^https?:\/\/tiebac\.baidu\.com\/c\/f\/sidebar\/home$
-      name: "body_rewrite_17_17"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22game_center%22%2C%22tools%22%2C%22task_list%22%2C%22vip_banner%22%5D%5D%5D
 
     - match: ^https?:\/\/tieba(?:c)?\.baidu\.com\/c\/(f\/excellent\/personalized|f\/frs\/page|b\/ad\/adBid|f\/ad\/getFeedAd|f\/pb\/page|f\/frs\/generalTabList)\?cmd=\d+&format=protobuf
       name: "ProtoBuf处理_34"
@@ -113,9 +215,6 @@ http:
         [ "true"]
 
 script-providers:
-  "body_rewrite_17_17":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
   "echoResponse_22":
     url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/echo-response.js
     interval: 86400

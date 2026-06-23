@@ -32,17 +32,6 @@ http:
     - >-
       ^https:\/\/dict\.youdao\.com\/vip\/user\/paid\/guide\? - reject-dict
 
-  script:
-    - match: ^https:\/\/dict\.youdao\.com\/homepage\/toolbar\/get\/
-      name: "body_rewrite_14_14"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.vipTag%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_14_14":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/dict\.youdao\.com\/homepage\/toolbar\/get\/ response-jq delpaths([["data","vipTag"]])

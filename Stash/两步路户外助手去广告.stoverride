@@ -29,3 +29,7 @@ http:
       ^https:\/\/helper\.2bulu\.com\/promote\/getAppUserModule\? - reject-dict
     - >-
       ^https:\/\/helper\.2bulu\.com\/proSpecial\/allData\? - reject-dict
+
+  body-rewrite:
+    - >-
+      ^https:\/\/helper\.2bulu\.com\/getAppEntranceConfig\? response-jq .configData=(.configData|fromjson|del(.adPlatform,.adIntertitialShowType,.adsConfig,.adIntertitialDisplayedLimit,.adSplashShowTypeWhenHotStart,.adIntertitialDayDisplayedMaxCount,.od_adsType,.showMeBaiHeAdView)|tojson)

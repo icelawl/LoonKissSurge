@@ -48,43 +48,35 @@ http:
     - >-
       ^https:\/\/(beta-luna\.douyin|api5-lq\.qishui)\.com\/luna\/listen-video\/reminder\? - reject-dict
 
+  body-rewrite:
+    - >-
+      ^https:\/\/tnc\d-(bjlgy|ali[a-z]{2})\d?\.zijieapi\.com\/get_domains\/v\d\/\? response-jq if (getpath(["data"]) | has("opaque_data_enabled")) then (setpath(["data","opaque_data_enabled"]; 0)) else . end
+    - >-
+      ^https:\/\/tnc\d-(bjlgy|ali[a-z]{2})\d?\.zijieapi\.com\/get_domains\/v\d\/\? response-jq if (getpath(["data"]) | has("ttnet_http_dns_enabled")) then (setpath(["data","ttnet_http_dns_enabled"]; 0)) else . end
+    - >-
+      ^https:\/\/tnc\d-(bjlgy|ali[a-z]{2})\d?\.zijieapi\.com\/get_domains\/v\d\/\? response-jq if (getpath(["data"]) | has("ttnet_quic_enabled")) then (setpath(["data","ttnet_quic_enabled"]; 0)) else . end
+    - >-
+      ^https:\/\/tnc\d-(bjlgy|ali[a-z]{2})\d?\.zijieapi\.com\/get_domains\/v\d\/\? response-jq if (getpath(["data"]) | has("ttnet_tt_http_dns")) then (setpath(["data","ttnet_tt_http_dns"]; 0)) else . end
+    - >-
+      ^https:\/\/tnc\d-(bjlgy|ali[a-z]{2})\d?\.zijieapi\.com\/get_domains\/v\d\/\? response-jq .data.ttnet_dispatch_actions |= map(select(.action != "dispatch" and .action != "tc"))
+    - >-
+      ^https:\/\/(beta-luna\.douyin|api5-lq\.qishui)\.com\/luna\/me\? response-jq delpaths([["reward_ad_banner"]])
+    - >-
+      ^https:\/\/(beta-luna\.douyin|api5-lq\.qishui)\.com\/luna\/feed\/song-tab\? response-jq del(.items[] | select(.type == "video_track_mix"))
+    - >-
+      ^https:\/\/(beta-luna\.douyin|api5-lq\.qishui)\.com\/luna\/card\? response-jq delpaths([["preview_guide"]])
+    - >-
+      ^https:\/\/(beta-luna\.douyin|api5-lq\.qishui)\.com\/luna\/card\? response-jq del(.card_items[] | select(has("priority_display")))
+    - >-
+      ^https:\/\/(beta-luna\.douyin|api5-lq\.qishui)\.com\/luna\/more-panel\? response-jq .blocks |= map(select(.type != "related_video"))
+
   script:
-    - match: ^https:\/\/tnc\d-(bjlgy|ali[a-z]{2})\d?\.zijieapi\.com\/get_domains\/v\d\/\?
-      name: "body_rewrite_12_12"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-replace%22%2C%5B%5B%22data.opaque_data_enabled%22%2C0%5D%2C%5B%22data.ttnet_http_dns_enabled%22%2C0%5D%2C%5B%22data.ttnet_quic_enabled%22%2C0%5D%2C%5B%22data.ttnet_tt_http_dns%22%2C0%5D%5D%5D%5D
-
-    - match: ^https:\/\/(beta-luna\.douyin|api5-lq\.qishui)\.com\/luna\/me\?
-      name: "body_rewrite_12_12"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22reward_ad_banner%22%5D%5D%5D
-
-    - match: ^https:\/\/(beta-luna\.douyin|api5-lq\.qishui)\.com\/luna\/card\?
-      name: "body_rewrite_12_12"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22preview_guide%22%5D%5D%5D
-
     - match: ^https:\/\/(beta-luna\.douyin|api5-lq\.qishui)\.com\/luna\/me\/recently-played-media\?
       name: "移除播放页面视频流_30"
       type: response
       require-body: true
 
 script-providers:
-  "body_rewrite_12_12":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
   "移除播放页面视频流_30":
     url: https://kelee.one/Resource/JavaScript/SodaMusic/SodaMusic_remove_ads.js
     interval: 86400

@@ -8,6 +8,24 @@
 #!homepage=https://hub.kelee.one
 #!date=2026-06-01 17:11:35
 
+[Body Rewrite]
+http-response-jq ^https:\/\/m-cloud\.zhihu\.com\/api\/cloud\/zhihu\/config\/all\? 'def drop_keys: {"km_httpdns_new_config_tars":true,"preFetchHttpDns":true,"httpdns_detector_use_concurrent":true,"httpdns_use_memory_cache":true,"httpdns_new_config_tars":true,"coreNetworkConf_useTars":true,"km_coreNetworkConf_useTars":true,"sugarQuicConfig":true,"quic_dns_detect_enable":true,"quicMixAB":true,"quic_downgrade_enable":true,"quic_priority_strategy":true,"quic_check_health_enable":true,"tquic_configuration":true,"networkExprimentList":true,"tars_ab_list":true,"zaSetExtraRequestHeader":true}; .data.configs |= map(select((drop_keys[.configKey]// false) | not) | if (.configValue | type) == "object" then del(.configValue.delayHttpdns, .configValue.dnsParser, .configValue.HTTPDNS) else . end)'
+http-response-jq ^https:\/\/api\.zhihu\.com\/root\/tab\/v\d(?:\?.+)?$ '.tab_list |= map(select(.tab_type == "follow" or .tab_type == "recommend" or .tab_type == "hot" or .tab_type == "ring_tab"))'
+http-response-jq ^https:\/\/api\.zhihu\.com\/topstory\/recommend\? '.data |= map(select(.type == "ComponentCard"))'
+http-response-jq ^https:\/\/api\.zhihu\.com\/questions\/\d+\/feeds\? 'delpaths([["ad_info"]])'
+http-response-jq ^https:\/\/api\.zhihu\.com\/comment_v\d\/(answers|pins)\/\d+\/root_comment\? 'delpaths([["atmosphere_voting_config"]])'
+http-response-jq ^https:\/\/(api|page-info)\.zhihu\.com\/(articles|answers)\/v\d\/\d+$ 'delpaths([["third_business"]])'
+http-response-jq ^https:\/\/(api|page-info)\.zhihu\.com\/(articles|answers)\/v\d\/\d+$ '.structured_content.segments |= map(select(.type != "card"))'
+http-response-jq ^https:\/\/api\.zhihu\.com\/topstory\/recommend\? '.data[]?.children |= (if type == "array" then map(select(.id != "ring")) else . end)'
+http-response-jq ^https:\/\/api\.zhihu\.com\/(articles|answers|pins)\/v\d\/\d+\? 'delpaths([["third_business"]])'
+http-response-jq ^https:\/\/api\.zhihu\.com\/(articles|answers|pins)\/v\d\/\d+\? 'delpaths([["ring_info"]])'
+http-response-jq ^https:\/\/api\.zhihu\.com\/(articles|answers|pins)\/v\d\/\d+\? 'delpaths([["interaction_bar_plugins"]])'
+http-response-jq ^https:\/\/api\.zhihu\.com\/comment_v\d\/answers\/\d+\/list-headers$ 'delpaths([["continuous_consumption_module"]])'
+http-response-jq ^https:\/\/api\.zhihu\.com\/podcasts\/hub\/v\d$ 'delpaths([["banners"]])'
+http-response-jq ^https:\/\/api\.zhihu\.com\/search\/recommend_query\/v\d\? '.recommend_queries.queries |= map(select(.type == "normal"))'
+http-response-jq ^https:\/\/api\.zhihu\.com\/people\/self$ 'delpaths([["vip_info","entrance_new","right_button"]])'
+http-response-jq ^https:\/\/api\.zhihu\.com\/people\/self$ 'delpaths([["vip_info","entrance_v2"]])'
+
 [Map Local]
 ^https:\/\/api\.zhihu\.com\/commercial_api\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
@@ -26,21 +44,6 @@
 ^https:\/\/api\.zhihu\.com\/kvip\/right\/my_card\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 ^https:\/\/api\.zhihu\.com\/unlimited\/go\/my_card\/v\d\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
-[Script]
-body_rewrite_16 = type=http-response, pattern=^https:\/\/api\.zhihu\.com\/questions\/\d+\/feeds\?, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22ad_info%22%5D%5D%5D
-
-body_rewrite_18 = type=http-response, pattern=^https:\/\/api\.zhihu\.com\/comment_v\d\/(answers|pins)\/\d+\/root_comment\?, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22atmosphere_voting_config%22%5D%5D%5D
-
-body_rewrite_19 = type=http-response, pattern=^https:\/\/(api|page-info)\.zhihu\.com\/(articles|answers)\/v\d\/\d+$, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22third_business%22%5D%5D%5D
-
-body_rewrite_22 = type=http-response, pattern=^https:\/\/api\.zhihu\.com\/(articles|answers|pins)\/v\d\/\d+\?, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22third_business%22%2C%22ring_info%22%2C%22interaction_bar_plugins%22%5D%5D%5D
-
-body_rewrite_23 = type=http-response, pattern=^https:\/\/api\.zhihu\.com\/comment_v\d\/answers\/\d+\/list-headers$, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22continuous_consumption_module%22%5D%5D%5D
-
-body_rewrite_24 = type=http-response, pattern=^https:\/\/api\.zhihu\.com\/podcasts\/hub\/v\d$, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22banners%22%5D%5D%5D
-
-body_rewrite_32 = type=http-response, pattern=^https:\/\/api\.zhihu\.com\/people\/self$, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22vip_info.entrance_new.right_button%22%2C%22vip_info.entrance_v2%22%5D%5D%5D
 
 [MITM]
 hostname = %APPEND% m-cloud.zhihu.com, api.zhihu.com, www.zhihu.com, page-info.zhihu.com, zhida.zhihu.com

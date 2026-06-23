@@ -29,26 +29,14 @@ http:
     - >-
       ^https:\/\/iphone\.myzaker\.com\/zaker\/block_top_ad\.php\? - reject-dict
 
-  script:
-    - match: ^https:\/\/iphone\.myzaker\.com\/zaker\/article_mongo_sec\.php\?
-      name: "body_rewrite_13_13"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.ad_url%22%5D%5D%5D
-
-    - match: ^https:\/\/ggs\.myzaker\.com\/zk_article_ad\.php\?
-      name: "body_rewrite_13_13"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.article_bottom%22%2C%22data.recommend_ad%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_13_13":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/iphone\.myzaker\.com\/zaker\/article_mongo_sec\.php\? response-jq delpaths([["data","ad_url"]])
+    - >-
+      ^https:\/\/ggs\.myzaker\.com\/zk_article_ad\.php\? response-jq delpaths([["data","article_bottom"]])
+    - >-
+      ^https:\/\/ggs\.myzaker\.com\/zk_article_ad\.php\? response-jq delpaths([["data","recommend_ad"]])
+    - >-
+      ^https:\/\/iphone\.myzaker\.com\/zaker\/follow_promote\.php\? response-jq .data.list |= map(select(.type != "web"))
+    - >-
+      ^https:\/\/iphone\.myzaker\.com\/zaker\/car_tab\/index\.php\? response-jq .data.gallery |= map(select(.type != "web"))

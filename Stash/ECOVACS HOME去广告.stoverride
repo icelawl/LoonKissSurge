@@ -28,3 +28,7 @@ http:
       ^https:\/\/api-app\.dc-cn\.cn\.ecouser\.net\/api\/ecms\/app\/ad\/ - reject-dict
     - >-
       ^https:\/\/gl-cn-api\.ecovacs\.cn\/v1\/private\/ - reject-dict
+
+  body-rewrite:
+    - >-
+      ^https:\/\/gl-cn-api\.ecovacs\.cn\/v3\/private\/ response-jq .data.navigateInfoResponseList |= map(select(.positionType == "Robot" or .positionType == "Mine"))

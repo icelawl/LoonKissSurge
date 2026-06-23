@@ -23,17 +23,12 @@ http:
     - "conf-m-ssl.xunlei.com"
     - "api-shoulei-ssl.xunlei.com"
 
-  script:
-    - match: ^https:\/\/conf-m-ssl\.xunlei\.com\/external\/
-      name: "body_rewrite_12_12"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22values.me_config.entrance_list_vertical_enable%22%2C%22values.me_config.common_service_list%22%2C%22values.me_config.banner_service_list%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_12_12":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/conf-m-ssl\.xunlei\.com\/external\/ response-jq delpaths([["values","me_config","entrance_list_vertical_enable"]])
+    - >-
+      ^https:\/\/conf-m-ssl\.xunlei\.com\/external\/ response-jq delpaths([["values","me_config","common_service_list"]])
+    - >-
+      ^https:\/\/conf-m-ssl\.xunlei\.com\/external\/ response-jq delpaths([["values","me_config","banner_service_list"]])
+    - >-
+      ^https:\/\/api-shoulei-ssl\.xunlei\.com\/flowhub\/v1\/slots:batchGet$ response-jq .slots |= map(select(.id == "xl_ios_mytab_vipicon" or (.native.assets.title.text.value? and (.native.assets.title.text.value | . == "清理助手" or . == "云盘容量" or . == "远程设备"))))

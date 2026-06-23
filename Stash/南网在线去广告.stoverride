@@ -27,3 +27,7 @@ http:
       ^https:\/\/95598\.csg\.cn\/mp\/ucs\/ma\/zt\/content\/queryHotInformations$ - reject-dict
     - >-
       ^https:\/\/95598\.csg\.cn\/mp\/mpaas\/rubik\/openapi\/rubik\/mobile\/getRubikScene$ - reject-dict
+
+  body-rewrite:
+    - >-
+      ^https:\/\/95598\.csg\.cn\/mp\/mpaas\/mgw\.htm$ response-jq if .info | contains("RUBIK-TRACEID:") then .scene.page.areas |= map(select(.areaId | test("kingkong_|9grid_|message_|nearmap_|recommend_"))) else . end

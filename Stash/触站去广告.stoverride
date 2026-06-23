@@ -32,17 +32,18 @@ http:
     - >-
       ^https:\/\/app\.huashi6\.com\/app\/index\/csyxh\/icon$ - reject-dict
 
-  script:
-    - match: ^https:\/\/app\.huashi6\.com\/app\/common\/config$
-      name: "body_rewrite_13_13"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-replace%22%2C%5B%5B%22data.disableAd%22%2Ctrue%5D%2C%5B%22data.showTopFloatAdvanceTips%22%2Cfalse%5D%5D%5D%2C%5B%22json-del%22%2C%5B%22data.adsConfigIOS%22%2C%22data.adsConfigAndroid%22%2C%22data.url.tabMarket%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_13_13":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/app\.huashi6\.com\/app\/common\/config$ response-jq if (getpath(["data"]) | has("disableAd")) then (setpath(["data","disableAd"]; true)) else . end
+    - >-
+      ^https:\/\/app\.huashi6\.com\/app\/common\/config$ response-jq if (getpath(["data"]) | has("showTopFloatAdvanceTips")) then (setpath(["data","showTopFloatAdvanceTips"]; false)) else . end
+    - >-
+      ^https:\/\/app\.huashi6\.com\/app\/common\/config$ response-jq delpaths([["data","adsConfigIOS"]])
+    - >-
+      ^https:\/\/app\.huashi6\.com\/app\/common\/config$ response-jq delpaths([["data","adsConfigAndroid"]])
+    - >-
+      ^https:\/\/app\.huashi6\.com\/app\/common\/config$ response-jq delpaths([["data","url","tabMarket"]])
+    - >-
+      ^https:\/\/app\.huashi6\.com\/app\/common\/layouts$ response-jq .data |= {CZ_MINE_MENUS: .CZ_MINE_MENUS}
+    - >-
+      ^https:\/\/app\.huashi6\.com\/app\/common\/themeConfig$ response-jq .data.tabbars |= map(select(.title != "商城"))

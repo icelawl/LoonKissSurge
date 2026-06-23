@@ -37,3 +37,11 @@ http:
       ^https:\/\/app\.dewu\.com\/sns-rec\/v1\/search\/word-skip\/new-list\? - reject-dict
     - >-
       ^https:\/\/app\.dewu\.com\/sns-rec\/v1\/search\/hotword-list\? - reject-dict
+
+  body-rewrite:
+    - >-
+      ^https:\/\/app\.dewu\.com\/api\/v1\/app\/biz-aggregate\/me\/user-index\? response-jq .data.modules |= map(if .key == "wallet" then .data.menus |= map(select(.key == "coupon" or .key == "allowance" or .key == "gift" or .key == "balance")) else . end) | .data.modules |= map(select(.key != "merchant" and .key != "discountCoupon"))
+    - >-
+      ^https:\/\/app\.dewu\.com\/api\/v1\/app\/account\/wallet\/page\/entrance\? response-jq .data.groupInfoDTOS |= map(.moduleInfoDTO = {assetModule: .moduleInfoDTO.assetModule}) | .data.moduleNames = [.data.moduleNames[] | select(. == "assetModule")] | . as $full | $full | .data.groupNames |= (map(select(. == "MAIN" or . == "ASYNC_COMMON" or . == "ASYNC_GOODS_FEEDS")))
+    - >-
+      ^https:\/\/app\.dewu\.com\/identify-discovery\/v1\/discovery\/index\? response-jq .data.groups |= map(.items |= map(select(.title == "消息中心")))

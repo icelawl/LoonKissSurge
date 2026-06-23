@@ -22,17 +22,48 @@ http:
   mitm:
     - "api-http2.tumblr.com"
 
-  script:
-    - match: ^https:\/\/api-http2\.tumblr\.com\/v2\/config$
-      name: "body_rewrite_12_12"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22response.ad_placement_configuration%22%2C%22response.configuration.fan_placement_id%22%2C%22response.configuration.display_io_max_ad_count%22%2C%22response.configuration.display_io_max_ad_loading_count%22%2C%22response.configuration.display_io_placement_id%22%2C%22response.configuration.display_io_test_placement_id%22%2C%22response.configuration.display_io_interscroller_display_test_placement_id%22%2C%22response.configuration.display_io_interscroller_video_test_placement_id%22%2C%22response.configuration.dfp_ad_unit_id%22%2C%22response.configuration.adx_total_queue_size%22%2C%22response.configuration.adx_loading_queue_size%22%2C%22response.configuration.fan_total_queue_size%22%2C%22response.configuration.fan_loading_queue_size%22%2C%22response.configuration.yahoo_total_queue_size%22%2C%22response.configuration.yahoo_loading_queue_size%22%2C%22response.configuration.min_minutes_between_sponsored_moments%22%2C%22response.configuration.rewarded_ad_timeout_seconds%22%2C%22response.configuration.vungle_ad_token_sync_seconds%22%2C%22response.configuration.static_interstitial_close_button_delay_seconds%22%2C%22response.configuration.video_interstitial_close_button_delay_seconds%22%2C%22response.configuration.static_interstitial_bid_floor_usd%22%2C%22response.configuration.video_interstitial_bid_floor_usd%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_12_12":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","ad_placement_configuration"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","fan_placement_id"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","display_io_max_ad_count"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","display_io_max_ad_loading_count"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","display_io_placement_id"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","display_io_test_placement_id"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","display_io_interscroller_display_test_placement_id"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","display_io_interscroller_video_test_placement_id"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","dfp_ad_unit_id"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","adx_total_queue_size"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","adx_loading_queue_size"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","fan_total_queue_size"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","fan_loading_queue_size"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","yahoo_total_queue_size"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","yahoo_loading_queue_size"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","min_minutes_between_sponsored_moments"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","rewarded_ad_timeout_seconds"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","vungle_ad_token_sync_seconds"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","static_interstitial_close_button_delay_seconds"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","video_interstitial_close_button_delay_seconds"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","static_interstitial_bid_floor_usd"]])
+    - >-
+      ^https:\/\/api-http2\.tumblr\.com\/v2\/config$ response-jq delpaths([["response","configuration","video_interstitial_bid_floor_usd"]])

@@ -31,16 +31,11 @@ http:
     - >-
       ^https:\/\/energy\.xiaojukeji\.com\/station-api\/search\/preWords$ - reject-dict
 
-  script:
-    - match: ^https:\/\/energy\.xiaojukeji\.com\/am\/marketing\/api\/member\/facade\/charge\/personal\/center\?
-      name: "body_rewrite_13_13"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data%22%5D%5D%5D
+  body-rewrite:
+    - >-
+      ^https:\/\/energy\.xiaojukeji\.com\/am\/marketing\/api\/member\/facade\/charge\/personal\/center\? response-jq delpaths([["data"]])
 
+  script:
     - match: ^https:\/\/am\.didistatic\.com\/static\/am\/cf-terminal\/epower\/epower-thanos-app\/\d+\.\d+\.\d+\/pages\/people\/index\.js$
       name: "XiaojukejiCharge_remove_ads_16"
       type: request
@@ -48,9 +43,6 @@ http:
       timeout: 60
 
 script-providers:
-  "body_rewrite_13_13":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
   "XiaojukejiCharge_remove_ads_16":
     url: http://script.hub/convert/_start_/https://kelee.one/Resource/JavaScript/XiaojukejiCharge/XiaojukejiCharge_remove_ads.js/_end_/XiaojukejiCharge_remove_ads.js?type=mock&target-app=stash-stoverride&headers=
     interval: 86400

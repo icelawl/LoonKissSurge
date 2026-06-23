@@ -26,24 +26,18 @@ http:
     - "ad.12306.cn"
     - "mobile.12306.cn"
 
-  script:
-    - match: ^https:\/\/ad\.12306\.cn\/ad\/ser\/getAdList$
-      name: "body_rewrite_14_14"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22materialsList%22%2C%22advertParam%22%5D%5D%5D
+  body-rewrite:
+    - >-
+      ^https:\/\/ad\.12306\.cn\/ad\/ser\/getAdList$ response-jq delpaths([["materialsList"]])
+    - >-
+      ^https:\/\/ad\.12306\.cn\/ad\/ser\/getAdList$ response-jq delpaths([["advertParam"]])
 
+  script:
     - match: ^https:\/\/mobile\.12306\.cn\/otsmobile\/app\/mgs\/mgw\.htm$
       name: "移除12306应用内广告_16"
       type: request
 
 script-providers:
-  "body_rewrite_14_14":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
   "移除12306应用内广告_16":
     url: https://kelee.one/Resource/JavaScript/12306/12306_remove_ads.js
     interval: 86400

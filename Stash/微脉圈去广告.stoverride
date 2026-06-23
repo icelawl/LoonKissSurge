@@ -24,17 +24,12 @@ http:
   mitm:
     - "confssl*.iweimai.cn"
 
-  script:
-    - match: ^https:\/\/confssl\d?\.iweimai\.cn\/wm_ios_update\.json\?
-      name: "body_rewrite_12_12"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-replace%22%2C%5B%5B%22isShowCJAd%22%2C0%5D%5D%5D%2C%5B%22json-del%22%2C%5B%22launchAd%22%2C%22adBanners%22%2C%22ad%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_12_12":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/confssl\d?\.iweimai\.cn\/wm_ios_update\.json\? response-jq if (getpath([]) | has("isShowCJAd")) then (setpath(["isShowCJAd"]; 0)) else . end
+    - >-
+      ^https:\/\/confssl\d?\.iweimai\.cn\/wm_ios_update\.json\? response-jq delpaths([["launchAd"]])
+    - >-
+      ^https:\/\/confssl\d?\.iweimai\.cn\/wm_ios_update\.json\? response-jq delpaths([["adBanners"]])
+    - >-
+      ^https:\/\/confssl\d?\.iweimai\.cn\/wm_ios_update\.json\? response-jq delpaths([["ad"]])

@@ -31,3 +31,7 @@ http:
       ^https:\/\/api\.livelab\.com\.cn\/appShow\/hotSearch\/app\/rankList$ - reject-dict
     - >-
       ^https:\/\/api\.livelab\.com\.cn\/appShow\/app\/homepage\/banners\?bannerModuleId=(82|84|53) - reject-dict
+
+  body-rewrite:
+    - >-
+      ^https:\/\/api\.livelab\.com\.cn\/appShow\/app\/homepage\/modules\?tabId=5$ response-jq .data |= map(select(.id | IN(51, 52, 81, 82, 83, 84)))

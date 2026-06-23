@@ -30,26 +30,16 @@ http:
     - >-
       ^https:\/\/apps\.api\.ke\.com\/config\/config\/getactivityconfig\? - reject-dict
 
-  script:
-    - match: ^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/homepage\/initData\/mini\?
-      name: "body_rewrite_12_12"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.bootpage%22%2C%22data.bottom_bar_activity%22%5D%5D%5D
-
-    - match: ^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/userCenter\/info\?
-      name: "body_rewrite_12_12"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.islandModule%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_12_12":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/homepage\/initData\/mini\? response-jq delpaths([["data","bootpage"]])
+    - >-
+      ^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/homepage\/initData\/mini\? response-jq delpaths([["data","bottom_bar_activity"]])
+    - >-
+      ^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/userCenter\/info\? response-jq delpaths([["data","islandModule"]])
+    - >-
+      ^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/userCenter\/info\? response-jq del(.data.mainIcons.list[] | select(.indexKey == "coupon"))
+    - >-
+      ^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/myhome\/pagedetail\? response-jq .data.moduleList |= map(select(.tab != "myHomeDecorV4"))
+    - >-
+      ^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/homepage\/feed\? response-jq .data.list |= map(select(.cardType == "houseContainer" or .cardType == "houseV2" or .cardType == "houseV3" or .cardType == "rentHouseDiscount" or .cardType == "decorationCase"))

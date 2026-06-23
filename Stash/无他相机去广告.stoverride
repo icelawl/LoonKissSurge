@@ -22,17 +22,18 @@ http:
   mitm:
     - "api-release.wuta-cam.com"
 
-  script:
-    - match: ^https:\/\/api-release\.wuta-cam\.com\/ad_tree$
-      name: "body_rewrite_12_12"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22regular.splash%22%2C%22big_day%22%2C%22big_day_overrides%22%2C%22regular.home_bottom_right_entry_v2%22%2C%22regular.pic_upload_alert%22%2C%22regular.retouching_before_icon%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_12_12":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/api-release\.wuta-cam\.com\/ad_tree$ response-jq delpaths([["regular","splash"]])
+    - >-
+      ^https:\/\/api-release\.wuta-cam\.com\/ad_tree$ response-jq delpaths([["big_day"]])
+    - >-
+      ^https:\/\/api-release\.wuta-cam\.com\/ad_tree$ response-jq delpaths([["big_day_overrides"]])
+    - >-
+      ^https:\/\/api-release\.wuta-cam\.com\/ad_tree$ response-jq delpaths([["regular","home_bottom_right_entry_v2"]])
+    - >-
+      ^https:\/\/api-release\.wuta-cam\.com\/ad_tree$ response-jq delpaths([["regular","pic_upload_alert"]])
+    - >-
+      ^https:\/\/api-release\.wuta-cam\.com\/ad_tree$ response-jq delpaths([["regular","retouching_before_icon"]])
+    - >-
+      ^https:\/\/api-release\.wuta-cam\.com\/ad_tree$ response-jq .regular.homepage_25_bottom_nav_bar|=map(.button_list|=map(select(.name|IN("home","me"))))

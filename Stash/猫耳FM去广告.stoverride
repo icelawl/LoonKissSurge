@@ -36,35 +36,34 @@ http:
     - >-
       ^https:\/\/fm\.missevan\.com\/api\/v2\/chatroom\/sound\/recommend\? - reject-dict
 
-  script:
-    - match: ^https:\/\/app\.missevan\.com\/site\/launch\?
-      name: "body_rewrite_12_12"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22info.splash%22%2C%22info.splash_ready%22%5D%5D%5D
-
-    - match: ^https:\/\/app\.missevan\.com\/site\/config$
-      name: "body_rewrite_12_12"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22info.tab_bar_live%22%2C%220%22%2C%22info.enable_tab_bar_live_notice%22%2C%22false%22%2C%22info.teenager_popup_mode%22%2C%220%22%5D%5D%2C%5B%22json-del%22%2C%5B%22info.httpdns%22%2C%22info.homepage_top_task_button%22%5D%5D%5D
-
-    - match: ^https:\/\/app\.missevan\.com\/site\/get-top$
-      name: "body_rewrite_12_12"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22info.search_words%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_12_12":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/app\.missevan\.com\/site\/launch\? response-jq delpaths([["info","splash"]])
+    - >-
+      ^https:\/\/app\.missevan\.com\/site\/launch\? response-jq delpaths([["info","splash_ready"]])
+    - >-
+      ^https:\/\/app\.missevan\.com\/site\/config$ response-jq delpaths([["info","tab_bar_live"]])
+    - >-
+      ^https:\/\/app\.missevan\.com\/site\/config$ response-jq delpaths([["0"]])
+    - >-
+      ^https:\/\/app\.missevan\.com\/site\/config$ response-jq delpaths([["info","enable_tab_bar_live_notice"]])
+    - >-
+      ^https:\/\/app\.missevan\.com\/site\/config$ response-jq delpaths([["false"]])
+    - >-
+      ^https:\/\/app\.missevan\.com\/site\/config$ response-jq delpaths([["info","teenager_popup_mode"]])
+    - >-
+      ^https:\/\/app\.missevan\.com\/site\/config$ response-jq delpaths([["0"]])
+    - >-
+      ^https:\/\/app\.missevan\.com\/site\/config$ response-jq delpaths([["info","httpdns"]])
+    - >-
+      ^https:\/\/app\.missevan\.com\/site\/config$ response-jq delpaths([["info","homepage_top_task_button"]])
+    - >-
+      ^https:\/\/app\.missevan\.com\/site\/config$ response-jq .info.cronet |= (fromjson | .quic=false | tojson)
+    - >-
+      ^https:\/\/app\.missevan\.com\/site\/tabs\? response-jq .info.tabs |= map(select(.title as $t | ["直播", "发现", "广播剧", "听书", "分类"] | index($t) != null))
+    - >-
+      ^https:\/\/app\.missevan\.com\/site\/icons\? response-jq .info.icons |= map(select(.title as $t | $t == "直播" or $t == "必听剧" or $t == "免费榜" or $t == "夜猫子" or $t == "启动音"))
+    - >-
+      ^https:\/\/app\.missevan\.com\/discovery\/list$ response-jq .info |= map(map(select(.title != "免流服务")))
+    - >-
+      ^https:\/\/app\.missevan\.com\/site\/get-top$ response-jq delpaths([["info","search_words"]])

@@ -48,34 +48,71 @@ http:
     - >-
       ^https:\/\/api\.cece\.com\/chart\/config\/chart_activity\? - reject-dict
 
+  body-rewrite:
+    - >-
+      ^https:\/\/api\.cece\.com\/user\/init\? response-jq delpaths([["data","launch_img_url"]])
+    - >-
+      ^https:\/\/api\.cece\.com\/user\/init\? response-jq delpaths([["data","launch_goto_url"]])
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/app_config\? response-jq if (getpath(["data"]) | has("is_new_year")) then (setpath(["data","is_new_year"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/app_config\? response-jq if (getpath(["data"]) | has("spring_festival")) then (setpath(["data","spring_festival"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/app_config\? response-jq if (getpath(["data"]) | has("show_feedback_entry")) then (setpath(["data","show_feedback_entry"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/app_config\? response-jq if (getpath(["data"]) | has("show_course_entry")) then (setpath(["data","show_course_entry"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/app_config\? response-jq if (getpath(["data"]) | has("show_store_entry")) then (setpath(["data","show_store_entry"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/app_config\? response-jq if (getpath(["data"]) | has("show_luna")) then (setpath(["data","show_luna"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/app_config\? response-jq if (getpath(["data"]) | has("show_ead")) then (setpath(["data","show_ead"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/app_config\? response-jq if (getpath(["data"]) | has("show_ad")) then (setpath(["data","show_ad"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/app_config\? response-jq if (getpath(["data"]) | has("show_live_filter_tarot")) then (setpath(["data","show_live_filter_tarot"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/app_config\? response-jq if (getpath(["data"]) | has("community_feed_adswitch")) then (setpath(["data","community_feed_adswitch"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/app_config\? response-jq if (getpath(["data"]) | has("open_screen_ad_times")) then (setpath(["data","open_screen_ad_times"]; 0)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/app_config\? response-jq if (getpath(["data"]) | has("open_screen_ad_duration")) then (setpath(["data","open_screen_ad_duration"]; 0)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/app_config\? response-jq if (getpath(["data"]) | has("isShowThumbsGif")) then (setpath(["data","isShowThumbsGif"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/app_config\? response-jq if (getpath(["data"]) | has("teenager_mode_open")) then (setpath(["data","teenager_mode_open"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/app_config\? response-jq if (getpath(["data"]) | has("flu_log")) then (setpath(["data","flu_log"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/app_config\? response-jq delpaths([["data","activity_list"]])
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/app_config\? response-jq delpaths([["data","fortune_ab_config"]])
+    - >-
+      ^https:\/\/api\.cece\.com\/chart\/tools\/home_10_tools\? response-jq .data.tools |= map(del(.icon_tip_image))
+    - >-
+      ^https:\/\/api\.cece\.com\/user\/index\/tab_list\? response-jq .data.tabs |= map(select(.type != "shop"))
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/risk_entrance\? response-jq if (getpath(["data"]) | has("ai_fortune_show_ask_tool")) then (setpath(["data","ai_fortune_show_ask_tool"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/risk_entrance\? response-jq if (getpath(["data"]) | has("ai_sign_show_ask_tool")) then (setpath(["data","ai_sign_show_ask_tool"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/risk_entrance\? response-jq if (getpath(["data"]) | has("single_tool_show_dice_card")) then (setpath(["data","single_tool_show_dice_card"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/risk_entrance\? response-jq if (getpath(["data"]) | has("single_tool_show_tarot_card")) then (setpath(["data","single_tool_show_tarot_card"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/risk_entrance\? response-jq if (getpath(["data"]) | has("single_tool_show_bazi_card")) then (setpath(["data","single_tool_show_bazi_card"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/risk_entrance\? response-jq if (getpath(["data"]) | has("single_tool_show_hepan_card")) then (setpath(["data","single_tool_show_hepan_card"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/risk_entrance\? response-jq if (getpath(["data"]) | has("single_tool_show_ziwei_card")) then (setpath(["data","single_tool_show_ziwei_card"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/risk_entrance\? response-jq if (getpath(["data"]) | has("single_tool_show_xingpan_card")) then (setpath(["data","single_tool_show_xingpan_card"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/risk_entrance\? response-jq if (getpath(["data"]) | has("multi_tool_show_card")) then (setpath(["data","multi_tool_show_card"]; false)) else . end
+    - >-
+      ^https:\/\/api\.cece\.com\/common\/app\/risk_entrance\? response-jq if (getpath(["data"]) | has("ai_ccai_show_multi_tool")) then (setpath(["data","ai_ccai_show_multi_tool"]; false)) else . end
+
   script:
-    - match: ^https:\/\/api\.cece\.com\/user\/init\?
-      name: "body_rewrite_12_12"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.launch_img_url%22%2C%22data.launch_goto_url%22%5D%5D%5D
-
-    - match: ^https:\/\/api\.cece\.com\/common\/app\/app_config\?
-      name: "body_rewrite_12_12"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-replace%22%2C%5B%5B%22data.is_new_year%22%2Cfalse%5D%2C%5B%22data.spring_festival%22%2Cfalse%5D%2C%5B%22data.show_feedback_entry%22%2Cfalse%5D%2C%5B%22data.show_course_entry%22%2Cfalse%5D%2C%5B%22data.show_store_entry%22%2Cfalse%5D%2C%5B%22data.show_luna%22%2Cfalse%5D%2C%5B%22data.show_ead%22%2Cfalse%5D%2C%5B%22data.show_ad%22%2Cfalse%5D%2C%5B%22data.show_live_filter_tarot%22%2Cfalse%5D%2C%5B%22data.community_feed_adswitch%22%2Cfalse%5D%2C%5B%22data.open_screen_ad_times%22%2C0%5D%2C%5B%22data.open_screen_ad_duration%22%2C0%5D%2C%5B%22data.isShowThumbsGif%22%2Cfalse%5D%2C%5B%22data.teenager_mode_open%22%2Cfalse%5D%2C%5B%22data.flu_log%22%2Cfalse%5D%5D%5D%2C%5B%22json-del%22%2C%5B%22data.activity_list%22%2C%22data.fortune_ab_config%22%5D%5D%5D
-
-    - match: ^https:\/\/api\.cece\.com\/common\/app\/risk_entrance\?
-      name: "body_rewrite_12_12"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-replace%22%2C%5B%5B%22data.ai_fortune_show_ask_tool%22%2Cfalse%5D%2C%5B%22data.ai_sign_show_ask_tool%22%2Cfalse%5D%2C%5B%22data.single_tool_show_dice_card%22%2Cfalse%5D%2C%5B%22data.single_tool_show_tarot_card%22%2Cfalse%5D%2C%5B%22data.single_tool_show_bazi_card%22%2Cfalse%5D%2C%5B%22data.single_tool_show_hepan_card%22%2Cfalse%5D%2C%5B%22data.single_tool_show_ziwei_card%22%2Cfalse%5D%2C%5B%22data.single_tool_show_xingpan_card%22%2Cfalse%5D%2C%5B%22data.multi_tool_show_card%22%2Cfalse%5D%2C%5B%22data.ai_ccai_show_multi_tool%22%2Cfalse%5D%5D%5D%5D
-
     - match: ^https:\/\/api\.cece\.com\/live\/user\/coupon_tab\?
       name: "echoResponse_26"
       type: request
@@ -84,9 +121,6 @@ http:
         text=%7B%22code%22%3A0%2C%22msg%22%3A%22%22%7D&status-code=200
 
 script-providers:
-  "body_rewrite_12_12":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
   "echoResponse_26":
     url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/echo-response.js
     interval: 86400

@@ -8,6 +8,10 @@
 #!homepage=https://hub.kelee.one
 #!date=2026-06-01 17:11:35
 
+[Body Rewrite]
+http-response-jq ^https:\/\/userapi\.qiekj\.com\/local-life\/tab-order$ 'if (getpath([]) | has("data")) then (setpath(["data"]; [])) else . end'
+http-response-jq ^https:\/\/userapi\.qiekj\.com\/integralGoods\/queryIntegralGoodsCategoryList$ 'if (getpath([]) | has("data")) then (setpath(["data"]; [])) else . end'
+
 [Map Local]
 ^https:\/\/userapi\.qiekj\.com\/slot\/get$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
@@ -20,11 +24,6 @@
 ^https:\/\/userapi\.qiekj\.com\/integralGoods\/queryIntegralGoodsPage$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 ^https:\/\/userapi\.qiekj\.com\/task\/list$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
-[Script]
-body_rewrite_14 = type=http-response, pattern=^https:\/\/userapi\.qiekj\.com\/local-life\/tab-order$, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-replace%22%2C%5B%5B%22data%22%2C%5B%5D%5D%5D%5D%5D
-
-body_rewrite_15 = type=http-response, pattern=^https:\/\/userapi\.qiekj\.com\/integralGoods\/queryIntegralGoodsCategoryList$, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-replace%22%2C%5B%5B%22data%22%2C%5B%5D%5D%5D%5D%5D
 
 [MITM]
 hostname = %APPEND% userapi.qiekj.com

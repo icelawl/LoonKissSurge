@@ -26,26 +26,12 @@ http:
     - >-
       ^https:\/\/www\.imxingzhe\.com\/api\/v1\/pop\/window\/\? - reject-dict
 
-  script:
-    - match: ^https:\/\/www\.imxingzhe\.com\/api\/v4\/account\/get_user_info\?
-      name: "body_rewrite_13_13"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22banner%22%5D%5D%5D
-
-    - match: ^https:\/\/www\.imxingzhe\.com\/api\/v4\/discovery\/ios\/\?
-      name: "body_rewrite_13_13"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22banners%22%2C%22ad%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_13_13":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/www\.imxingzhe\.com\/api\/v4\/account\/get_user_info\? response-jq delpaths([["banner"]])
+    - >-
+      ^https:\/\/www\.imxingzhe\.com\/api\/v4\/discovery\/ios\/\? response-jq delpaths([["banners"]])
+    - >-
+      ^https:\/\/www\.imxingzhe\.com\/api\/v4\/discovery\/ios\/\? response-jq delpaths([["ad"]])
+    - >-
+      ^https:\/\/www\.imxingzhe\.com\/api\/v4\/discovery\/ios\/\? response-jq .display_areas |= map(select(.name == "赛事" or .name == "行者帮" or .name == "头条" or .name == "排行榜" or .name == "约伴"))

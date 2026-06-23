@@ -21,3 +21,9 @@ http:
 
   mitm:
     - "api.pinterest.com"
+
+  body-rewrite:
+    - >-
+      ^https:\/\/api\.pinterest\.com\/v\d\/feeds\/home\/\? response-jq .data |= map(select(.is_promoted == false or .is_promoted == "false"))
+    - >-
+      ^https:\/\/api\.pinterest\.com\/v\d\/pins\/\d+\/related\/modules\/\? response-jq .data |= map(select(.is_promoted == false or .is_promoted == "false"))

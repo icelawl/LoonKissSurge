@@ -28,25 +28,21 @@ http:
     - >-
       ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(searchBoxWord|stationPullService|uniformRecommend[06]) - reject-dict
 
-  script:
-    - match: ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=basicConfig
-      name: "body_rewrite_15_15"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-replace%22%2C%5B%5B%22data.JDMessage.socketmonitor.isSocketEstablishedAhead%22%2C0%5D%2C%5B%22data.JDMessage.socketmonitor.isSocketReport%22%2C0%5D%2C%5B%22data.JDHttpToolKit.httpdns.httpdns%22%2C0%5D%5D%5D%5D
+  body-rewrite:
+    - >-
+      ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=basicConfig response-jq if (getpath(["data","JDMessage","socketmonitor"]) | has("isSocketEstablishedAhead")) then (setpath(["data","JDMessage","socketmonitor","isSocketEstablishedAhead"]; 0)) else . end
+    - >-
+      ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=basicConfig response-jq if (getpath(["data","JDMessage","socketmonitor"]) | has("isSocketReport")) then (setpath(["data","JDMessage","socketmonitor","isSocketReport"]; 0)) else . end
+    - >-
+      ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=basicConfig response-jq if (getpath(["data","JDHttpToolKit","httpdns"]) | has("httpdns")) then (setpath(["data","JDHttpToolKit","httpdns","httpdns"]; 0)) else . end
 
+  script:
     - match: ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome)
       name: "移除京东广告_17"
       type: response
       require-body: true
 
 script-providers:
-  "body_rewrite_15_15":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
   "移除京东广告_17":
     url: https://kelee.one/Resource/JavaScript/JD/JD_remove_ads.js
     interval: 86400

@@ -11,8 +11,8 @@
 [Rule]
 DOMAIN,adui.tg.meitu.com,REJECT
 
-[Script]
-body_rewrite_14 = type=http-response, pattern=^https:\/\/api\.posters\.meitu\.com\/common\/init\.json, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22data.vip%22%5D%5D%5D
+[Body Rewrite]
+http-response-jq ^https:\/\/api\.posters\.meitu\.com\/common\/init\.json 'delpaths([["data","vip"]])'
 
 [MITM]
 hostname = %APPEND% api.posters.meitu.com

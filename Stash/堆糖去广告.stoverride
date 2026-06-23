@@ -32,26 +32,42 @@ http:
     - >-
       ^https:\/\/www\.duitang\.com\/napi\/hot\/search\/list\/ - reject-dict
 
-  script:
-    - match: ^https:\/\/meta\.duitang\.com\/napi\/infra\/settings\/
-      name: "body_rewrite_13_13"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.AD_LINKS%22%5D%5D%5D
-
-    - match: ^https:\/\/api-2\.duitang\.com\/napi\/settings\/
-      name: "body_rewrite_13_13"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.SPLASH_SWING_OPEN%22%2C%22data.STICKER_SEARCH_HOT_KEYWORDS%22%2C%22data.REWARD_AD_PAG_EDITOR%22%2C%22data.REWARD_AD_PHOTO_EDITOR%22%2C%22data.REWARD_AD_CUTOUT_NUM%22%2C%22data.MAIN_EVENTS%22%2C%22data.QA_TOOLTIP_BOTTOM%22%2C%22data.OC_FOLLOW_OFFICIAL%22%2C%22data.AD_MENU_SELECTIONS%22%2C%22data.FEATURE_TEMPLATES%22%2C%22data.FEEDBACK_URL%22%2C%22data.AVATAR_MALL_UPDATE%22%2C%22data.WATERMARK_MALL_UPDATE%22%2C%22data.OC_MALL_UPDATE%22%2C%22data%5B%5C%223D_AVATAR_UPDATE%5C%22%5D%22%2C%22data.BENEFIT_LIST%22%2C%22data.SHARE_BANNER%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_13_13":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/meta\.duitang\.com\/napi\/infra\/settings\/ response-jq delpaths([["data","AD_LINKS"]])
+    - >-
+      ^https:\/\/(www|api-2)\.duitang\.com\/napi\/home\/bottom_tab\/detail\/\? response-jq .data.tabs |= map(select(.group == "home" or .group == "category" or .group == "me"))
+    - >-
+      ^https:\/\/api-2\.duitang\.com\/napi\/settings\/ response-jq delpaths([["data","SPLASH_SWING_OPEN"]])
+    - >-
+      ^https:\/\/api-2\.duitang\.com\/napi\/settings\/ response-jq delpaths([["data","STICKER_SEARCH_HOT_KEYWORDS"]])
+    - >-
+      ^https:\/\/api-2\.duitang\.com\/napi\/settings\/ response-jq delpaths([["data","REWARD_AD_PAG_EDITOR"]])
+    - >-
+      ^https:\/\/api-2\.duitang\.com\/napi\/settings\/ response-jq delpaths([["data","REWARD_AD_PHOTO_EDITOR"]])
+    - >-
+      ^https:\/\/api-2\.duitang\.com\/napi\/settings\/ response-jq delpaths([["data","REWARD_AD_CUTOUT_NUM"]])
+    - >-
+      ^https:\/\/api-2\.duitang\.com\/napi\/settings\/ response-jq delpaths([["data","MAIN_EVENTS"]])
+    - >-
+      ^https:\/\/api-2\.duitang\.com\/napi\/settings\/ response-jq delpaths([["data","QA_TOOLTIP_BOTTOM"]])
+    - >-
+      ^https:\/\/api-2\.duitang\.com\/napi\/settings\/ response-jq delpaths([["data","OC_FOLLOW_OFFICIAL"]])
+    - >-
+      ^https:\/\/api-2\.duitang\.com\/napi\/settings\/ response-jq delpaths([["data","AD_MENU_SELECTIONS"]])
+    - >-
+      ^https:\/\/api-2\.duitang\.com\/napi\/settings\/ response-jq delpaths([["data","FEATURE_TEMPLATES"]])
+    - >-
+      ^https:\/\/api-2\.duitang\.com\/napi\/settings\/ response-jq delpaths([["data","FEEDBACK_URL"]])
+    - >-
+      ^https:\/\/api-2\.duitang\.com\/napi\/settings\/ response-jq delpaths([["data","AVATAR_MALL_UPDATE"]])
+    - >-
+      ^https:\/\/api-2\.duitang\.com\/napi\/settings\/ response-jq delpaths([["data","WATERMARK_MALL_UPDATE"]])
+    - >-
+      ^https:\/\/api-2\.duitang\.com\/napi\/settings\/ response-jq delpaths([["data","OC_MALL_UPDATE"]])
+    - >-
+      ^https:\/\/api-2\.duitang\.com\/napi\/settings\/ response-jq delpaths([["data","3D_AVATAR_UPDATE"]])
+    - >-
+      ^https:\/\/api-2\.duitang\.com\/napi\/settings\/ response-jq delpaths([["data","BENEFIT_LIST"]])
+    - >-
+      ^https:\/\/api-2\.duitang\.com\/napi\/settings\/ response-jq delpaths([["data","SHARE_BANNER"]])

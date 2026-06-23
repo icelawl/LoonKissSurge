@@ -55,53 +55,20 @@ http:
     - >-
       ^https:\/\/woqt2\.qtfm\.cn\/v2\/userConfig\? - reject-dict
 
-  script:
-    - match: ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/signin\/show_homepage_icon$
-      name: "body_rewrite_19_19"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-replace%22%2C%5B%5B%22data.display_icon%22%2Cfalse%5D%5D%5D%5D
-
-    - match: ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/channel\/\d{6}\/playpage\/\d{8}
-      name: "body_rewrite_19_19"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.related_recommend%22%2C%22data.recommend_bar%22%5D%5D%5D
-
-    - match: ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/mylistenpage
-      name: "body_rewrite_19_19"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.banner%22%5D%5D%5D
-
-    - match: ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/subscribed_channels\?
-      name: "body_rewrite_19_19"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.recommends%22%5D%5D%5D
-
-    - match: ^https:\/\/app\.qtfm\.cn\/m-bff\/v1\/channelpage\/\d+$
-      name: "body_rewrite_19_19"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.vip_recommend%22%2C%22data.recommend_delivery%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_19_19":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/signin\/show_homepage_icon$ response-jq if (getpath(["data"]) | has("display_icon")) then (setpath(["data","display_icon"]; false)) else . end
+    - >-
+      ^https:\/\/app\.qtfm\.cn\/recommendapi\/v\d\/hotpage\? response-jq .data.head |= map(select(.type == "IconGrid")) | .data.feeds |= map(select(.type == "Channel" or .type == "Radio" or .type == "ListenListChannel"))
+    - >-
+      ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/channel\/\d{6}\/playpage\/\d{8} response-jq delpaths([["data","related_recommend"]])
+    - >-
+      ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/channel\/\d{6}\/playpage\/\d{8} response-jq delpaths([["data","recommend_bar"]])
+    - >-
+      ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/mylistenpage response-jq delpaths([["data","banner"]])
+    - >-
+      ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/subscribed_channels\? response-jq delpaths([["data","recommends"]])
+    - >-
+      ^https:\/\/app\.qtfm\.cn\/m-bff\/v1\/channelpage\/\d+$ response-jq delpaths([["data","vip_recommend"]])
+    - >-
+      ^https:\/\/app\.qtfm\.cn\/m-bff\/v1\/channelpage\/\d+$ response-jq delpaths([["data","recommend_delivery"]])

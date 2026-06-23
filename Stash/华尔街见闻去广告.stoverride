@@ -40,26 +40,10 @@ http:
     - >-
       ^https:\/\/api-one-wscn\.awtmt\.com\/apiv1\/content\/carousel\/information-flow\? - reject-dict
 
-  script:
-    - match: ^https:\/\/api-one-wscn\.awtmt\.com\/apiv1\/content\/articles\/
-      name: "body_rewrite_21_21"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.recommend_vip_img_uri%22%5D%5D%5D
-
-    - match: ^https:\/\/api-one-wscn\.awtmt\.com\/\/apiv1\/kvconfig\/items\/membersrights$
-      name: "body_rewrite_21_21"
-      type: response
-      require-body: true
-      max-size: -1
-      timeout: 30
-      argument: |-
-        %5B%5B%22json-del%22%2C%5B%22data.vip_article%22%5D%5D%5D
-
-script-providers:
-  "body_rewrite_21_21":
-    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
-    interval: 86400
+  body-rewrite:
+    - >-
+      ^https:\/\/api-one-wscn\.awtmt\.com\/apiv1\/kvconfig\/items\/tabbarconfig1$ response-jq .data.items |= [.[] | select(.key == "news" or .key == "live")]
+    - >-
+      ^https:\/\/api-one-wscn\.awtmt\.com\/apiv1\/content\/articles\/ response-jq delpaths([["data","recommend_vip_img_uri"]])
+    - >-
+      ^https:\/\/api-one-wscn\.awtmt\.com\/\/apiv1\/kvconfig\/items\/membersrights$ response-jq delpaths([["data","vip_article"]])

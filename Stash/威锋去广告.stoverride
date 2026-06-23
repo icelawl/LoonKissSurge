@@ -25,3 +25,7 @@ http:
   url-rewrite:
     - >-
       ^https:\/\/api\.wfdata\.club\/v2\/yesfeng\/yesList\? - reject-dict
+
+  body-rewrite:
+    - >-
+      ^https:\/\/api\.wfdata\.club\/v2\/yesfeng\/slideshow\? response-jq .data |= map(select(.protocolId == 1))

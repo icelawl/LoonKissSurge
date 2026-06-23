@@ -11,6 +11,9 @@
 [URL Rewrite]
 ^https:\/\/web\.yy\.com\/yyvoice_task_sys\/bar\.html\? - reject
 
+[Body Rewrite]
+http-response-jq ^https:\/\/yuyin-api\.baizhanlive\.com\/postsquare\/college\/page\/tabsV3\? '.data.tabList |= map(select(.code == "post" or .code == "teamup" or .code == "college" or .code == "aiSecretRoom"))'
+
 [Map Local]
 ^https:\/\/yuyin-api\.baizhanlive\.com\/homepage\/flashscreen\/get\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 

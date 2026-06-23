@@ -37,3 +37,15 @@ http:
       ^https:\/\/acs-m\.freshippo\.com\/gw\/mtop\.wdk\.melon\.collocation\/ - reject-dict
     - >-
       ^https:\/\/acs-m\.freshippo\.com\/gw\/mtop\.wdk\.fc\.recommend\.feedscommondservice\/ - reject-dict
+
+  body-rewrite:
+    - >-
+      ^https:\/\/acs-m\.freshippo\.com\/gw\/mtop\.wdk\.render\.queryindexpage\/ response-jq if .data.pageType == "1" then .data.scenes |= map(select(.bizCode == "three_row_circle")) else . end
+    - >-
+      ^https:\/\/acs-m\.freshippo\.com\/gw\/mtop\.wdk\.render\.querytabfeedstream\/ response-jq if .data.pageType == "5" then .data.scenes |= map(select(.sceneType == "100028")) else . end
+    - >-
+      ^https:\/\/acs-m\.freshippo\.com\/gw\/(mtop\.wdk\.render\.querychannelpage|mtop\.wdk\.render\.querysinglepage)\/ response-jq if .data.pageType == "216" then .data.scenes |= map(select(.bizCode == "shop_walk_top_picture" or .bizCode == "shop_walk_shop_util" or .bizCode == "shop_walk_bistro")) else . end
+    - >-
+      ^https:\/\/acs-m\.freshippo\.com\/gw\/mtop\.wdk\.render\.querymypage\/ response-jq .data.scenes |= map(select(.sceneType | IN("400029", "400005", "400010", "400002", "400004", "400015")))
+    - >-
+      ^https:\/\/acs-m\.freshippo\.com\/gw\/(mtop\.wdk\.lbs\.location\.shopdecideapi\.decideformain|mtop\.wdk\.lbs\.location\.shopdecideapi\.decidebygeocode)\/ response-jq .data.groupList |= map(.ext.tabConfig |= (.normalTabList = (.normalTabList | map(select(.code as $c | ["HOME", "CLASSIFY", "CART", "MY"] | any(. == $c)))) | .normalTabListB = (.normalTabListB | map(select(.code as $c | ["HOME", "CLASSIFY", "CART", "MY"] | any(. == $c))))))
