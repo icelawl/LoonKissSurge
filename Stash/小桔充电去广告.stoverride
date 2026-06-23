@@ -44,5 +44,5 @@ http:
 
 script-providers:
   "XiaojukejiCharge_remove_ads_16":
-    url: http://script.hub/convert/_start_/https://kelee.one/Resource/JavaScript/XiaojukejiCharge/XiaojukejiCharge_remove_ads.js/_end_/XiaojukejiCharge_remove_ads.js?type=mock&target-app=stash-stoverride&headers=
+    url: http://script.hub/convert/_start_/https://kelee.one/Resource/JavaScript/XiaojukejiCharge/XiaojukejiCharge_remove_ads.js/_end_/XiaojukejiCharge_remove_ads.js?type=mock&target-app=stash-stoverride&headers=User-Agent%3A%20Surge%20iOS%2F3567%20Loon%2F936%20CFNetwork%2F3860.500.111%20Darwin%2F25.4.0%20egern%2F2.16.0%20(iOS%2026.4%3B%20Build%2F724)%20Mozilla%2F5.0%20(iPhone%3B%20CPU%20iPhone%20OS%2026_4%20like%20Mac%20OS%20X)%20AppleWebKit%2F605.1.15%20(KHTML%2C%20like%20Gecko)%20Version%2F26.4%20Mobile%2F15E148%20Safari%2F604.1%20Lark%2F7.63.9%20LarkLocale%2Fzh_CN%20ChannelName%2FFeishu%20appid%2F1378%3B%20appname%2FFeishu%3B
     interval: 86400
