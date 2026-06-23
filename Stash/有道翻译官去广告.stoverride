@@ -1,0 +1,42 @@
+name: |-
+  有道翻译官去广告
+desc: |-
+  移除开屏广告、横幅推广，精简首页。
+author: |-
+  可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+icon: |-
+  https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/YoudaoTrans.png
+openUrl: |-
+  https://apps.apple.com/app/id576337924
+tag: |-
+  去广告
+loon_version: |-
+  3.4.0(962)
+homepage: |-
+  https://hub.kelee.one
+date: |-
+  2026-06-01 17:11:35
+
+http:
+
+  mitm:
+    - "gorgon.youdao.com"
+    - "fanyiguan-server.youdao.com"
+    - "api-overmind.youdao.com"
+    - "dict.youdao.com"
+
+  url-rewrite:
+    - >-
+      ^https:\/\/gorgon\.youdao\.com\/gorgon\/v2\/request\.s - reject-dict
+    - >-
+      ^https:\/\/gorgon\.youdao\.com\/gorgon\/brand\/prefetch\.s - reject-dict
+    - >-
+      ^https:\/\/gorgon\.youdao\.com\/gorgon\/request\.s - reject-dict
+    - >-
+      ^https:\/\/fanyiguan-server\.youdao\.com\/server\/banner\? - reject-dict
+    - >-
+      ^https:\/\/dict\.youdao\.com\/vip\/activity\/fanyiguan\/sevendayfree\/imei\? - reject-dict
+    - >-
+      ^https:\/\/dict\.youdao\.com\/wordbook\/recommend\?all=false - reject-dict
+    - >-
+      ^https:\/\/api-overmind\.youdao\.com\/openapi\/get\/luna\/dict\/trans_abtest\/online\/iOS\? - reject-dict

@@ -1,4 +1,3 @@
-#SUBSCRIBED https://raw.githubusercontent.com/icelawl/LoonKissSurge/refs/heads/main/Stash/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE%E5%8E%BB%E5%B9%BF%E5%91%8A.stoverride
 name: |-
   高德地图去广告
 desc: |-
@@ -12,11 +11,11 @@ openUrl: |-
 tag: |-
   去广告
 loon_version: |-
-  3.2.4(787)
+  3.4.0(962)
 homepage: |-
   https://hub.kelee.one
 date: |-
-  2026-02-22 06:04:15
+  2026-06-01 17:11:35
 
 rules:
   - DOMAIN,amap-aos-info-nogw.amap.com,REJECT
@@ -29,10 +28,6 @@ http:
     - "*.amap.com"
 
   url-rewrite:
-    - >-
-      ^https:\/\/m5-zb\.amap\.com\/ws\/ride\/home\/page\/get_commuting_card\? - reject-dict
-    - >-
-      ^https:\/\/m5\.amap\.com\/ws\/shield\/search_business\/process\/orderList\? - reject-dict
     - >-
       ^https:\/\/m5\.amap\.com\/ws\/shield\/search\/new_hotword\? - reject-dict
     - >-
@@ -60,91 +55,108 @@ http:
     - >-
       ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/(?:pay\/web\/paySuccess\/info\/request|transportation\/diversion\/resource\/driving) - reject-dict
 
-  body-rewrite:
-    - >-
-      ^https:\/\/m5\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\? response-jq delpaths([["data","commonMaterial"]])
-    - >-
-      ^https:\/\/m5\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\? response-jq delpaths([["data","tipsOperationLocation"]])
-    - >-
-      ^https:\/\/m5\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\? response-jq delpaths([["data","resourcePlacement"]])
-    - >-
-      ^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/homepage\? response-jq delpaths([["history_tags"]])
-    - >-
-      ^https:\/\/m5-zb\.amap\.com\/ws\/sharedtrip\/taxi\/order_detail_car_tips\? response-jq delpaths([["data","carTips","data","popupInfo"]])
-
   script:
+    - match: ^https:\/\/m5\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\?
+      name: "body_rewrite_18_18"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22data.commonMaterial%22%2C%22data.tipsOperationLocation%22%2C%22data.resourcePlacement%22%5D%5D%5D
+
+    - match: ^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/homepage\?
+      name: "body_rewrite_18_18"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22history_tags%22%5D%5D%5D
+
+    - match: ^https:\/\/m5-zb\.amap\.com\/ws\/sharedtrip\/taxi\/order_detail_car_tips\?
+      name: "body_rewrite_18_18"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22data.carTips.data.popupInfo%22%5D%5D%5D
+
     - match: ^https:\/\/m5\.amap\.com\/ws\/aos\/perception\/publicTravel\/beforeNavi\?
-      name: "移除路线规划推广_35"
+      name: "移除路线规划推广_33"
       type: response
       require-body: true
 
     - match: ^https:\/\/m5\.amap\.com\/ws\/bus\/plan\/integrate\?
-      name: "移除路线规划推广_35"
+      name: "移除路线规划推广_33"
       type: response
       require-body: true
 
     - match: ^https:\/\/m5\.amap\.com\/ws\/c3frontend\/(?:af-(?:hotel|launch)\/page\/main|af-nearby\/nearby)
-      name: "移除路线规划推广_35"
+      name: "移除路线规划推广_33"
       type: response
       require-body: true
 
     - match: ^https:\/\/m5\.amap\.com\/ws\/perception\/drive\/(?:routeInfo|routePlan)
-      name: "移除路线规划推广_35"
+      name: "移除路线规划推广_33"
       type: response
       require-body: true
 
     - match: ^https:\/\/m5\.amap\.com\/ws\/shield\/search_bff\/hotword\?
-      name: "移除路线规划推广_35"
+      name: "移除路线规划推广_33"
       type: response
       require-body: true
 
     - match: ^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/(?:mps|search\/sp|sug|tips_operation_location)
-      name: "移除路线规划推广_35"
+      name: "移除路线规划推广_33"
       type: response
       require-body: true
 
     - match: ^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/(?:card-service-plan-home|main-page)
-      name: "移除路线规划推广_35"
+      name: "移除路线规划推广_33"
       type: response
       require-body: true
 
     - match: ^https:\/\/m5\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable\/1\?
-      name: "移除路线规划推广_35"
+      name: "移除路线规划推广_33"
       type: response
       require-body: true
 
     - match: ^https:\/\/m5\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaasv3\?
-      name: "移除路线规划推广_35"
+      name: "移除路线规划推广_33"
       type: response
       require-body: true
 
     - match: ^https:\/\/m5\.amap\.com\/ws\/shield\/search\/nearbyrec_smart\?
-      name: "移除路线规划推广_35"
+      name: "移除路线规划推广_33"
       type: response
       require-body: true
 
     - match: ^https:\/\/m5\.amap\.com\/ws\/valueadded\/alimama\/splash_screen\?
-      name: "移除路线规划推广_35"
+      name: "移除路线规划推广_33"
       type: response
       require-body: true
 
     - match: ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/(?:car\/order\/content_info|order_web\/friendly_information)
-      name: "移除路线规划推广_35"
+      name: "移除路线规划推广_33"
       type: response
       require-body: true
 
     - match: ^https:\/\/m5-zb\.amap\.com\/ws\/promotion-web\/resource(\/home)?\?
-      name: "移除路线规划推广_35"
+      name: "移除路线规划推广_33"
       type: response
       require-body: true
 
     - match: ^https:\/\/(?:info|m5)\.amap\.com\/ws\/shield\/search\/(?:common\/coupon\/info|poi\/detail)
-      name: "移除路线规划推广_35"
+      name: "移除路线规划推广_33"
       type: response
       require-body: true
 
 script-providers:
-  "移除路线规划推广_35":
+  "body_rewrite_18_18":
+    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
+    interval: 86400
+  "移除路线规划推广_33":
     url: https://kelee.one/Resource/JavaScript/Amap/Amap_remove_ads.js
     interval: 86400
-

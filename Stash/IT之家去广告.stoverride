@@ -1,0 +1,42 @@
+name: |-
+  IT之家去广告
+desc: |-
+  过滤IT之家信息流广告和文末广告，自定义移除置顶和轮播图，自定义移除项需在插件配置。
+author: |-
+  可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+icon: |-
+  https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/IThome.png
+openUrl: |-
+  https://apps.apple.com/app/id570610859
+tag: |-
+  去广告
+loon_version: |-
+  3.4.0(962)
+homepage: |-
+  https://hub.kelee.one
+date: |-
+  2026-06-01 17:11:35
+
+http:
+
+  mitm:
+    - "napi.ithome.com"
+    - "api.zuihuimai.com"
+    - "dat.ruanmei.com"
+
+  url-rewrite:
+    - >-
+      ^https?:\/\/dat\.ruanmei\.com\/ithome\/money\/acd\.json$ - reject
+
+  script:
+    - match: ^https:\/\/napi\.ithome\.com\/api\/(news\/indexv2\/iphone\/\d+|topmenu\/getfeeds\?)
+      name: "IT之家去广告_17"
+      type: response
+      require-body: true
+      argument: |-
+        [ false, false]
+
+script-providers:
+  "IT之家去广告_17":
+    url: https://kelee.one/Resource/JavaScript/IThome/IThome_remove_ads.js
+    interval: 86400

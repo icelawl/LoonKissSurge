@@ -1,0 +1,51 @@
+name: |-
+  行者户外去广告
+desc: |-
+  移除弹窗广告、发现页面横幅推广的推广金刚位，移除我的页面横幅推广。
+author: |-
+  可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+icon: |-
+  https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/OnTheWay.png
+openUrl: |-
+  https://apps.apple.com/app/id779325629
+tag: |-
+  去广告
+loon_version: |-
+  3.4.0(962)
+homepage: |-
+  https://hub.kelee.one
+date: |-
+  2026-06-01 17:11:35
+
+http:
+
+  mitm:
+    - "www.imxingzhe.com"
+
+  url-rewrite:
+    - >-
+      ^https:\/\/www\.imxingzhe\.com\/api\/v1\/pop\/window\/\? - reject-dict
+
+  script:
+    - match: ^https:\/\/www\.imxingzhe\.com\/api\/v4\/account\/get_user_info\?
+      name: "body_rewrite_13_13"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22banner%22%5D%5D%5D
+
+    - match: ^https:\/\/www\.imxingzhe\.com\/api\/v4\/discovery\/ios\/\?
+      name: "body_rewrite_13_13"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22banners%22%2C%22ad%22%5D%5D%5D
+
+script-providers:
+  "body_rewrite_13_13":
+    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
+    interval: 86400

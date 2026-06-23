@@ -1,0 +1,73 @@
+name: |-
+  配音秀去广告
+desc: |-
+  移除开屏广告、弹窗、横幅、各类关注推荐。
+author: |-
+  可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+icon: |-
+  https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/DubbingShow.png
+openUrl: |-
+  https://apps.apple.com/app/id746925035
+tag: |-
+  去广告
+loon_version: |-
+  3.4.0(962)
+homepage: |-
+  https://hub.kelee.one
+date: |-
+  2026-06-01 17:11:35
+
+http:
+
+  mitm:
+    - "iosapi.peiyinxiu.com"
+
+  script:
+    - match: ^https:\/\/iosapi\.peiyinxiu\.com\/Api\/live\/LiveList
+      name: "body_rewrite_12_12"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22data.banners%22%5D%5D%5D
+
+    - match: ^https:\/\/iosapi\.peiyinxiu\.com\/api\/live\/FollowList
+      name: "body_rewrite_12_12"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22obj.data%22%5D%5D%5D
+
+    - match: ^https:\/\/iosapi\.peiyinxiu\.com\/Api\/Friend\/GetRecommendUsers
+      name: "body_rewrite_12_12"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22obj.data%22%5D%5D%5D
+
+    - match: ^https:\/\/iosapi\.peiyinxiu\.com\/api\/Union\/HomeData
+      name: "body_rewrite_12_12"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22obj.data%22%5D%5D%5D
+
+    - match: ^https:\/\/iosapi\.peiyinxiu\.com\/Api\/Film\/GetConfigValue
+      name: "移除首页底部弹窗_17"
+      type: response
+      require-body: true
+
+script-providers:
+  "body_rewrite_12_12":
+    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
+    interval: 86400
+  "移除首页底部弹窗_17":
+    url: https://kelee.one/Resource/JavaScript/DubbingShow/DubbingShow_remove_ads.js
+    interval: 86400

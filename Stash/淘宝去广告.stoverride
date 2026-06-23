@@ -1,4 +1,3 @@
-#SUBSCRIBED https://raw.githubusercontent.com/icelawl/LoonKissSurge/refs/heads/main/Stash/%E6%B7%98%E5%AE%9D%E5%8E%BB%E5%B9%BF%E5%91%8A.stoverride
 name: |-
   淘宝去广告
 desc: |-
@@ -12,11 +11,11 @@ openUrl: |-
 tag: |-
   去广告
 loon_version: |-
-  3.2.4(787)
+  3.4.0(962)
 homepage: |-
   https://hub.kelee.one
 date: |-
-  2025-12-28 18:55:08
+  2026-06-01 17:11:35
 
 rules:
   - DOMAIN,adashx.m.taobao.com,REJECT
@@ -73,4 +72,3 @@ script-providers:
   "移除淘宝开屏广告_31":
     url: https://kelee.one/Resource/JavaScript/Taobao/Taobao_remove_ads.js
     interval: 86400
-

@@ -1,0 +1,54 @@
+name: |-
+  Apple天气增强
+desc: |-
+  解锁Apple天气的全部功能、替换空气质量数据源、添加下一小时降水数据、添加天气数据。
+author: |-
+  VirgilClyne[https://github.com/VirgilClyne], WordlessEcho[https://github.com/WordlessEcho], 001[https://github.com/001ProMax]
+icon: |-
+  https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/AppleWeather.png
+openUrl: |-
+  https://itunes.apple.com/app/id1069513131
+tag: |-
+  功能增强
+system: |-
+  iOS, iPadOS, macOS, watchOS
+system_version: |-
+  18
+loon_version: |-
+  3.4.0(962)
+homepage: |-
+  https://hub.kelee.one
+date: |-
+  2026-06-01 17:11:35
+
+rules:
+  - DOMAIN,weather-analytics-events.apple.com,REJECT
+  - DOMAIN,tether.edge.apple,REJECT
+  - DOMAIN-SUFFIX,tthr.apple.com,REJECT
+  - AND,((OR,((IP-ASN,714,no-resolve),(IP-ASN,6185,no-resolve))),(PROTOCOL,QUIC)),REJECT-DROP
+
+http:
+
+  mitm:
+    - "weatherkit.apple.com"
+
+  script:
+    - match: ^https?:\/\/weatherkit\.apple\.com\/api\/v1\/availability\/
+      name: "天气可用性响应_27"
+      type: response
+      require-body: true
+      argument: |-
+        [ "ColorfulClouds", "ColorfulClouds", "EU_EAQI", "", "devapi.qweather.com", "", "", "Argument", "WARN"]
+
+    - match: ^https?:\/\/weatherkit\.apple\.com\/api\/v2\/weather\/
+      name: "天气可用性响应_27"
+      type: response
+      require-body: true
+      binary-mode: true
+      argument: |-
+        [ "ColorfulClouds", "ColorfulClouds", "EU_EAQI", "", "devapi.qweather.com", "", "", "Argument", "WARN"]
+
+script-providers:
+  "天气可用性响应_27":
+    url: https://github.com/NSRingo/WeatherKit/releases/download/v3.1.0/response.bundle.js
+    interval: 86400

@@ -1,0 +1,48 @@
+name: |-
+  Spotify去广告
+desc: |-
+  移除播放广告，恢复歌手和专辑列表的正常展示。修改插件自定义配置项需要重新登陆方可生效。
+author: |-
+  001ProMax[https://github.com/001ProMax]
+icon: |-
+  https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Spotify.png
+openUrl: |-
+  https://apps.apple.com/app/id324684580
+tag: |-
+  去广告
+loon_version: |-
+  3.4.0(962)
+homepage: |-
+  https://hub.kelee.one
+date: |-
+  2026-06-01 17:11:35
+
+rules:
+  - AND,((DOMAIN-SUFFIX,spotify.com),(PROTOCOL,QUIC)),REJECT
+
+http:
+
+  mitm:
+    - "*-spclient.spotify.com"
+    - "spclient.wg.spotify.com"
+
+  url-rewrite:
+    - >-
+      ^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/pendragon\/ - reject-dict
+    - >-
+      ^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/artistview\/v1\/artist\/(.*)&platform=iphone https://spclient.wg.spotify.com/artistview/v1/artist/$1&platform=ipad transparent
+
+  script:
+    - match: ^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:bootstrap|user-customization-service)
+      name: "Protobuf处理_20"
+      type: response
+      require-body: true
+      binary-mode: true
+      timeout: 5
+      argument: |-
+        [ false, true]
+
+script-providers:
+  "Protobuf处理_20":
+    url: https://kelee.one/Resource/JavaScript/Spotify/Spotify_remove_ads.js
+    interval: 86400

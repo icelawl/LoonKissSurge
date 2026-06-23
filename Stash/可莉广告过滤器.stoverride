@@ -1,4 +1,3 @@
-#SUBSCRIBED https://raw.githubusercontent.com/icelawl/LoonKissSurge/refs/heads/main/Stash/%E5%8F%AF%E8%8E%89%E5%B9%BF%E5%91%8A%E8%BF%87%E6%BB%A4%E5%99%A8.stoverride
 name: |-
   可莉广告过滤器
 desc: |-
@@ -10,11 +9,11 @@ icon: |-
 tag: |-
   去广告
 loon_version: |-
-  3.2.4(787)
+  3.4.0(962)
 homepage: |-
   https://hub.kelee.one
 date: |-
-  2025-07-16 02:25:05
+  2026-06-01 17:11:35
 
 rules:
   - DOMAIN,acdn.adnxs.com,REJECT
@@ -274,9 +273,17 @@ http:
     - >-
       ^https?:\/\/m\.client\.10010\.com\/mobileService\/customer\/accountListData\.htm - reject-img
 
-  body-rewrite:
-    - >-
-      ^https?:\/\/cmds\.omesoft\.com\/HypnotistWS\.asmx response-replace-regex <GetADResult>\.\*\?<\/GetADResult> <GetADResult>{"ret":0,"msg":"正常","err_code":0,"data":{"ad":[]}}</GetADResult>
-    - >-
-      ^https?:\/\/api\.fenxianglife\.com\/njia\/index\/popup\/v2 response-jq .data.list=[]
+  script:
+    - match: ^https?:\/\/cmds\.omesoft\.com\/HypnotistWS\.asmx
+      name: "body_rewrite_117_117"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22replace-regex%22%2C%5B%5B%22%3CGetADResult%3E%5C%5C.%5C%5C*%5C%5C%3F%3C%5C%5C%2FGetADResult%3E%22%2C%22%3CGetADResult%3E%7B%5C%22ret%5C%22%3A0%2C%5C%22msg%5C%22%3A%5C%22%E6%AD%A3%E5%B8%B8%5C%22%2C%5C%22err_code%5C%22%3A0%2C%5C%22data%5C%22%3A%7B%5C%22ad%5C%22%3A%5B%5D%7D%7D%3C%2FGetADResult%3E%22%5D%5D%5D%5D
 
+script-providers:
+  "body_rewrite_117_117":
+    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
+    interval: 86400

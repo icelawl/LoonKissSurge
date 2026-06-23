@@ -1,0 +1,58 @@
+name: |-
+  虎嗅去广告
+desc: |-
+  移除广告配置、信息流直播预约横幅、相关文章推荐、48小时热文推荐，精简搜索页面。
+author: |-
+  可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+icon: |-
+  https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Huxiu.png
+openUrl: |-
+  https://apps.apple.com/app/id557509598
+tag: |-
+  去广告
+loon_version: |-
+  3.4.0(962)
+homepage: |-
+  https://hub.kelee.one
+date: |-
+  2026-06-01 17:11:35
+
+rules:
+  - DOMAIN,api-ad-product.huxiu.com,REJECT
+
+http:
+
+  mitm:
+    - "api-ms-config.huxiu.com"
+    - "api-web-feed.huxiu.com"
+    - "api-search.huxiu.com"
+    - "api-article.huxiu.com"
+    - "api-web-moment.huxiu.com"
+    - "api-ms-feed.huxiu.com"
+
+  url-rewrite:
+    - >-
+      ^https:\/\/api-ms-config\.huxiu\.com\/v1\/adConfig$ - reject-dict
+    - >-
+      ^https:\/\/api-web-feed\.huxiu\.com\/v1\/index\/recommendContentsNew$ - reject-dict
+    - >-
+      ^https:\/\/api-search\.huxiu\.com\/api\/searchIndex$ - reject-dict
+    - >-
+      ^https:\/\/api-article\.huxiu\.com\/v2\/article\/getTextArticleRelated$ - reject-dict
+    - >-
+      ^https:\/\/api-web-moment\.huxiu\.com\/v3\/moment\/getDetailRecdArticle$ - reject-dict
+
+  script:
+    - match: ^https:\/\/api-ms-feed\.huxiu\.com\/v1\/media\/recommend$
+      name: "body_rewrite_16_16"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22data.live%22%5D%5D%5D
+
+script-providers:
+  "body_rewrite_16_16":
+    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
+    interval: 86400

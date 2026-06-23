@@ -1,0 +1,107 @@
+name: |-
+  蜻蜓FM去广告
+desc: |-
+  移除开屏广告、信息流广告、各类相关内容推荐，精简我的页面。
+author: |-
+  可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+icon: |-
+  https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/QtingFM.png
+openUrl: |-
+  https://apps.apple.com/app/id506685538
+tag: |-
+  去广告
+loon_version: |-
+  3.4.0(962)
+homepage: |-
+  https://hub.kelee.one
+date: |-
+  2026-06-01 17:11:35
+
+rules:
+  - DOMAIN,ad.qtfm.cn,REJECT
+  - DOMAIN,adlaunch.qtfm.cn,REJECT
+
+http:
+
+  mitm:
+    - "app.qtfm.cn"
+    - "entry.qtfm.cn"
+    - "recpage-c.qtfm.cn"
+    - "user.qtfm.cn"
+    - "search.qtfm.cn"
+    - "woqt2.qtfm.cn"
+
+  url-rewrite:
+    - >-
+      ^https:\/\/app\.qtfm\.cn\/recommendapi\/v8\/ai_assistant_point$ - reject-dict
+    - >-
+      ^https:\/\/app\.qtfm\.cn\/m-bff\/v1\/signin\/show_homepage_icon$ - reject-dict
+    - >-
+      ^https:\/\/app\.qtfm\.cn\/recommendapi\/v\d\/emotion$ - reject
+    - >-
+      ^https:\/\/search\.qtfm\.cn\/v\d\/keyword\/default$ - reject
+    - >-
+      ^https:\/\/app\.qtfm\.cn\/m-bff\/v1\/user\/task\/play$ - reject-dict
+    - >-
+      ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/i_listen\/guess_you_like\? - reject-dict
+    - >-
+      ^https:\/\/recpage-c\.qtfm\.cn\/v\d\/favorites$ - reject-dict
+    - >-
+      ^https:\/\/user\.qtfm\.cn\/u\d\/api\/v\d\/user\/following_podcaster\? - reject-dict
+    - >-
+      ^https:\/\/entry\.qtfm\.cn\/api\/v\d\/personal\/\?carrier - reject-dict
+    - >-
+      ^https:\/\/search\.qtfm\.cn\/v3\/entry$ - reject-dict
+    - >-
+      ^https:\/\/woqt2\.qtfm\.cn\/v2\/userConfig\? - reject-dict
+
+  script:
+    - match: ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/signin\/show_homepage_icon$
+      name: "body_rewrite_19_19"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-replace%22%2C%5B%5B%22data.display_icon%22%2Cfalse%5D%5D%5D%5D
+
+    - match: ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/channel\/\d{6}\/playpage\/\d{8}
+      name: "body_rewrite_19_19"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22data.related_recommend%22%2C%22data.recommend_bar%22%5D%5D%5D
+
+    - match: ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/mylistenpage
+      name: "body_rewrite_19_19"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22data.banner%22%5D%5D%5D
+
+    - match: ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/subscribed_channels\?
+      name: "body_rewrite_19_19"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22data.recommends%22%5D%5D%5D
+
+    - match: ^https:\/\/app\.qtfm\.cn\/m-bff\/v1\/channelpage\/\d+$
+      name: "body_rewrite_19_19"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22data.vip_recommend%22%2C%22data.recommend_delivery%22%5D%5D%5D
+
+script-providers:
+  "body_rewrite_19_19":
+    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
+    interval: 86400

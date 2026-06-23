@@ -1,0 +1,43 @@
+name: |-
+  他趣去广告
+desc: |-
+  移除各类弹窗、横幅，精简我的页面。
+author: |-
+  可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+icon: |-
+  https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Taqu.png
+openUrl: |-
+  https://apps.apple.com/app/id539988420
+tag: |-
+  去广告
+loon_version: |-
+  3.4.0(962)
+homepage: |-
+  https://hub.kelee.one
+date: |-
+  2026-06-12 14:11:11
+
+http:
+
+  mitm:
+    - "gw-cn.jiaoliuqu.com"
+
+  url-rewrite:
+    - >-
+      ^https:\/\/gw-cn\.jiaoliuqu\.com\/taqu-homepage\/v\d\/Banner\/getBannerByPositions\? - reject-dict
+    - >-
+      ^https:\/\/gw-cn\.jiaoliuqu\.com\/bbs\/v5\/Guide\/photoGuide\? - reject-dict
+    - >-
+      ^https:\/\/gw-cn\.jiaoliuqu\.com\/i\/v\d\/homepage\/completeGuideV\d\? - reject-dict
+    - >-
+      ^https:\/\/gw-cn\.jiaoliuqu\.com\/i\/v\d\/asset\/toast\? - reject-dict
+    - >-
+      ^https:\/\/gw-cn\.jiaoliuqu\.com\/bbs\/v5\/Sign\/getDailySigninInfoV4\? - reject-dict
+    - >-
+      ^https:\/\/gw-cn\.jiaoliuqu\.com\/taqu-hichat\/v\d\/Hichat\/getRecommendInfo\? - reject-dict
+    - >-
+      ^https:\/\/gw-cn\.jiaoliuqu\.com\/live_api\/v\d\/Banner\/getBannerListV\d\? - reject-dict
+    - >-
+      ^https:\/\/gw-cn\.jiaoliuqu\.com\/live_api\/v\d\/HallScroll\/getList\? - reject-dict
+    - >-
+      ^https:\/\/gw-cn\.jiaoliuqu\.com\/taqu-msg-guide\/v\d\/RecommendColumn\/getList\? - reject-dict

@@ -1,0 +1,116 @@
+name: |-
+  知乎去广告
+desc: |-
+  移除HTTPDNS和QUIC传输配置，移除开屏广告、信息流广告、回答页广告，移除回答页下的相关回答、专栏卡片及圈子卡片，移除直答页面推荐知识库和提问推荐，移除评论区评论氛围满意度调查，精简首页顶部标签及我的页面。
+author: |-
+  可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+icon: |-
+  https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Zhihu.png
+openUrl: |-
+  https://apps.apple.com/app/id432274380
+tag: |-
+  去广告
+loon_version: |-
+  3.4.0(962)
+homepage: |-
+  https://hub.kelee.one
+date: |-
+  2026-06-01 17:11:35
+
+http:
+
+  mitm:
+    - "m-cloud.zhihu.com"
+    - "api.zhihu.com"
+    - "www.zhihu.com"
+    - "page-info.zhihu.com"
+    - "zhida.zhihu.com"
+
+  url-rewrite:
+    - >-
+      ^https:\/\/api\.zhihu\.com\/commercial_api\/ - reject-dict
+    - >-
+      ^https:\/\/api\.zhihu\.com\/next-render\?id=\d+&type=answer - reject-dict
+    - >-
+      ^https:\/\/api\.zhihu\.com\/search\/preset_words\? - reject-dict
+    - >-
+      ^https:\/\/zhida\.zhihu\.com\/ai_ingress\/knowledge\/square\/categories\/feeds\?categoryId=1%7D$ - reject-dict
+    - >-
+      ^https:\/\/zhida\.zhihu\.com\/ai_ingress\/ai_chat\/guidance$ - reject-dict
+    - >-
+      ^https:\/\/www\.zhihu\.com\/api\/v\d\/members\/homepage_card$ - reject-dict
+    - >-
+      ^https:\/\/api\.zhihu\.com\/people\/homepage_entry_v\d$ - reject-dict
+    - >-
+      ^https:\/\/api\.zhihu\.com\/kvip\/right\/my_card\? - reject-dict
+    - >-
+      ^https:\/\/api\.zhihu\.com\/unlimited\/go\/my_card\/v\d\? - reject-dict
+
+  script:
+    - match: ^https:\/\/api\.zhihu\.com\/questions\/\d+\/feeds\?
+      name: "body_rewrite_16_16"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22ad_info%22%5D%5D%5D
+
+    - match: ^https:\/\/api\.zhihu\.com\/comment_v\d\/(answers|pins)\/\d+\/root_comment\?
+      name: "body_rewrite_16_16"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22atmosphere_voting_config%22%5D%5D%5D
+
+    - match: ^https:\/\/(api|page-info)\.zhihu\.com\/(articles|answers)\/v\d\/\d+$
+      name: "body_rewrite_16_16"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22third_business%22%5D%5D%5D
+
+    - match: ^https:\/\/api\.zhihu\.com\/(articles|answers|pins)\/v\d\/\d+\?
+      name: "body_rewrite_16_16"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22third_business%22%2C%22ring_info%22%2C%22interaction_bar_plugins%22%5D%5D%5D
+
+    - match: ^https:\/\/api\.zhihu\.com\/comment_v\d\/answers\/\d+\/list-headers$
+      name: "body_rewrite_16_16"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22continuous_consumption_module%22%5D%5D%5D
+
+    - match: ^https:\/\/api\.zhihu\.com\/podcasts\/hub\/v\d$
+      name: "body_rewrite_16_16"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22banners%22%5D%5D%5D
+
+    - match: ^https:\/\/api\.zhihu\.com\/people\/self$
+      name: "body_rewrite_16_16"
+      type: response
+      require-body: true
+      max-size: -1
+      timeout: 30
+      argument: |-
+        %5B%5B%22json-del%22%2C%5B%22vip_info.entrance_new.right_button%22%2C%22vip_info.entrance_v2%22%5D%5D%5D
+
+script-providers:
+  "body_rewrite_16_16":
+    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js
+    interval: 86400
