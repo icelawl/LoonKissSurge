@@ -11,9 +11,9 @@
 #!arguments=Weather.Provider:"ColorfulClouds",NextHour.Provider:"ColorfulClouds",AirQuality.Calculate.Algorithm:"EU_EAQI",API.ColorfulClouds.Token:"",API.QWeather.Host:"devapi.qweather.com",API.QWeather.Token:"",API.WAQI.Token:"",Storage:"Argument",LogLevel:"WARN"
 
 [Rule]
-DOMAIN,weather-analytics-events.apple.com,REJECT-DROP
-DOMAIN,tether.edge.apple,REJECT-DROP
-DOMAIN-SUFFIX,tthr.apple.com,REJECT-DROP
+DOMAIN,weather-analytics-events.apple.com,REJECT-DROP,extended-matching,pre-matching
+DOMAIN,tether.edge.apple,REJECT-DROP,extended-matching,pre-matching
+DOMAIN-SUFFIX,tthr.apple.com,REJECT-DROP,extended-matching,pre-matching
 AND,((OR,((IP-ASN,714,no-resolve),(IP-ASN,6185,no-resolve))),(PROTOCOL,QUIC)),REJECT-DROP
 
 [Script]

@@ -10,7 +10,7 @@
 #!arguments=PROXY:Proxy
 
 [Script]
-前端界面 = type=http-request, pattern=^https?:\/\/script\.hub\/($|edit\/|reload), script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-hub.js, timeout=300, 
+前端界面 = type=http-request, pattern=^https?:\/\/script\.hub\/($|edit\/|reload), script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-hub.js, timeout=300,
 
 Rewrite转换 = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=(?:qx-rewrite|surge-module|loon-plugin|all-module), script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/Rewrite-Parser.js, timeout=300
 
@@ -22,4 +22,4 @@ JavaScript转换 = type=http-request, pattern=^https?:\/\/script\.hub\/convert\/
 hostname = %APPEND% script.hub, *.script.hub
 
 [Rule]
-DOMAIN,scripthub.vercel.app,{{{PROXY}}}
+DOMAIN,scripthub.vercel.app,{{{PROXY}}},extended-matching

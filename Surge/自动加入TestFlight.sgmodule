@@ -17,4 +17,4 @@
 监控TF位置 = type=cron, cronexp={{{TaskMonitor}}}, script-path=https://kelee.one/Resource/JavaScript/TestFlight/AutoMonitorTF.js, timeout=30
 
 [Rule]
-DOMAIN,testflight.apple.com,{{{PROXY}}}
+DOMAIN,testflight.apple.com,{{{PROXY}}},extended-matching

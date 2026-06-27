@@ -9,9 +9,9 @@
 #!date=2026-06-01 17:11:35
 
 [Rule]
-DOMAIN,cdn-ad.wtzw.com,REJECT
-DOMAIN,cdn-new-ad.wtzw.com,REJECT
-DOMAIN-SUFFIX,gdt.qq.com,REJECT
+DOMAIN,cdn-ad.wtzw.com,REJECT,extended-matching,pre-matching
+DOMAIN,cdn-new-ad.wtzw.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,gdt.qq.com,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https:\/\/sf3-fe-tos\.pglstatp-toutiao\.com\/obj\/ad-pattern\/ - reject

@@ -16,4 +16,4 @@ BoxJS = type=http-request, pattern=^https?:\/\/(.+\.)?boxjs\.(com|net), script-p
 hostname = %APPEND% boxjs.com, boxjs.net, *.boxjs.com, *.boxjs.net
 
 [Rule]
-DOMAIN-SUFFIX,jsdelivr.net,{{{PROXY}}}
+DOMAIN-SUFFIX,jsdelivr.net,{{{PROXY}}},extended-matching

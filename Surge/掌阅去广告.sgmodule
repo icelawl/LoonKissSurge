@@ -9,7 +9,7 @@
 #!date=2026-06-01 17:11:35
 
 [Rule]
-DOMAIN,saad.ms.zhangyue.net,REJECT
+DOMAIN,saad.ms.zhangyue.net,REJECT,extended-matching,pre-matching
 
 [Body Rewrite]
 http-response-jq ^https:\/\/(webboot\.zhangyue\.com|ih2\.ireader\.com)\/zybook4\/iphone\/u\/p\/api\.php\? 'delpaths([["Splash"]])'

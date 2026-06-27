@@ -10,12 +10,12 @@
 #!arguments=MY:false,DT:false,FX:false,PRGG:false,PRRK:false,PRDRD:false,PRSCVPT:false,PRST:false,PRRR:false,HMPR:false,PRMST:false,PRCN:false
 
 [Rule]
-DOMAIN,iadmat.nosdn.127.net,REJECT
-DOMAIN,iadmatapk.nosdn.127.net,REJECT
-DOMAIN,iadmusicmat.music.126.net,REJECT
-DOMAIN,iadmusicmatvideo.music.126.net,REJECT
-DOMAIN,ipv4.music.163.com,REJECT
-DOMAIN,ipv6.music.163.com,REJECT
+DOMAIN,iadmat.nosdn.127.net,REJECT,extended-matching,pre-matching
+DOMAIN,iadmatapk.nosdn.127.net,REJECT,extended-matching,pre-matching
+DOMAIN,iadmusicmat.music.126.net,REJECT,extended-matching,pre-matching
+DOMAIN,iadmusicmatvideo.music.126.net,REJECT,extended-matching,pre-matching
+DOMAIN,ipv4.music.163.com,REJECT,extended-matching,pre-matching
+DOMAIN,ipv6.music.163.com,REJECT,extended-matching,pre-matching
 
 [Map Local]
 ^https?:\/\/interface\d?\.music\.163\.com\/eapi\/(?:delivery\/(batch-)?deliver|moment\/tab\/info\/|side-bar\/mini-program\/music-service\/account|yunbei\/account\/entrance\/) data-type=text data="{}" status-code=200 header="Content-Type:application/json"

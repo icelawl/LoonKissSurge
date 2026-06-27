@@ -9,19 +9,19 @@
 #!date=2026-06-01 17:11:35
 
 [Rule]
-DOMAIN,credits.bz.mgtv.com,REJECT
-DOMAIN,credits2.bz.mgtv.com,REJECT
-DOMAIN,credits3.bz.mgtv.com,REJECT
-DOMAIN,dflow.bz.mgtv.com,REJECT
-DOMAIN,encounter.bz.mgtv.com,REJECT
-DOMAIN,floor.bz.mgtv.com,REJECT
-DOMAIN,layer.bz.mgtv.com,REJECT
-DOMAIN,mob.bz.mgtv.com,REJECT
-DOMAIN,rc-topic-api.bz.mgtv.com,REJECT
-DOMAIN,rprain.bz.mgtv.com,REJECT
-DOMAIN,rprain.log.mgtv.com,REJECT
-DOMAIN,vip.bz.mgtv.com,REJECT
-DOMAIN-SUFFIX,da.mgtv.com,REJECT
+DOMAIN,credits.bz.mgtv.com,REJECT,extended-matching,pre-matching
+DOMAIN,credits2.bz.mgtv.com,REJECT,extended-matching,pre-matching
+DOMAIN,credits3.bz.mgtv.com,REJECT,extended-matching,pre-matching
+DOMAIN,dflow.bz.mgtv.com,REJECT,extended-matching,pre-matching
+DOMAIN,encounter.bz.mgtv.com,REJECT,extended-matching,pre-matching
+DOMAIN,floor.bz.mgtv.com,REJECT,extended-matching,pre-matching
+DOMAIN,layer.bz.mgtv.com,REJECT,extended-matching,pre-matching
+DOMAIN,mob.bz.mgtv.com,REJECT,extended-matching,pre-matching
+DOMAIN,rc-topic-api.bz.mgtv.com,REJECT,extended-matching,pre-matching
+DOMAIN,rprain.bz.mgtv.com,REJECT,extended-matching,pre-matching
+DOMAIN,rprain.log.mgtv.com,REJECT,extended-matching,pre-matching
+DOMAIN,vip.bz.mgtv.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,da.mgtv.com,REJECT,extended-matching,pre-matching
 
 [Body Rewrite]
 http-response-jq ^https?:\/\/mobile\.api\.(mgtv|hunantv)\.com\/mobile\/config\? 'if (getpath(["data"]) | has("dc_adConfig")) then (setpath(["data","dc_adConfig"]; 0)) else . end'

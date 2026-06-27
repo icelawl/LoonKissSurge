@@ -9,8 +9,8 @@
 #!date=2026-06-01 17:11:35
 
 [Rule]
-DOMAIN,ad.jia.360.cn,REJECT
-DOMAIN,ad.iot.360.cn,REJECT
+DOMAIN,ad.jia.360.cn,REJECT,extended-matching,pre-matching
+DOMAIN,ad.iot.360.cn,REJECT,extended-matching,pre-matching
 
 [Body Rewrite]
 http-response-jq ^https:\/\/jia\.360\.cn\/conf\/v1\.json 'delpaths([["tab_conf"]])'

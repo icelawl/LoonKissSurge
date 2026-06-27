@@ -9,9 +9,9 @@
 #!date=2026-06-01 17:11:35
 
 [Rule]
-DOMAIN,splash.yy.com,REJECT
-DOMAIN,dsp-ad.yy.com,REJECT
-DOMAIN,ysad.yy.com,REJECT
+DOMAIN,splash.yy.com,REJECT,extended-matching,pre-matching
+DOMAIN,dsp-ad.yy.com,REJECT,extended-matching,pre-matching
+DOMAIN,ysad.yy.com,REJECT,extended-matching,pre-matching
 
 [Body Rewrite]
 http-response-jq ^https:\/\/yyapp-idx\.yy\.com\/mobyy\/nav\/index\/idx\? '.data[].modules |= map(select(.name != "新版本滚动条" and .name != "通栏轮播" and .name != "新静默位"))'

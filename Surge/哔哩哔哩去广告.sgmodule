@@ -12,13 +12,13 @@
 #!arguments=displayUpList:"show",purifyComment:true,optimizeRequest:true,sponsorBlock:false,logLevel:"off",PROXY:Proxy
 
 [Rule]
-DOMAIN,api.biliapi.com,REJECT
-DOMAIN,bsbsb.top,{{{PROXY}}}
+DOMAIN,api.biliapi.com,REJECT,extended-matching,pre-matching
+DOMAIN,bsbsb.top,{{{PROXY}}},extended-matching
 
-DOMAIN,app.biliapi.com,REJECT
-DOMAIN,api.biliapi.net,REJECT
-DOMAIN,app.biliapi.net,REJECT
-AND,((DOMAIN-SUFFIX,chat.bilibili.com),(OR,((DOMAIN-KEYWORD,stun),(DOMAIN-KEYWORD,tracker)))),REJECT
+DOMAIN,app.biliapi.com,REJECT,extended-matching,pre-matching
+DOMAIN,api.biliapi.net,REJECT,extended-matching,pre-matching
+DOMAIN,app.biliapi.net,REJECT,extended-matching,pre-matching
+AND,((DOMAIN-SUFFIX,chat.bilibili.com,extended-matching),(OR,((DOMAIN-KEYWORD,stun,extended-matching),(DOMAIN-KEYWORD,tracker,extended-matching)))),REJECT,pre-matching
 
 [Header Rewrite]
 http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.(interface\.v1\.(Teenagers\/ModeStatus|Search\/DefaultWords)|view\.v1\.View\/TFInfo|viewunite\.v1\.View\/ViewEndPage)$ header-add 'grpc-status' '0'

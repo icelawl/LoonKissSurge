@@ -20,4 +20,4 @@ Sub-Store Sync = type=cron, cronexp={{{cron}}}, script-path=https://github.com/s
 hostname = %APPEND% sub.store
 
 [Rule]
-DOMAIN,sub-store.vercel.app,{{{PROXY}}}
+DOMAIN,sub-store.vercel.app,{{{PROXY}}},extended-matching
