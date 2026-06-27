@@ -27,7 +27,7 @@ http:
     - match: ^https?:\/\/script\.hub\/($|edit\/|reload)
       name: "前端界面_17"
       type: request
-      timeout: 300, 
+      timeout: 300,
 
     - match: ^https?:\/\/script\.hub\/file\/_start_\/.+type=(?:qx-rewrite|surge-module|loon-plugin|all-module)
       name: "Rewrite转换_18"
