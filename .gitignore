@@ -1,10 +1,2 @@
-*.py
-*.yml
-node_modules
-public
-dist
-pnpm-lock.yaml
+analysis/
 Log
-package-lock.json
-.idea
-pre_set_modules.yaml
