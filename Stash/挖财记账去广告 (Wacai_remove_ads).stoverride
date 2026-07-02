@@ -1,0 +1,44 @@
+name: |-
+  挖财记账去广告
+desc: |-
+  移除开屏广告、横幅广告，顶部推广、活动配置。
+author: |-
+  可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+icon: |-
+  https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Wacai.png
+openUrl: |-
+  https://apps.apple.com/app/id1544045905
+tag: |-
+  去广告
+loon_version: |-
+  3.4.0(962)
+homepage: |-
+  https://hub.kelee.one
+date: |-
+  2026-06-30 22:54:46
+
+http:
+
+  mitm:
+    - "jz.wacaijizhang.com"
+
+  url-rewrite:
+    - >-
+      ^https:\/\/jz\.wacaijizhang\.com\/api\/banners\/ - reject-dict
+    - >-
+      ^https:\/\/jz\.wacaijizhang\.com\/api\/resource\/universal\/fetch$ - reject-dict
+    - >-
+      ^https:\/\/jz\.wacaijizhang\.com\/activity\/ - reject
+
+  script:
+    - match: ^https:\/\/jz\.wacaijizhang\.com\/sensor\/config\/iOS\.conf\?
+      name: "echoResponse_12"
+      type: request
+      timeout: 60
+      argument: |-
+        text=%7B%22v%22%3A%22v2%22%2C%22configs%22%3A%7B%22disableSDK%22%3Atrue%2C%22disableDebugMode%22%3Atrue%2C%22supportTransportEncrypt%22%3Afalse%7D%7D&status-code=200
+
+script-providers:
+  "echoResponse_12":
+    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/echo-response.js
+    interval: 86400

@@ -1,0 +1,37 @@
+name: |-
+  天气预报去广告
+desc: |-
+  移除开屏广告、弹窗广告、横幅广告、悬浮挂件，精简我的页面。
+author: |-
+  可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+icon: |-
+  https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/iReaderCityWeather.png
+openUrl: |-
+  https://apps.apple.com/app/id455611831
+tag: |-
+  去广告
+loon_version: |-
+  3.4.0(962)
+homepage: |-
+  https://hub.kelee.one
+date: |-
+  2026-06-30 19:41:51
+
+rules:
+  - DOMAIN,adsys.nineton.cn,REJECT
+  - DOMAIN,adcdn.ccqyj.com,REJECT
+
+http:
+
+  script:
+    - match: ^http:\/\/weatherapi\.ccqyj\.com\/server\/listsv\d$
+      name: "echoResponse_15"
+      type: request
+      timeout: 60
+      argument: |-
+        text=%7B%22data%22%3A%5B%7B%22title%22%3A%22%E5%B0%8F%E5%B7%A5%E5%85%B7%22%2C%22type%22%3A1%2C%22sort%22%3A1%2C%22id%22%3A%225d5fb7c41a0c40015679a3e3%22%2C%22list%22%3A%5B%7B%22title%22%3A%22%E4%B8%BB%E9%A2%98%E7%9A%AE%E8%82%A4%22%2C%22groupId%22%3A%225d5fb7c41a0c40015679a3e3%22%2C%22image%22%3A%22http%3A%2F%2Fcdn.weather.nineton.cn%2Fb52be26ae06f6824d171375d0dac51f1.png%22%2C%22dark_icon%22%3A%22http%3A%2F%2Fcdn.weather.nineton.cn%2Fe714ad6421965c8368ca6af438acde36.png%22%2C%22type%22%3A1%2C%22protocol%22%3A%22ntweather%3A%2F%2Fopentheme%22%2C%22sort%22%3A1103%2C%22version%22%3A814%2C%22rightVersion%22%3A0%2C%22symbol%22%3A1%7D%5D%7D%5D%2C%22code%22%3A1%2C%22info%22%3A%22ok%22%7D&status-code=200
+
+script-providers:
+  "echoResponse_15":
+    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/echo-response.js
+    interval: 86400

@@ -13,7 +13,7 @@ loon_version: |-
 homepage: |-
   https://hub.kelee.one
 date: |-
-  2026-06-15 21:46:05
+  2026-07-01 10:51:17
 
 rules:
   - DOMAIN-KEYWORD,httpdns,REJECT
@@ -147,6 +147,7 @@ rules:
   - DOMAIN,tp2p.kg.qq.com,REJECT
   - IP-CIDR,81.71.61.216/32,REJECT,no-resolve
   - DOMAIN,httpdns.immomo.com,REJECT
+  - DOMAIN,httpdns.zybang.com,REJECT
 
 http:
 
